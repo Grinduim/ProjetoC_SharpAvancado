@@ -8,24 +8,19 @@
     "net6.0": []
   },
   "packageFolders": {
-    "C:\\Users\\disrct\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\disrct\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\disrct\\desktop\\ProjetoC_SharpAvancado\\Model\\Model.csproj",
+      "projectUniqueName": "C:\\Users\\disrct\\Desktop\\ProjetoC_SharpAvancado\\Model\\Model.csproj",
       "projectName": "Model",
-      "projectPath": "C:\\Users\\disrct\\desktop\\ProjetoC_SharpAvancado\\Model\\Model.csproj",
+      "projectPath": "C:\\Users\\disrct\\Desktop\\ProjetoC_SharpAvancado\\Model\\Model.csproj",
       "packagesPath": "C:\\Users\\disrct\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\disrct\\desktop\\ProjetoC_SharpAvancado\\Model\\obj\\",
+      "outputPath": "C:\\Users\\disrct\\Desktop\\ProjetoC_SharpAvancado\\Model\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
         "C:\\Users\\disrct\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
