@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Model
+namespace Model;
+public class Purchase
 {
-    internal class Purchase
-    {
-    }
+    private Datetime date_purchase;
+    private string payment;
+    private string number_confirmation;
+    private string number_nf;
+    
 }
+

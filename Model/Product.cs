@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Model
+namespace Model;
+public class Product
 {
-    internal class Product
-    {
-    }
+    private string name;
+    private string unit_price;
+    private string bar_code;
+    
 }
+
