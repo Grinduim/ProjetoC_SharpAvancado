@@ -1,9 +1,9 @@
 namespace Model;
 public class Address
 {
-    private string street;
-    private string city;
-    private string state;
-    private string country;
-    private string poste_code;
+    private String street;
+    private String city;
+    private String state;
+    private String country;
+    private String poste_code;
 }

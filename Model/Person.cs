@@ -1,11 +1,11 @@
 ﻿namespace Model;
 public class Person
 {
-    protected string name;
-    protected string age;
-    protected string document;
-    protected string email;
-    protected string phone;
-    protected string login;
+    protected String name;
+    protected String age;
+    protected String document;
+    protected String email;
+    protected String phone;
+    protected String login;
     protected Address address;
 }

@@ -1,6 +1,6 @@
 namespace Model;
 public class Store
 {
-    private string name;
-    private string CNPJ;
+    private String name;
+    private String CNPJ;
 }
