@@ -42,7 +42,6 @@ public class Stocks
         return this.product;
     }
 
-
 }
 
 
