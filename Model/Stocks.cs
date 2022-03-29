@@ -9,25 +9,14 @@ public class Stocks
 
 
     public void setQuantity(int quantity){this.quantity = quantity;}
-
     public int getQuantity(){return this.quantity;}
 
-    public Store getStore()
-    {
-        if (this.store != null)
-        {
-            return (Store)this.store;
-        }
-        else
-        {
-            return null;
-        }
-    }
 
+    public Store getStore(){return this.store;}
     public void setStore(Store strore){this.store = strore;}
 
-    public void setProduct(Product product){this.product = product;}
 
+    public void setProduct(Product product){this.product = product;}
     public Product getProduct(){return this.product;}
 
 }
