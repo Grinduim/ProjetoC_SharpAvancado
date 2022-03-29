@@ -1,9 +1,9 @@
 namespace Model;
 public class Product
 {
-    private String name;
-    private String unit_price;
-    private String bar_code;
+    private String name= "";
+    private String unit_price= "";
+    private String bar_code= "";
     
 }
 
