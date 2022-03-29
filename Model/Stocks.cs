@@ -5,15 +5,12 @@ public class Stocks
     private Store store;
     private Product product;
 
-    public void setQuatity(int quantity)
-    {
-        this.quantity = quantity;
-    }
+    public Stocks(Store store, Product product){ this.store = store; this.product = product;}
 
-    public int getQuatity()
-    {
-        return this.quantity;
-    }
+
+    public void setQuantity(int quantity){this.quantity = quantity;}
+
+    public int getQuantity(){return this.quantity;}
 
     public Store getStore()
     {
@@ -27,20 +24,11 @@ public class Stocks
         }
     }
 
-    public void setStore(Store strore)
-    {
-        this.store = strore;
-    }
+    public void setStore(Store strore){this.store = strore;}
 
-    public void setProduct(Product product)
-    {
-        this.product = product;
-    }
+    public void setProduct(Product product){this.product = product;}
 
-    public Product getProduct()
-    {
-        return this.product;
-    }
+    public Product getProduct(){return this.product;}
 
 }
 
