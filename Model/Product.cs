@@ -5,7 +5,7 @@ public class Product
     private double unit_price;
     private String bar_code= "";
     
-
+    
     public void setName(String name)
     {
         this.name = name;
