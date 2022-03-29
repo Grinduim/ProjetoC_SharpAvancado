@@ -8,5 +8,7 @@ public class Purchase
     private Client client;
     private List<Product> products = new List<Product>();
     private List<Store> stores = new List<Store>();
+
+     
 }
 
