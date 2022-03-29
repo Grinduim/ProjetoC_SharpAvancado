@@ -6,6 +6,7 @@ public class Purchase
     private String number_confirmation = "";
     private String number_nf= "";
     private Client client;
-    List<Product> products = new List<Product>();
+    private List<Product> products = new List<Product>();
+    private List<Store> stores = new List<Store>();
 }
 

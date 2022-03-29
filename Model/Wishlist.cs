@@ -1,5 +1,5 @@
 namespace Model;
 public class Wishlist
 {
-    List<Product> products = new List<Product>();
+    private List<Product> products = new List<Product>();
 }
