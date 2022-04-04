@@ -1,5 +1,7 @@
 namespace Model;
-public class Store
+using Interfaces;
+
+public class Store : IValidateDataObject<Store>
 {
     private String name = "";
     private String CNPJ = "";
@@ -25,5 +27,17 @@ public class Store
             this.purchases.Add(purchase);// adicionar ela na lista
         }
     }
+
+    public Boolean validateObject(Store obj){
+
+        if (obj.getName() == null) return false;
+        if (obj.getCNPJ() == null) return false;
+        if (obj.getOwner() == null) return false;
+        if (obj.getPurchases() == null) return false;
+        return true;
+    }
+
+    
+
 
 }

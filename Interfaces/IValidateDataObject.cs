@@ -7,3 +7,4 @@ namespace Interfaces
         Boolean validateObject(T obj);
     }
 }
+

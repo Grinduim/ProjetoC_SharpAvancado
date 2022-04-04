@@ -1,9 +1,10 @@
 using Enums;
 namespace Model;
-public class Purchase
+using Interfaces;
+public class Purchase : IValidateDataObject<Purchase>
 {
     private DateTime date_purchase;
-    private int payment;
+    private int payment_type;
     private int purchase_status;
     public double purchase_values = 0; 
     private String number_confirmation = "";
@@ -17,8 +18,8 @@ public class Purchase
     public void setDataPurchase(DateTime date_purchase){this.date_purchase = date_purchase;}
 
 
-    public int getPaymentType(){return this.payment;}
-    public void setPaymentType(PaymentEnum payment){this.payment = (int) payment;}
+    public int getPaymentType(){return this.payment_type;}
+    public void setPaymentType(PaymentEnum payment_type){this.payment_type = (int) payment_type;}
 
 
     public String getNumberConfirmation(){return this.number_confirmation;}
@@ -46,5 +47,19 @@ public class Purchase
 
     public double getPurchaseValues() => purchase_values;
     public void setPurchaseValues(double purchase_values){this.purchase_values = purchase_values;}
+
+
+    public Boolean validateObject(Purchase obj){
+
+        if (obj.getDataPurchase() == null) return false;
+        if (obj.getNumberConfirmation() == null) return false;
+        if (obj.getNumberNf() == null) return false;
+        if (obj.getProducts() == null) return false;
+        if (obj.getPurchaseValues() == 0) return false;
+        if (obj.GetClient() == null) return false;
+        if (obj.GetStores() == null) return false;
+
+        return true;
+    }
 }
 
