@@ -11,7 +11,7 @@ public class Product
 
     
     public void setUnitPrice(double unit_price){this.unit_price = unit_price;}
-    public double getUnitPrice(){return this.unit_price;}
+    public double getUnitprice(){return this.unit_price;}
 
 
     public void setBarCode(String bar_code){this.bar_code = bar_code;  }

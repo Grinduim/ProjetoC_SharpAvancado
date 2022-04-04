@@ -1,8 +1,11 @@
+using Enums;
 namespace Model;
 public class Purchase
 {
     private DateTime date_purchase;
-    private String payment= "";
+    private int payment;
+    private int purchase_status;
+    public double purchase_values = 0; 
     private String number_confirmation = "";
     private String number_nf= "";
     private Client client;
@@ -10,18 +13,12 @@ public class Purchase
     private List<Product> products = new List<Product>();
 
 
-    public Purchase(Client client, Store stores)
-    {
-        this.client = client;
-        this.stores = stores;
-    }
-
-    public DateTime getDatePurchase(){return this.date_purchase;}
-    public void setDatePurchase(DateTime date_purchase){this.date_purchase = date_purchase;}
+    public DateTime getDataPurchase(){return this.date_purchase;}
+    public void setDataPurchase(DateTime date_purchase){this.date_purchase = date_purchase;}
 
 
-    public String getPayment(){return this.payment;}
-    public void setPayment(string payment){this.payment = payment;}
+    public int getPaymentType(){return this.payment;}
+    public void setPaymentType(PaymentEnum payment){this.payment = (int) payment;}
 
 
     public String getNumberConfirmation(){return this.number_confirmation;}
@@ -39,7 +36,15 @@ public class Purchase
     public void setStores(Store stores){this.stores = stores;}
     
 
-    public List<Product> GetProducts(){return this.products;}
+    public List<Product> getProducts(){return this.products;}
     public void setProducts(List<Product> products){this.products = products;}
+
+
+    public int getPurchaseStatus() => purchase_status;
+    public void setPurchaseStatus(PurchaseStatusEnum purchase_status){this.purchase_status = (int) purchase_status;}
+
+
+    public double getPurchaseValues() => purchase_values;
+    public void setPurchaseValues(double purchase_values){this.purchase_values = purchase_values;}
 }
 
