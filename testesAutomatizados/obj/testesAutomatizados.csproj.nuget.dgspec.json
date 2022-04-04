@@ -1,29 +1,36 @@
 {
   "format": 1,
   "restore": {
-    "/home/gustavoaulas/Projetos/Api/testesAutomatizados/testesAutomatizados.csproj": {}
+    "C:\\Users\\disrct\\Desktop\\ProjetoC_SharpAvancado\\testesAutomatizados\\testesAutomatizados.csproj": {}
   },
   "projects": {
-    "/home/gustavoaulas/Projetos/Api/Enums/Enums.csproj": {
+    "C:\\Users\\disrct\\Desktop\\ProjetoC_SharpAvancado\\Enums\\Enums.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/gustavoaulas/Projetos/Api/Enums/Enums.csproj",
+        "projectUniqueName": "C:\\Users\\disrct\\Desktop\\ProjetoC_SharpAvancado\\Enums\\Enums.csproj",
         "projectName": "Enums",
-        "projectPath": "/home/gustavoaulas/Projetos/Api/Enums/Enums.csproj",
-        "packagesPath": "/home/gustavoaulas/.nuget/packages/",
-        "outputPath": "/home/gustavoaulas/Projetos/Api/Enums/obj/",
+        "projectPath": "C:\\Users\\disrct\\Desktop\\ProjetoC_SharpAvancado\\Enums\\Enums.csproj",
+        "packagesPath": "C:\\Users\\disrct\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\disrct\\Desktop\\ProjetoC_SharpAvancado\\Enums\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "/home/gustavoaulas/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\disrct\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "netstandard2.0"
+          "net6.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "netstandard2.0": {
+          "net6.0": {
+            "targetAlias": "net6.0",
             "projectReferences": {}
           }
         },
@@ -34,15 +41,8 @@
         }
       },
       "frameworks": {
-        "netstandard2.0": {
-          "dependencies": {
-            "NETStandard.Library": {
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[2.0.3, )",
-              "autoReferenced": true
-            }
-          },
+        "net6.0": {
+          "targetAlias": "net6.0",
           "imports": [
             "net461",
             "net462",
@@ -53,30 +53,42 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/3.1.404/RuntimeIdentifierGraph.json"
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "/home/gustavoaulas/Projetos/Api/Interfaces/Interfaces.csproj": {
+    "C:\\Users\\disrct\\Desktop\\ProjetoC_SharpAvancado\\Interfaces\\Interfaces.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/gustavoaulas/Projetos/Api/Interfaces/Interfaces.csproj",
+        "projectUniqueName": "C:\\Users\\disrct\\Desktop\\ProjetoC_SharpAvancado\\Interfaces\\Interfaces.csproj",
         "projectName": "Interfaces",
-        "projectPath": "/home/gustavoaulas/Projetos/Api/Interfaces/Interfaces.csproj",
-        "packagesPath": "/home/gustavoaulas/.nuget/packages/",
-        "outputPath": "/home/gustavoaulas/Projetos/Api/Interfaces/obj/",
+        "projectPath": "C:\\Users\\disrct\\Desktop\\ProjetoC_SharpAvancado\\Interfaces\\Interfaces.csproj",
+        "packagesPath": "C:\\Users\\disrct\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\disrct\\Desktop\\ProjetoC_SharpAvancado\\Interfaces\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "/home/gustavoaulas/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\disrct\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netstandard2.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "netstandard2.0": {
+            "targetAlias": "netstandard2.0",
             "projectReferences": {}
           }
         },
@@ -88,6 +100,7 @@
       },
       "frameworks": {
         "netstandard2.0": {
+          "targetAlias": "netstandard2.0",
           "dependencies": {
             "NETStandard.Library": {
               "suppressParent": "All",
@@ -106,36 +119,43 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/3.1.404/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "/home/gustavoaulas/Projetos/Api/Models/Models.csproj": {
+    "C:\\Users\\disrct\\Desktop\\ProjetoC_SharpAvancado\\Model\\Model.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/gustavoaulas/Projetos/Api/Models/Models.csproj",
-        "projectName": "Models",
-        "projectPath": "/home/gustavoaulas/Projetos/Api/Models/Models.csproj",
-        "packagesPath": "/home/gustavoaulas/.nuget/packages/",
-        "outputPath": "/home/gustavoaulas/Projetos/Api/Models/obj/",
+        "projectUniqueName": "C:\\Users\\disrct\\Desktop\\ProjetoC_SharpAvancado\\Model\\Model.csproj",
+        "projectName": "Model",
+        "projectPath": "C:\\Users\\disrct\\Desktop\\ProjetoC_SharpAvancado\\Model\\Model.csproj",
+        "packagesPath": "C:\\Users\\disrct\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\disrct\\Desktop\\ProjetoC_SharpAvancado\\Model\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "/home/gustavoaulas/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\disrct\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "netstandard2.0"
+          "net6.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "netstandard2.0": {
+          "net6.0": {
+            "targetAlias": "net6.0",
             "projectReferences": {
-              "/home/gustavoaulas/Projetos/Api/Enums/Enums.csproj": {
-                "projectPath": "/home/gustavoaulas/Projetos/Api/Enums/Enums.csproj"
+              "C:\\Users\\disrct\\Desktop\\ProjetoC_SharpAvancado\\Enums\\Enums.csproj": {
+                "projectPath": "C:\\Users\\disrct\\Desktop\\ProjetoC_SharpAvancado\\Enums\\Enums.csproj"
               },
-              "/home/gustavoaulas/Projetos/Api/Interfaces/Interfaces.csproj": {
-                "projectPath": "/home/gustavoaulas/Projetos/Api/Interfaces/Interfaces.csproj"
+              "C:\\Users\\disrct\\Desktop\\ProjetoC_SharpAvancado\\Interfaces\\Interfaces.csproj": {
+                "projectPath": "C:\\Users\\disrct\\Desktop\\ProjetoC_SharpAvancado\\Interfaces\\Interfaces.csproj"
               }
             }
           }
@@ -147,15 +167,8 @@
         }
       },
       "frameworks": {
-        "netstandard2.0": {
-          "dependencies": {
-            "NETStandard.Library": {
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[2.0.3, )",
-              "autoReferenced": true
-            }
-          },
+        "net6.0": {
+          "targetAlias": "net6.0",
           "imports": [
             "net461",
             "net462",
@@ -166,33 +179,45 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/3.1.404/RuntimeIdentifierGraph.json"
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "/home/gustavoaulas/Projetos/Api/testesAutomatizados/testesAutomatizados.csproj": {
+    "C:\\Users\\disrct\\Desktop\\ProjetoC_SharpAvancado\\testesAutomatizados\\testesAutomatizados.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/gustavoaulas/Projetos/Api/testesAutomatizados/testesAutomatizados.csproj",
+        "projectUniqueName": "C:\\Users\\disrct\\Desktop\\ProjetoC_SharpAvancado\\testesAutomatizados\\testesAutomatizados.csproj",
         "projectName": "testesAutomatizados",
-        "projectPath": "/home/gustavoaulas/Projetos/Api/testesAutomatizados/testesAutomatizados.csproj",
-        "packagesPath": "/home/gustavoaulas/.nuget/packages/",
-        "outputPath": "/home/gustavoaulas/Projetos/Api/testesAutomatizados/obj/",
+        "projectPath": "C:\\Users\\disrct\\Desktop\\ProjetoC_SharpAvancado\\testesAutomatizados\\testesAutomatizados.csproj",
+        "packagesPath": "C:\\Users\\disrct\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\disrct\\Desktop\\ProjetoC_SharpAvancado\\testesAutomatizados\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "/home/gustavoaulas/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\disrct\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "netcoreapp3.1"
+          "net6.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "netcoreapp3.1": {
+          "net6.0": {
+            "targetAlias": "net6.0",
             "projectReferences": {
-              "/home/gustavoaulas/Projetos/Api/Models/Models.csproj": {
-                "projectPath": "/home/gustavoaulas/Projetos/Api/Models/Models.csproj"
+              "C:\\Users\\disrct\\Desktop\\ProjetoC_SharpAvancado\\Model\\Model.csproj": {
+                "projectPath": "C:\\Users\\disrct\\Desktop\\ProjetoC_SharpAvancado\\Model\\Model.csproj"
               }
             }
           }
@@ -204,7 +229,8 @@
         }
       },
       "frameworks": {
-        "netcoreapp3.1": {
+        "net6.0": {
+          "targetAlias": "net6.0",
           "dependencies": {
             "Microsoft.NET.Test.Sdk": {
               "target": "Package",
@@ -234,7 +260,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/3.1.404/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     }

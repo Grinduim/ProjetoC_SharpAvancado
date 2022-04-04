@@ -1,11 +1,46 @@
 {
   "version": 3,
   "targets": {
-    "net6.0": {}
+    "net6.0": {
+      "Enums/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/Enums.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Enums.dll": {}
+        }
+      },
+      "Interfaces/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.0",
+        "compile": {
+          "bin/placeholder/Interfaces.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Interfaces.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "Enums/1.0.0": {
+      "type": "project",
+      "path": "../Enums/Enums.csproj",
+      "msbuildProject": "../Enums/Enums.csproj"
+    },
+    "Interfaces/1.0.0": {
+      "type": "project",
+      "path": "../Interfaces/Interfaces.csproj",
+      "msbuildProject": "../Interfaces/Interfaces.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net6.0": []
+    "net6.0": [
+      "Enums >= 1.0.0",
+      "Interfaces >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\disrct\\.nuget\\packages\\": {},
@@ -38,7 +73,14 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\disrct\\Desktop\\ProjetoC_SharpAvancado\\Enums\\Enums.csproj": {
+              "projectPath": "C:\\Users\\disrct\\Desktop\\ProjetoC_SharpAvancado\\Enums\\Enums.csproj"
+            },
+            "C:\\Users\\disrct\\Desktop\\ProjetoC_SharpAvancado\\Interfaces\\Interfaces.csproj": {
+              "projectPath": "C:\\Users\\disrct\\Desktop\\ProjetoC_SharpAvancado\\Interfaces\\Interfaces.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

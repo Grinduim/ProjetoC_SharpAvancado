@@ -1,7 +1,7 @@
 {
   "version": 3,
   "targets": {
-    ".NETCoreApp,Version=v3.1": {
+    "net6.0": {
       "Microsoft.CodeCoverage/16.5.0": {
         "type": "package",
         "compile": {
@@ -1228,7 +1228,7 @@
       },
       "Enums/1.0.0": {
         "type": "project",
-        "framework": ".NETStandard,Version=v2.0",
+        "framework": ".NETCoreApp,Version=v6.0",
         "compile": {
           "bin/placeholder/Enums.dll": {}
         },
@@ -1246,18 +1246,18 @@
           "bin/placeholder/Interfaces.dll": {}
         }
       },
-      "Models/1.0.0": {
+      "Model/1.0.0": {
         "type": "project",
-        "framework": ".NETStandard,Version=v2.0",
+        "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
           "Enums": "1.0.0",
           "Interfaces": "1.0.0"
         },
         "compile": {
-          "bin/placeholder/Models.dll": {}
+          "bin/placeholder/Model.dll": {}
         },
         "runtime": {
-          "bin/placeholder/Models.dll": {}
+          "bin/placeholder/Model.dll": {}
         }
       }
     }
@@ -4658,46 +4658,54 @@
       "path": "../Interfaces/Interfaces.csproj",
       "msbuildProject": "../Interfaces/Interfaces.csproj"
     },
-    "Models/1.0.0": {
+    "Model/1.0.0": {
       "type": "project",
-      "path": "../Models/Models.csproj",
-      "msbuildProject": "../Models/Models.csproj"
+      "path": "../Model/Model.csproj",
+      "msbuildProject": "../Model/Model.csproj"
     }
   },
   "projectFileDependencyGroups": {
-    ".NETCoreApp,Version=v3.1": [
+    "net6.0": [
       "Microsoft.NET.Test.Sdk >= 16.5.0",
-      "Models >= 1.0.0",
+      "Model >= 1.0.0",
       "NUnit >= 3.12.0",
       "NUnit3TestAdapter >= 3.16.1"
     ]
   },
   "packageFolders": {
-    "/home/gustavoaulas/.nuget/packages/": {}
+    "C:\\Users\\disrct\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/gustavoaulas/Projetos/Api/testesAutomatizados/testesAutomatizados.csproj",
+      "projectUniqueName": "C:\\Users\\disrct\\Desktop\\ProjetoC_SharpAvancado\\testesAutomatizados\\testesAutomatizados.csproj",
       "projectName": "testesAutomatizados",
-      "projectPath": "/home/gustavoaulas/Projetos/Api/testesAutomatizados/testesAutomatizados.csproj",
-      "packagesPath": "/home/gustavoaulas/.nuget/packages/",
-      "outputPath": "/home/gustavoaulas/Projetos/Api/testesAutomatizados/obj/",
+      "projectPath": "C:\\Users\\disrct\\Desktop\\ProjetoC_SharpAvancado\\testesAutomatizados\\testesAutomatizados.csproj",
+      "packagesPath": "C:\\Users\\disrct\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\disrct\\Desktop\\ProjetoC_SharpAvancado\\testesAutomatizados\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "/home/gustavoaulas/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\disrct\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
-        "netcoreapp3.1"
+        "net6.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
-        "netcoreapp3.1": {
+        "net6.0": {
+          "targetAlias": "net6.0",
           "projectReferences": {
-            "/home/gustavoaulas/Projetos/Api/Models/Models.csproj": {
-              "projectPath": "/home/gustavoaulas/Projetos/Api/Models/Models.csproj"
+            "C:\\Users\\disrct\\Desktop\\ProjetoC_SharpAvancado\\Model\\Model.csproj": {
+              "projectPath": "C:\\Users\\disrct\\Desktop\\ProjetoC_SharpAvancado\\Model\\Model.csproj"
             }
           }
         }
@@ -4709,7 +4717,8 @@
       }
     },
     "frameworks": {
-      "netcoreapp3.1": {
+      "net6.0": {
+        "targetAlias": "net6.0",
         "dependencies": {
           "Microsoft.NET.Test.Sdk": {
             "target": "Package",
@@ -4739,7 +4748,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/3.1.404/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
       }
     }
   }

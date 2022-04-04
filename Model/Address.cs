@@ -9,6 +9,14 @@ public class Address
 
     public Address(){}
 
+    public Address (String street, String city, String state, String country, String poste_code){
+        this.street = street;
+        this.city = city;
+        this.state = state;
+        this.country = country;
+        this.poste_code = poste_code;
+    }
+
 
     public void setStreet(String street){this.street = street;}
     public String getStreet(){return this.street;}
@@ -26,7 +34,7 @@ public class Address
     public String getCountry(){return this.country;}
 
 
-    public void  setPosteCode(String poste_code){this.poste_code = poste_code;}
-    public String getPosteCode(){return this.poste_code;}
+    public void  setPostalCode(String poste_code){this.poste_code = poste_code;}
+    public String getPostalCode(){return this.poste_code;}
 
 }
