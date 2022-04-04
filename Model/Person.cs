@@ -1,18 +1,16 @@
 ﻿namespace Model;
+using Interfaces;
 public class Person
 {
     protected String name= "";
     protected int age;
     protected String document= "";
-    protected String email= "";
+    protected String email;
     protected String phone= "";
-    protected String login= "";
+    protected String login;
     protected Address address;
 
-
-    public Person(Address address){this.address= address;}
-
-    
+  
     public String getName(){return this.name;}
     public void setName(String name){this.name= name;}
 
@@ -34,9 +32,10 @@ public class Person
 
 
     public String getLogin(){return this.login;}
-    public void setLogin(String email){this.email = email;}
+    public void setLogin(String login){this.login = login;}
 
 
     public Address getAddress(){return this.address;}   
     public void setAddress(Address address){this.address = address;} 
+
 }
