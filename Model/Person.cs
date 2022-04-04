@@ -1,4 +1,5 @@
 ﻿namespace Model;
+using Interfaces;
 public class Person
 {
     protected String name= "";
@@ -36,4 +37,5 @@ public class Person
 
     public Address getAddress(){return this.address;}   
     public void setAddress(Address address){this.address = address;} 
+
 }

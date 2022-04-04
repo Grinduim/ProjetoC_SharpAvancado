@@ -1,7 +1,10 @@
 namespace Model;
-public class Owner : Person
+using Interfaces;
+public class Owner : Person, IValidateDataObject<Owner>
 {
     private static Owner instance;
+
+    private Guid uuid = Guid.NewGuid();
     private Owner(Address address){this.address = address;}
 
     public static Owner getInstance(Address address){
@@ -9,5 +12,17 @@ public class Owner : Person
             Owner.instance = new Owner(address);
         }
         return Owner.instance;
+    }
+
+    public Boolean validateObject(Owner obj)
+    {
+        if(obj.getName()==null) return false;
+           if(obj.getAge() == 0) return false;
+           if(obj.getDocument()==null) return false;
+           if(obj.getEmail()==null) return false;
+           if(obj.getPhone()==null) return false;
+           if(obj.getLogin()==null) return false;
+           if(obj.getAddress().validateObject(obj.getAddress()) ==false ) return false;
+           return true;
     }
 }
