@@ -3,8 +3,8 @@ using Interfaces;
 
 public class Store : IValidateDataObject<Store>
 {
-    private String name = "";
-    private String CNPJ = "";
+    private String name;
+    private String CNPJ;
     private Owner owner;
     private List<Purchase> purchases = new List<Purchase>();
 

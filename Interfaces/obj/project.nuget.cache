@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "ra8Ki4ZjfxFuTL1EgOPOxjuZNB87wfVeQohjQ1aR1Rz7yGNSfPPQ96xmu7RTiYOehrR9UhDZ7Zq3KONc6zHFow==",
+  "dgSpecHash": "GaXpViDkoT0iuBbM8JOARtTUOUr3Yd2FibPQgR41JtKjLtxjNMF0CjlMSxJ/08SOX0g72V62ZmM2EZIzXI/VUg==",
   "success": true,
-  "projectFilePath": "/home/gustavoaulas/Projetos/Api/Interfaces/Interfaces.csproj",
+  "projectFilePath": "C:\\Users\\disrct\\Desktop\\ProjetoC_SharpAvancado\\Interfaces\\Interfaces.csproj",
   "expectedPackageFiles": [
-    "/home/gustavoaulas/.nuget/packages/microsoft.netcore.platforms/1.1.0/microsoft.netcore.platforms.1.1.0.nupkg.sha512",
-    "/home/gustavoaulas/.nuget/packages/netstandard.library/2.0.3/netstandard.library.2.0.3.nupkg.sha512"
+    "C:\\Users\\disrct\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\disrct\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
   ],
   "logs": []
 }

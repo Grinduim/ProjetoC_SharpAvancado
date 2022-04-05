@@ -2,9 +2,9 @@ namespace Model;
 using Interfaces;
 public class Product : IValidateDataObject<Product>
 {
-    private String name= "";
+    private String name;
     private double unit_price;
-    private String bar_code= "";
+    private String bar_code;
     
     
     public void setName(String name){this.name = name;}

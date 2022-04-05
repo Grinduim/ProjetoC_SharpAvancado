@@ -6,6 +6,8 @@ public class Stocks : IValidateDataObject<Stocks>
     private Store store;
     private Product product;
 
+
+    public Stocks(){}
     public Stocks(Store store, Product product){ this.store = store; this.product = product;}
 
 
