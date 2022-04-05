@@ -8,7 +8,7 @@ public enum PaymentEnum{
 }
 
 public  enum PurchaseStatusEnum{
-    awaitingPayment,
-    confirmedPayment
+    awaitingPayment,  //0
+    confirmedPayment // 1
 }
 
