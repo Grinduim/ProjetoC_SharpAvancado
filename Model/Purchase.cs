@@ -8,7 +8,7 @@ public class Purchase : IValidateDataObject<Purchase>
     private int payment_type;
     private int purchase_status;
     public double purchase_values = 0; 
-    private String number_confirmation = "";
+    private String number_confirmation ;
     private String number_nf= "";
     private Client client;
     private Store stores;
@@ -61,6 +61,11 @@ public class Purchase : IValidateDataObject<Purchase>
         if (obj.GetStores() == null) return false;
 
         return true;
+    }
+
+    public void updateStatus( int PurchaseStatusEnum)
+    {
+        this.purchase_status = PurchaseStatusEnum;
     }
 }
 

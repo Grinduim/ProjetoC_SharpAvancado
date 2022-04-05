@@ -177,6 +177,13 @@
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
               "version": "[6.0.3, )"
+<<<<<<< HEAD
+=======
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.1, )"
+>>>>>>> c31b3de9fc462aedc6c890915e5c106309733cc7
             }
           },
           "imports": [
