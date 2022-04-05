@@ -1,6 +1,7 @@
 using Enums;
 namespace Model;
 using Interfaces;
+using Microsoft.EntityFrameworkCore;
 public class Purchase : IValidateDataObject<Purchase>
 {
     private DateTime date_purchase;

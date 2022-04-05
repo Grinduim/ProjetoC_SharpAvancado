@@ -251,8 +251,10 @@ select * from tbl_Purchase inner join tbl_client on tbl_Client.pk_client=tbl_Pur
 inner join tbl_Person on tbl_Person.id_person=tbl_Client.pk_client where tbl_Person.document='178.493.696-79'
 
 /* - Selecionar as vendas de um determinado dono de loja. */
-select * from tbl_Purchase inner join tbl_Store on tbl_Store.id_store=tbl_Purchase.fk_store 
-inner join tbl_Owner on tbl_Owner.pk_owner = tbl_Store.fk_owner where tbl_Owner.pk_owner = 5
+select * from tbl_Purchase
+inner join tbl_Store on tbl_Store.id_store=tbl_Purchase.fk_store 
+inner join tbl_Owner on tbl_Owner.pk_owner = tbl_Store.fk_owner 
+where tbl_Owner.pk_owner = 5
 
 /* - Selecionar a quantidade de determinado produto dos estoques de todas as lojas. */
 select sum(quantity) as 'Quantity' from tbl_Stocks where fk_product = 12

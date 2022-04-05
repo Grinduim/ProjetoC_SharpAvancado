@@ -1,5 +1,6 @@
 namespace Model;
 using Interfaces;
+
 public class Client : Person, IValidateDataObject<Client>
 {
     private static Client instance;
@@ -16,6 +17,8 @@ public class Client : Person, IValidateDataObject<Client>
     }
 
 
+
+
     public Boolean validateObject(Client obj)
     {
         if (obj.getName() == null) return false;
@@ -28,3 +31,4 @@ public class Client : Person, IValidateDataObject<Client>
         return true;
     }
 }
+

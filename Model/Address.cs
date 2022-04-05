@@ -1,5 +1,6 @@
 namespace Model;
 using Interfaces;
+
 public class Address : IValidateDataObject<Address>
 {
     private String street= "";
@@ -48,3 +49,4 @@ public class Address : IValidateDataObject<Address>
         return true;
     }
 }
+
