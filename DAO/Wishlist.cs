@@ -3,6 +3,6 @@ namespace DAO;
 public class WishList 
 {
     public int id;
-    private Product products;
-    private Client client;
+    public Product product;
+    public Client client;
 }

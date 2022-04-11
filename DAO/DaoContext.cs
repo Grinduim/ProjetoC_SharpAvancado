@@ -66,8 +66,7 @@ class DaoContext : DbContext
         {
             entity.HasKey(e => e.id);
             entity.Property(e => e.quantity).IsRequired();
-            entity.Property(e => e.store).IsRequired();
-            entity.HasOne(d => d.sto);
+            entity.HasOne(d => d.store);
             entity.HasOne(d => d.product);
         });
 
