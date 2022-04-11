@@ -3,12 +3,12 @@
 using(var context = new DaoContext()){
     context.Database.EnsureCreated();
 
-    context.addresses.add(new Address{
-        street = "genoveva forlepa kopka 213",
-        city = "Pinhais",
+    context.addresses.Add(new Address{
+        street = "travessa bunda",
+        city = "Colombo",
         state = "Paraná",
         country = "Brasil",
-        poste_code = "83320560"  
+        poste_code = "8340869"  
     });
     
     context.SaveChanges();

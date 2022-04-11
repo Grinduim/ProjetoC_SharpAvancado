@@ -2,13 +2,12 @@ namespace DAO;
 using Microsoft.EntityFrameworkCore;
 
 
-class DaoContext : DbContext
+public class DaoContext : DbContext
 {
     // mapeamento da entidade para a tabela
     public DbSet<Address> addresses { get; set; }
     public DbSet<Client> clients { get; set; }
     public DbSet<Owner> owners { get; set; }
-    public DbSet<Person> persons { get; set; }
     public DbSet<Product> products { get; set; }
     public DbSet<Purchase> purchases { get; set; }
     public DbSet<Stocks> stocks { get; set; }
@@ -48,19 +47,7 @@ class DaoContext : DbContext
             entity.Property(e => e.bar_code).IsRequired();
         });
 
-        modelBuilder.Entity<Purchase>(entity =>
-        {
-            entity.HasKey(e => e.id);
-            entity.Property(e => e.date_purchase).IsRequired();
-            entity.Property(e => e.payment_type).IsRequired();
-            entity.Property(e => e.purchase_status).IsRequired();
-            entity.Property(e => e.purchase_values).IsRequired();
-            entity.Property(e => e.number_confirmation).IsRequired();
-            entity.Property(e => e.number_nf).IsRequired();
-            entity.Property(e => e.client).IsRequired();
-            entity.Property(e => e.store).IsRequired();
-            entity.Property(e => e.products).IsRequired();
-        });
+        
 
         modelBuilder.Entity<Stocks>(entity =>
         {
@@ -80,6 +67,20 @@ class DaoContext : DbContext
             entity.Property(e => e.phone).IsRequired();
             entity.Property(e => e.login).IsRequired();
             entity.HasOne(d => d.address);
+        });
+
+        modelBuilder.Entity<Purchase>(entity =>
+        {
+            entity.HasKey(e => e.id);
+            entity.Property(e => e.date_purchase).IsRequired();
+            entity.Property(e => e.payment_type).IsRequired();
+            entity.Property(e => e.purchase_status).IsRequired();
+            entity.Property(e => e.purchase_values).IsRequired();
+            entity.Property(e => e.number_confirmation).IsRequired();
+            entity.Property(e => e.number_nf).IsRequired();
+            entity.HasOne(d => d.client);
+            entity.HasOne(d => d.store);
+            entity.HasOne(d => d.products);
         });
 
         modelBuilder.Entity<Owner>(entity =>
