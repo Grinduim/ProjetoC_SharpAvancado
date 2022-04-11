@@ -7,5 +7,4 @@ public class Store
     public String name;
     public String CNPJ;
     public Owner owner;
-    public Purchase purchases;
 }

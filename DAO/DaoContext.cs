@@ -100,7 +100,6 @@ class DaoContext : DbContext
             entity.Property(e => e.name).IsRequired();
             entity.Property(e => e.CNPJ).IsRequired();
             entity.HasOne(d => d.owner);
-           entity.HasOne(d => d.purchases);
         });
 
         modelBuilder.Entity<WishList>(entity =>
