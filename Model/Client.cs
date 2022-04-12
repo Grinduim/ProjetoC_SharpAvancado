@@ -22,7 +22,7 @@ public class Client : Person, IValidateDataObject<Client>
     public Boolean validateObject(Client obj)
     {
         if (obj.getName() == null) return false;
-        if (obj.getAge() == 0) return false;
+        if (obj.getDateOfBirth() == null) return false;
         if (obj.getDocument() == null) return false;
         if (obj.getEmail() == null) return false;
         if (obj.getPhone() == null) return false;

@@ -1,7 +1,6 @@
 namespace DAO;
 
-
-public class Store 
+public class Store
 {
     public int id;
     public String name;

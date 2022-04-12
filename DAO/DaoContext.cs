@@ -19,7 +19,6 @@ public class DaoContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-
         optionsBuilder.UseSqlServer("Data Source = JVLPC0553;" + "Initial Catalog = MarketPlace; Integrated Security=True");
     }
 
@@ -47,7 +46,7 @@ public class DaoContext : DbContext
             entity.Property(e => e.bar_code).IsRequired();
         });
 
-        
+
 
         modelBuilder.Entity<Stocks>(entity =>
         {
@@ -61,11 +60,12 @@ public class DaoContext : DbContext
         {
             entity.HasKey(e => e.id);
             entity.Property(e => e.name).IsRequired();
-            entity.Property(e => e.age).IsRequired();
+            entity.Property(e => e.date_of_birth).IsRequired();
             entity.Property(e => e.document).IsRequired();
             entity.Property(e => e.email).IsRequired();
             entity.Property(e => e.phone).IsRequired();
             entity.Property(e => e.login).IsRequired();
+            entity.Property(e => e.passwd).IsRequired();
             entity.HasOne(d => d.address);
         });
 
@@ -87,11 +87,12 @@ public class DaoContext : DbContext
         {
             entity.HasKey(e => e.id);
             entity.Property(e => e.name).IsRequired();
-            entity.Property(e => e.age).IsRequired();
+            entity.Property(e => e.date_of_birth).IsRequired();
             entity.Property(e => e.document).IsRequired();
             entity.Property(e => e.email).IsRequired();
             entity.Property(e => e.phone).IsRequired();
             entity.Property(e => e.login).IsRequired();
+            entity.Property(e => e.passwd).IsRequired();
             entity.HasOne(d => d.address);
         });
 

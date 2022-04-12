@@ -1,6 +1,6 @@
 namespace DAO;
 
-public class Product 
+public class Product
 {
     public int id;
     public String name;
