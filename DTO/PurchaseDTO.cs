@@ -1,5 +1,5 @@
 namespace DTO;
-public class ProductDTO
+public class PurchaseDTO
 {
     public DateTime data_purchase;
     public double purchase_value;

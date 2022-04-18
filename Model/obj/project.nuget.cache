@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "XjG1m3iQimBxefAeR1gEy29ArjoxqmbYVJSk17xUCMCpdcggTr8+b+V7vLS4IuV1dnHMIE1rj8GXXMicDjsoNw==",
+  "dgSpecHash": "ElUKQZXtGHZRx3MYjahFgmoZUlqWW+aB76SBDVF9jgP3lR5XLnJSqbhfGZXIWJagyIfxYTdbG4+aJxJMFcBy8A==",
   "success": true,
   "projectFilePath": "S:\\COM\\Human_Resources\\01.Engineering_Tech_School\\02.Internal\\10 - Aprendizes\\5 - Desenvolvimento de Sistemas\\1 - Alunos\\Allan Kley\\ProjetoC_SharpAvancado-1\\Model\\Model.csproj",
   "expectedPackageFiles": [
@@ -45,12 +45,5 @@
     "C:\\Users\\disrct\\.nuget\\packages\\system.text.encoding.codepages\\4.7.0\\system.text.encoding.codepages.4.7.0.nupkg.sha512",
     "C:\\Users\\disrct\\.nuget\\packages\\system.windows.extensions\\4.7.0\\system.windows.extensions.4.7.0.nupkg.sha512"
   ],
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file S:\\COM\\Human_Resources\\01.Engineering_Tech_School\\02.Internal\\10 - Aprendizes\\5 - Desenvolvimento de Sistemas\\1 - Alunos\\Allan Kley\\ProjetoC_SharpAvancado-1\\Model\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    }
-  ]
+  "logs": []
 }
