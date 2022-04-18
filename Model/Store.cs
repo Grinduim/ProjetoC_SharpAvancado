@@ -19,7 +19,7 @@ public class Store: IValidateDataObject, IDataController<StoreDTO, Store>
 
     public static Store convertDTOToModel(StoreDTO obj)
     {
-        return new Store(obj.owner);
+        return new Store(Owner.convertDTOToModel(obj.owner));
     }
 
     public void delete(StoreDTO obj)
@@ -32,16 +32,23 @@ public class Store: IValidateDataObject, IDataController<StoreDTO, Store>
 
         using(var context = new DaoContext())
         {
-            var product = new DAO.Product{
-                name = this.name,
-                bar_code = this.bar_code,
+
+            var owner = new DAO.Owner{
+
             };
 
-            context.products.Add(product);
+            
+            var store = new DAO.Store{
+                name = this.name,
+                CNPJ = this.CNPJ,
+                owner = owner;
+            };
+
+            context.stores.Add(store);
 
             context.SaveChanges();
 
-            id = product.id;
+            id = store.id;
 
         }
          return id;
@@ -80,18 +87,17 @@ public class Store: IValidateDataObject, IDataController<StoreDTO, Store>
 
 
 
-    public Boolean validateObject(Store obj)
+    public Boolean validateObject()
     {
 
-        if (obj.getName() == null) return false;
-        if (obj.getCNPJ() == null) return false;
-        if (obj.getOwner() == null) return false;
-        if (obj.getPurchases() == null) return false;
+        if (this.getName() == null) return false;
+        if (this.getCNPJ() == null) return false;
+        if (this.getOwner() == null) return false;
+        if (this.getPurchases() == null) return false;
         return true;
     }
 
 
-<<<<<<< HEAD
     public String getName() { return this.name; }
     public void setName(string name) { this.name = name; }
 
@@ -109,10 +115,6 @@ public class Store: IValidateDataObject, IDataController<StoreDTO, Store>
             this.purchases.Add(purchase);// adicionar ela na lista
         }
     }
-=======
-    
-
->>>>>>> b33ff82c140f50f68a942055579e8096d6ee11d1
 
 
 }
