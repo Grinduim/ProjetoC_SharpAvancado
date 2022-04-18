@@ -41,6 +41,8 @@ public class Store : IValidateDataObject<Store>
     }
 
 
+    
+
 
 
 }

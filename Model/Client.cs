@@ -8,6 +8,8 @@ public class Client : Person, IValidateDataObject, IDataController<ClientDTO, Cl
 {
     private static Client instance;
     private Guid uuid = Guid.NewGuid();
+
+    public List<ClientDTO> clientDTO = new List<ClientDTO>();
     private Client(Address address) { this.address = address; }
 
     public static Client getInstance(Address address)
@@ -31,13 +33,13 @@ public class Client : Person, IValidateDataObject, IDataController<ClientDTO, Cl
         return true;
     }
 
-     public static Client convertDTOToModel(ClientDTO clientDTO)
+    public static Client convertDTOToModel(ClientDTO clientDTO)
     {
         var client = new client(Address.convertDTOToModel(clientDTO.address));
 
         client.name = clientDTO.name;
         client.date_of_birth = clientDTO.date_of_birth;
-        client.document= clientDTO.document;
+        client.document = clientDTO.document;
         client.email = clientDTO.email;
         client.phone = clientDTO.phone;
         client.login = clientDTO.login;
@@ -45,6 +47,71 @@ public class Client : Person, IValidateDataObject, IDataController<ClientDTO, Cl
         return client;
     }
 
-    
+    public void delete(ClientDTO obj)
+    {
+
+    }
+
+    public int save()
+    {
+        var id = 0;
+
+        using (var context = new DaoContext())
+        {
+            var client = new DAO.Client
+            {
+                name = this.name,
+                date_of_birth = this.date_of_birth,
+                document = this.document,
+                email = this.email,
+                phone = this.phone,
+                passwd = this.passwd,
+                login = this.login
+            };
+
+            context.clients.Add(client);
+
+            context.SaveChanges();
+
+            id = client.id;
+
+        }
+        return id;
+    }
+
+
+    public void update(ClientDTO obj)
+    {
+
+    }
+
+    public ClientDTO findById(int id)
+    {
+
+        return new ClientDTO();
+    }
+
+    public List<ClientDTO> getAll()
+    {
+        return this.ClientDTO;
+    }
+
+
+    public ClientDTO convertModelToDTO()
+    {
+        var clientDTO = new clientDTO();
+
+        clientDTO.street = this.street;
+
+        clientDTO.state = this.state;
+
+        clientDTO.city = this.city;
+
+        clientDTO.country = this.country;
+
+        clientDTO.poste_code = this.poste_code;
+
+        return clientDTO;
+    }
 }
 
