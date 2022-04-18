@@ -19,9 +19,6 @@ public class Client : Person, IValidateDataObject, IDataController<ClientDTO, Cl
         return instance;
     }
 
-
-
-
     public Boolean validateObject(Client obj)
     {
         if (obj.getName() == null) return false;
@@ -34,6 +31,19 @@ public class Client : Person, IValidateDataObject, IDataController<ClientDTO, Cl
         return true;
     }
 
+     public static Client convertDTOToModel(ClientDTO clientDTO)
+    {
+        var client = new client(Address.convertDTOToModel(clientDTO.address));
+
+        client.name = clientDTO.name;
+        client.date_of_birth = clientDTO.date_of_birth;
+        client.document= clientDTO.document;
+        client.email = clientDTO.email;
+        client.phone = clientDTO.phone;
+        client.login = clientDTO.login;
+        client.passwd = clientDTO.passwd;
+        return client;
+    }
 
     
 }

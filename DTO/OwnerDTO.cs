@@ -9,6 +9,8 @@ public class OwnerDTO
     public String phone;
     public String login;
     public String password;
+
+    public AddressDTO address;
 }
 
 

@@ -10,11 +10,6 @@ public class AddressDTO
     public String poste_code ;
 }
 
-
-
-
-
-
    
 
     

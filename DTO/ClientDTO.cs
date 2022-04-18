@@ -8,4 +8,6 @@ public class ClientDTO
     public String phone;
     public String login;
     public String password;
+
+    public AddressDTO address;
 }

@@ -38,7 +38,6 @@ public class Address : IValidateDataObject, IDataController<AddressDTO, Address>
     {
 
     }
-
     public int save()
     {
         var id = 0;
