@@ -91,6 +91,7 @@ public class Store: IValidateDataObject, IDataController<StoreDTO, Store>
     }
 
 
+<<<<<<< HEAD
     public String getName() { return this.name; }
     public void setName(string name) { this.name = name; }
 
@@ -108,6 +109,10 @@ public class Store: IValidateDataObject, IDataController<StoreDTO, Store>
             this.purchases.Add(purchase);// adicionar ela na lista
         }
     }
+=======
+    
+
+>>>>>>> b33ff82c140f50f68a942055579e8096d6ee11d1
 
 
 }

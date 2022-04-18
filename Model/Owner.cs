@@ -12,6 +12,7 @@ public class Owner : Person, IValidateDataObject, IDataController<OwnerDTO, Owne
 
 
 
+
     public static Owner convertDTOToModel(OwnerDTO obj)
     {
         return new Owner(Address.convertDTOToModel(obj.address));

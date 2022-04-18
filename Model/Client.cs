@@ -8,6 +8,8 @@ public class Client : Person, IValidateDataObject, IDataController<ClientDTO, Cl
 {
     private static Client instance;
     private Guid uuid = Guid.NewGuid();
+
+    public List<ClientDTO> clientDTO = new List<ClientDTO>();
     private Client(Address address) { this.address = address; }
 
     public static Client getInstance(Address address)
@@ -19,25 +21,25 @@ public class Client : Person, IValidateDataObject, IDataController<ClientDTO, Cl
         return instance;
     }
 
-    public Boolean validateObject(Client obj)
+    public Boolean validateObject()
     {
-        if (obj.getName() == null) return false;
-        if (obj.getDateOfBirth() == null) return false;
-        if (obj.getDocument() == null) return false;
-        if (obj.getEmail() == null) return false;
-        if (obj.getPhone() == null) return false;
-        if (obj.getLogin() == null) return false;
-        if (obj.getAddress().validateObject(obj.getAddress()) == false) return false;
+        if (this.getName() == null) return false;
+        if (this.getDateOfBirth() == null) return false;
+        if (this.getDocument() == null) return false;
+        if (this.getEmail() == null) return false;
+        if (this.getPhone() == null) return false;
+        if (this.getLogin() == null) return false;
+        if (this.getAddress().validateObject() == false) return false;
         return true;
     }
 
-     public static Client convertDTOToModel(ClientDTO clientDTO)
+    public static Client convertDTOToModel(ClientDTO clientDTO)
     {
-        var client = new client(Address.convertDTOToModel(clientDTO.address));
+        var client = new Client(Address.convertDTOToModel(clientDTO.address));
 
         client.name = clientDTO.name;
         client.date_of_birth = clientDTO.date_of_birth;
-        client.document= clientDTO.document;
+        client.document = clientDTO.document;
         client.email = clientDTO.email;
         client.phone = clientDTO.phone;
         client.login = clientDTO.login;
@@ -45,6 +47,70 @@ public class Client : Person, IValidateDataObject, IDataController<ClientDTO, Cl
         return client;
     }
 
+    public void delete(ClientDTO obj)
+    {
 
+    }
+
+    public int save()
+    {
+        var id = 0;
+
+        using (var context = new DaoContext())
+        {
+            var client = new DAO.Client
+            {
+                name = this.name,
+                date_of_birth = this.date_of_birth,
+                document = this.document,
+                email = this.email,
+                phone = this.phone,
+                passwd = this.passwd,
+                login = this.login
+            };
+
+            context.clients.Add(client);
+
+            context.SaveChanges();
+
+            id = client.id;
+
+        }
+        return id;
+    }
+
+
+    public void update(ClientDTO obj)
+    {
+
+    }
+
+    public ClientDTO findById(int id)
+    {
+
+        return new ClientDTO();
+    }
+
+    public List<ClientDTO> getAll()
+    {
+        return this.clientDTO;
+    }
+
+
+    public ClientDTO convertModelToDTO()
+    {
+        var clientDTO = new ClientDTO();
+
+        clientDTO.name = this.name;
+        clientDTO.name = this.name;
+        clientDTO.date_of_birth = this.date_of_birth;
+        clientDTO.document = this.document;
+        clientDTO.email = this.email;
+        clientDTO.phone = this.phone;
+        clientDTO.login = this.login;
+        clientDTO.passwd = this.passwd;
+        clientDTO.address = this.address.convertModelToDTO();
+        return clientDTO;
+    }
 }
 

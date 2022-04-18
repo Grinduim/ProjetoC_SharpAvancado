@@ -12,6 +12,8 @@ public class Person
     protected string passwd;
 
 
+    public String getPasswd() { return this.passwd; }
+    public void setPasswd(String passwd) { this.passwd = passwd; }
     public String getName() { return this.name; }
     public void setName(String name) { this.name = name; }
 
