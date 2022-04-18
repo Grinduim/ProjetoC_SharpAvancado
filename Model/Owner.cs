@@ -111,7 +111,6 @@ public class Owner : Person, IValidateDataObject, IDataController<OwnerDTO, Owne
         var ownerDTO = new OwnerDTO();
 
         ownerDTO.name = this.name;
-        ownerDTO.name = this.name;
         ownerDTO.date_of_birth = this.date_of_birth;
         ownerDTO.document = this.document;
         ownerDTO.email = this.email;

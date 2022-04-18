@@ -21,21 +21,21 @@ public class Client : Person, IValidateDataObject, IDataController<ClientDTO, Cl
         return instance;
     }
 
-    public Boolean validateObject(Client obj)
+    public Boolean validateObject()
     {
-        if (obj.getName() == null) return false;
-        if (obj.getDateOfBirth() == null) return false;
-        if (obj.getDocument() == null) return false;
-        if (obj.getEmail() == null) return false;
-        if (obj.getPhone() == null) return false;
-        if (obj.getLogin() == null) return false;
-        if (obj.getAddress().validateObject(obj.getAddress()) == false) return false;
+        if (this.getName() == null) return false;
+        if (this.getDateOfBirth() == null) return false;
+        if (this.getDocument() == null) return false;
+        if (this.getEmail() == null) return false;
+        if (this.getPhone() == null) return false;
+        if (this.getLogin() == null) return false;
+        if (this.getAddress().validateObject() == false) return false;
         return true;
     }
 
     public static Client convertDTOToModel(ClientDTO clientDTO)
     {
-        var client = new client(Address.convertDTOToModel(clientDTO.address));
+        var client = new Client(Address.convertDTOToModel(clientDTO.address));
 
         client.name = clientDTO.name;
         client.date_of_birth = clientDTO.date_of_birth;
@@ -93,24 +93,23 @@ public class Client : Person, IValidateDataObject, IDataController<ClientDTO, Cl
 
     public List<ClientDTO> getAll()
     {
-        return this.ClientDTO;
+        return this.clientDTO;
     }
 
 
     public ClientDTO convertModelToDTO()
     {
-        var clientDTO = new clientDTO();
+        var clientDTO = new ClientDTO();
 
-        clientDTO.street = this.street;
-
-        clientDTO.state = this.state;
-
-        clientDTO.city = this.city;
-
-        clientDTO.country = this.country;
-
-        clientDTO.poste_code = this.poste_code;
-
+        clientDTO.name = this.name;
+        clientDTO.name = this.name;
+        clientDTO.date_of_birth = this.date_of_birth;
+        clientDTO.document = this.document;
+        clientDTO.email = this.email;
+        clientDTO.phone = this.phone;
+        clientDTO.login = this.login;
+        clientDTO.passwd = this.passwd;
+        clientDTO.address = this.address.convertModelToDTO();
         return clientDTO;
     }
 }
