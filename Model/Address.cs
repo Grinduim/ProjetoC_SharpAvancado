@@ -1,22 +1,22 @@
-using System;
-using Interfaces; 
+namespace Model;
+
+using Interfaces;
 using DAO;
 using DTO;
-using System.Collections.Generic;
-
-namespace Model;
-using Interfaces;
-
 
 
 public class Address : IValidateDataObject, IDataController<AddressDTO, Address>
 {
+
+    #region VARIAVEIS
     private String street ;
     private String city ;
     private String state ;
     private String country ;
     private String poste_code ;
     public List<AddressDTO> addressDTO = new List<AddressDTO>();
+    #endregion
+
 
     public Address() { }
 
@@ -34,11 +34,6 @@ public class Address : IValidateDataObject, IDataController<AddressDTO, Address>
         return new Address(obj.street, obj.city, obj.state, obj.country, obj.poste_code);
     }
 
-     public static Address convertDTOToModel(AddressDTO obj)
-    {
-        return new Address(obj.street, obj.city, obj.state, obj.country, obj.poste_code);
-    }
-
     public void delete(AddressDTO obj)
     {
 
@@ -48,17 +43,17 @@ public class Address : IValidateDataObject, IDataController<AddressDTO, Address>
     {
         var id = 0;
 
-        using(var context = new DAOContext())
+        using(var context = new DaoContext())
         {
             var address = new DAO.Address{
                 street = this.street,
                 city = this.city,
                 state = this.state,
                 country = this.country,
-                postal_code = this.poste_code
+                poste_code = this.poste_code
             };
 
-            context.Address.Add(address);
+            context.addresses.Add(address);
 
             context.SaveChanges();
 
@@ -112,8 +107,6 @@ public class Address : IValidateDataObject, IDataController<AddressDTO, Address>
         if (this.getPostalCode() == null) return false;
         return true;
     }
-
-
 
     #region GETS E SETS
     public void setStreet(String street) { this.street = street; }

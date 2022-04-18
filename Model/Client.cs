@@ -1,7 +1,10 @@
 namespace Model;
-using Interfaces;
 
-public class Client : Person, IValidateDataObject<Client>
+using Interfaces;
+using DAO;
+using DTO;
+
+public class Client : Person, IValidateDataObject, IDataController<ClientDTO, Client>
 {
     private static Client instance;
     private Guid uuid = Guid.NewGuid();
@@ -30,5 +33,8 @@ public class Client : Person, IValidateDataObject<Client>
         if (obj.getAddress().validateObject(obj.getAddress()) == false) return false;
         return true;
     }
+
+
+    
 }
 
