@@ -4,3 +4,7 @@ public class WishListDTO
     public ClientDTO client;
     public ProductDTO product;
 }
+
+
+
+
