@@ -7,7 +7,7 @@ public class Purchase : IValidateDataObject<Purchase>
     private DateTime date_purchase;
     private int payment_type;
     private int purchase_status;
-    public double purchase_values = 0;
+    private double purchase_values = 0;
     private String number_confirmation;
     private String number_nf = "";
     private Client client;

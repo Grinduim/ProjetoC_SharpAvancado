@@ -2,6 +2,7 @@ namespace DAO;
 using Microsoft.EntityFrameworkCore;
 
 
+
 public class DaoContext : DbContext
 {
     // mapeamento da entidade para a tabela
@@ -13,7 +14,6 @@ public class DaoContext : DbContext
     public DbSet<Stocks> stocks { get; set; }
     public DbSet<Store> stores { get; set; }
     public DbSet<WishList> wishlists { get; set; }
-
 
 
 
@@ -45,8 +45,6 @@ public class DaoContext : DbContext
             entity.Property(e => e.unit_price).IsRequired();
             entity.Property(e => e.bar_code).IsRequired();
         });
-
-
 
         modelBuilder.Entity<Stocks>(entity =>
         {
