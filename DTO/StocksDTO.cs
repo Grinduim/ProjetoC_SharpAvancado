@@ -1,5 +1,5 @@
 namespace DTO;
-public class StoreDTO
+public class StocksDTO
 {
     public int quntity;
     public double unit_price;
