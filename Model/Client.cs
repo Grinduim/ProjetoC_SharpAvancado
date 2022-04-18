@@ -45,6 +45,6 @@ public class Client : Person, IValidateDataObject, IDataController<ClientDTO, Cl
         return client;
     }
 
-    
+
 }
 

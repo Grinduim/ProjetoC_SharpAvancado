@@ -9,6 +9,7 @@ public class Person
     protected String phone;
     protected String login;
     protected Address address;
+    protected string passwd;
 
 
     public String getName() { return this.name; }

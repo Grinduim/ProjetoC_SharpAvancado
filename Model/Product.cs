@@ -9,16 +9,10 @@ public class Product : IValidateDataObject, IDataController<ProductDTO, Product>
     public List<ProductDTO> productDTO = new List<ProductDTO>();
 
 
-    public Product(String name, String bar_code)
-    {
-        this.name = name;
-        this.bar_code = bar_code;
-    }
-
 
     public static Product convertDTOToModel(ProductDTO obj)
     {
-        return new Product(obj.name, obj.bar_code);
+        return new Product();
     }
 
     public void delete(ProductDTO obj)
