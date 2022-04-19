@@ -1,6 +1,6 @@
 namespace Model;
 using Interfaces;
-public class WishList : IValidateDataObject<WishList>
+public class WishList : IValidateDataObject, IDataController<OwnerDTO, Owner>
 {
     private List<Product> products = new List<Product>();
     private Client client;

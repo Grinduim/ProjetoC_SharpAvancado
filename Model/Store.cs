@@ -13,10 +13,6 @@ public class Store: IValidateDataObject, IDataController<StoreDTO, Store>
 
     public Store(Owner owner) { this.owner = owner; }
 
-
-    
-
-
     public static Store convertDTOToModel(StoreDTO obj)
     {
         return new Store(Owner.convertDTOToModel(obj.owner));
@@ -37,11 +33,13 @@ public class Store: IValidateDataObject, IDataController<StoreDTO, Store>
 
             };
 
+            var
             
             var store = new DAO.Store{
                 name = this.name,
                 CNPJ = this.CNPJ,
-                owner = owner;
+                owner = owner
+                purchases = purchases.
             };
 
             context.stores.Add(store);
@@ -67,29 +65,26 @@ public class Store: IValidateDataObject, IDataController<StoreDTO, Store>
 
     public List<StoreDTO> getAll()
     {        
-        return this.StoreDTO;      
+        return this.storeDTO;      
     }
 
    
     public StoreDTO convertModelToDTO()
     {
-        var StoreDTO = new StoreDTO();
+        var storeDTO = new StoreDTO();
 
-        StoreDTO.name = this.name;
-
-        StoreDTO.bar_code = this.bar_code;
+        storeDTO.name = this.name;
+        storeDTO.CNPJ = this.CNPJ;
+        storeDTO.owner = this.owner;
+        storeDTO.p= this.purchases;
 
         return StoreDTO;
     }
 
 
 
-
-
-
-    public Boolean validateObject()
+   public Boolean validateObject()
     {
-
         if (this.getName() == null) return false;
         if (this.getCNPJ() == null) return false;
         if (this.getOwner() == null) return false;
