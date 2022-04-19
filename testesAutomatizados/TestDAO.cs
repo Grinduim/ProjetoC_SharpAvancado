@@ -65,7 +65,7 @@ namespace testesAutomatizados
 
             clientDTO.phone = "41999999999";
 
-            var clientModel = Client.converteDTOToModel(clientDTO);
+            var clientModel = Client.convertDTOToModel(clientDTO);
 
             if(clientModel.validateObject()){
                 id = clientModel.save();
@@ -106,7 +106,7 @@ namespace testesAutomatizados
 
             ownerDTO.phone = "41999999999";
 
-            var ownerModel = Owner.converteDTOToModel(ownerDTO);
+            var ownerModel = Owner.convertDTOToModel(ownerDTO);
 
             if(ownerModel.validateObject()){
                 id = ownerModel.save();
