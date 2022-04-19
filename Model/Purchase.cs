@@ -13,7 +13,7 @@ public class Purchase : IValidateDataObject , IDataController<PurchaseDTO,Purcha
     private String number_confirmation;
     private String number_nf = "";
     private Client client;
-    private Store stores;
+    private Store store;
 
     private List<PurchaseDTO> purchaseDTO= new List<PurchaseDTO>();
     private List<Product> products = new List<Product>();
@@ -87,5 +87,19 @@ public class Purchase : IValidateDataObject , IDataController<PurchaseDTO,Purcha
     }
     // terminarn o restante das coisa que tem q terminar
     // terminar a implementação da DataController
+
+    public void delete(OwnerDTO obj)
+    {
+
+    }
+
+    public int save(){
+        var id = 0;
+        using(var context = new DaoContext()){
+            var purchase = new DAO.Purchase{
+
+            }
+        }
+    }
 }
 
