@@ -36,7 +36,7 @@ public class WishList : IValidateDataObject, IDataController<WishListDTO, WishLi
         using(var context = new DaoContext())
         {
 
-            var clientDAO = context.clients.FirstOrDefault(c => c.id  ==1);
+            var clientDAO = context.Client.FirstOrDefault(c => c.id  ==1);
             var productDAO = context.products.Where(c => c.id == 1).Single();
 
             var wishList = new DAO.WishList{

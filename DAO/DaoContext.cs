@@ -7,7 +7,7 @@ public class DaoContext : DbContext
 {
     // mapeamento da entidade para a tabela
     public DbSet<Address> addresses { get; set; }
-    public DbSet<Client> clients { get; set; }
+    public DbSet<Client> Client { get; set; }
     public DbSet<Owner> owners { get; set; }
     public DbSet<Product> products { get; set; }
     public DbSet<Purchase> purchases { get; set; }
@@ -19,7 +19,7 @@ public class DaoContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        optionsBuilder.UseSqlServer("Data Source = JVLPC0553;" + "Initial Catalog = MarketPlace; Integrated Security=True");
+        optionsBuilder.UseSqlServer("Data Source = JVLPC0497;" + "Initial Catalog = MarketPlace2; Integrated Security=True");
     }
 
 
@@ -31,51 +31,51 @@ public class DaoContext : DbContext
         modelBuilder.Entity<Address>(entity =>
         {
             entity.HasKey(e => e.id);
-            entity.Property(e => e.street).IsRequired();
-            entity.Property(e => e.city).IsRequired();
-            entity.Property(e => e.state).IsRequired();
-            entity.Property(e => e.country).IsRequired();
-            entity.Property(e => e.postal_code).IsRequired();
+            entity.Property(e => e.street);
+            entity.Property(e => e.city);
+            entity.Property(e => e.state);
+            entity.Property(e => e.country);
+            entity.Property(e => e.postal_code);
         });
 
         modelBuilder.Entity<Product>(entity =>
         {
             entity.HasKey(e => e.id);
-            entity.Property(e => e.name).IsRequired();
-            entity.Property(e => e.bar_code).IsRequired();
+            entity.Property(e => e.name);
+            entity.Property(e => e.bar_code);
         });
 
         modelBuilder.Entity<Stocks>(entity =>
         {
             entity.HasKey(e => e.id);
-            entity.Property(e => e.quantity).IsRequired();
+            entity.Property(e => e.quantity);
             entity.HasOne(d => d.store);
             entity.HasOne(d => d.product);
-            entity.Property(e => e.unit_price).IsRequired();
+            entity.Property(e => e.unit_price);
         });
 
         modelBuilder.Entity<Client>(entity =>
         {
             entity.HasKey(e => e.id);
-            entity.Property(e => e.name).IsRequired();
-            entity.Property(e => e.date_of_birth).IsRequired();
-            entity.Property(e => e.document).IsRequired();
-            entity.Property(e => e.email).IsRequired();
-            entity.Property(e => e.phone).IsRequired();
-            entity.Property(e => e.login).IsRequired();
-            entity.Property(e => e.passwd).IsRequired();
+            entity.Property(e => e.name);
+            entity.Property(e => e.date_of_birth);
+            entity.Property(e => e.document);
+            entity.Property(e => e.email);
+            entity.Property(e => e.phone);
+            entity.Property(e => e.login);
+            entity.Property(e => e.passwd);
             entity.HasOne(d => d.address);
         });
 
         modelBuilder.Entity<Purchase>(entity =>
         {
             entity.HasKey(e => e.id);
-            entity.Property(e => e.date_purchase).IsRequired();
-            entity.Property(e => e.payment_type).IsRequired();
-            entity.Property(e => e.purchase_status).IsRequired();
-            entity.Property(e => e.purchase_values).IsRequired();
-            entity.Property(e => e.number_confirmation).IsRequired();
-            entity.Property(e => e.number_nf).IsRequired();
+            entity.Property(e => e.date_purchase);
+            entity.Property(e => e.payment_type);
+            entity.Property(e => e.purchase_status);
+            entity.Property(e => e.purchase_values);
+            entity.Property(e => e.number_confirmation);
+            entity.Property(e => e.number_nf);
             entity.HasOne(d => d.client);
             entity.HasOne(d => d.store);
             entity.HasOne(d => d.product);
@@ -84,21 +84,21 @@ public class DaoContext : DbContext
         modelBuilder.Entity<Owner>(entity =>
         {
             entity.HasKey(e => e.id);
-            entity.Property(e => e.name).IsRequired();
-            entity.Property(e => e.date_of_birth).IsRequired();
-            entity.Property(e => e.document).IsRequired();
-            entity.Property(e => e.email).IsRequired();
-            entity.Property(e => e.phone).IsRequired();
-            entity.Property(e => e.login).IsRequired();
-            entity.Property(e => e.passwd).IsRequired();
+            entity.Property(e => e.name);
+            entity.Property(e => e.date_of_birth);
+            entity.Property(e => e.document);
+            entity.Property(e => e.email);
+            entity.Property(e => e.phone);
+            entity.Property(e => e.login);
+            entity.Property(e => e.passwd);
             entity.HasOne(d => d.address);
         });
 
         modelBuilder.Entity<Store>(entity =>
         {
             entity.HasKey(e => e.id);
-            entity.Property(e => e.name).IsRequired();
-            entity.Property(e => e.CNPJ).IsRequired();
+            entity.Property(e => e.name);
+            entity.Property(e => e.CNPJ);
             entity.HasOne(d => d.owner);
         });
 

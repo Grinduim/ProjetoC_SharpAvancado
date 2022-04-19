@@ -45,6 +45,11 @@ public class Stocks : IValidateDataObject, IDataController<StocksDTO, Stocks>
                 product = product,
                 store = store,
             };
+            context.stocks.Add(stocks);
+
+            context.SaveChanges();
+
+            id = product.id;
         }
          return id;
     }

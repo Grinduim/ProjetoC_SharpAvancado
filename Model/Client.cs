@@ -66,12 +66,14 @@ public class Client : Person, IValidateDataObject, IDataController<ClientDTO, Cl
                 country = this.address.getCountry(),
                 postal_code = this.address.getPostalCode()
             };
+            
+            context.addresses.Add(address);
 
             var client = new DAO.Client
             {
                 name = this.name,
                 date_of_birth = this.date_of_birth,
-                document = this.document,
+                document = "1235468",
                 email = this.email,
                 phone = this.phone,
                 passwd = this.passwd,
@@ -79,11 +81,12 @@ public class Client : Person, IValidateDataObject, IDataController<ClientDTO, Cl
                 address = address
             };
 
-            context.clients.Add(client);
+            context.Client.Add(client);
 
             context.SaveChanges();
+            
 
-            id = client.id;
+            //id = client.id;
 
         }
         return id;
