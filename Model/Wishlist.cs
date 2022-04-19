@@ -15,7 +15,14 @@ public class WishList : IValidateDataObject, IDataController<WishListDTO, WishLi
 
     public static WishList convertDTOToModel(WishListDTO obj)
     {
-        return new WishList(Client.convertDTOToModel(obj.client));
+
+        var wishList =  new WishList(Client.convertDTOToModel(obj.client));
+
+        foreach(var prod in obj.product){
+            wishList.addProductToWishList(Product.convertDTOToModel(prod));
+        }
+
+        return wishList;
     }
 
     public void delete(WishListDTO obj)
@@ -29,30 +36,15 @@ public class WishList : IValidateDataObject, IDataController<WishListDTO, WishLi
         using(var context = new DaoContext())
         {
 
-            var product = new DAO.Product{
-                name = this.products.getName(),
-                bar_code = this.products.getBarCode()
-            };  
-
-            var address = new DAO.
-
-            
-            var client = new DAO.Client{
-                name = this.client.getName(),
-                date_of_birth = this.client.getDateOfBirth(),
-                document = this.client.getDocument(),
-                email = this.client.getEmail(),
-                phone = this.client.getPhone(),
-                login = this.client.getLogin(),
-                address =this.client.getAddress()
-            };
+            var clientDAO = context.clients.FirstOrDefault(c => c.id  ==1);
+            var productDAO = context.products.Where(c => c.id == 1).Single();
 
             var wishList = new DAO.WishList{
-                client = client,
-                product = product
+                client = clientDAO,
+                product = productDAO
             };
 
-            context.addresses.Add(wishList);
+            context.wishlists.Add(wishList);
 
             context.SaveChanges();
 
@@ -75,25 +67,23 @@ public class WishList : IValidateDataObject, IDataController<WishListDTO, WishLi
 
     public List<WishListDTO> getAll()
     {        
-        return this.WishListDTO;      
+        return this.wishListDTO;      
     }
 
    
     public WishListDTO convertModelToDTO()
     {
-        var WishListDTO = new WishListDTO();
+        var wishListDTO = new WishListDTO();
 
-        WishListDTO.street = this.street;
+        wishListDTO.client = this.client.convertModelToDTO();
 
-        WishListDTO.state = this.state;
+        foreach(var prod in this.products){
+            wishListDTO.product.Add(prod.convertModelToDTO());
+        }
 
-        WishListDTO.city = this.city;
+      
 
-        WishListDTO.country = this.country;
-
-        WishListDTO.poste_code = this.poste_code;
-
-        return WishListDTO;
+        return wishListDTO;
     }
 
 
