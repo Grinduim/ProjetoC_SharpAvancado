@@ -12,7 +12,7 @@ public class DaoContext : DbContext
     public DbSet<Product> products { get; set; }
     public DbSet<Purchase> purchases { get; set; }
     public DbSet<Stocks> stocks { get; set; }
-    public DbSet<Store> stores { get; set; }
+    public DbSet<Store> store { get; set; }
     public DbSet<WishList> wishlists { get; set; }
 
 
@@ -78,7 +78,7 @@ public class DaoContext : DbContext
             entity.Property(e => e.number_nf).IsRequired();
             entity.HasOne(d => d.client);
             entity.HasOne(d => d.store);
-            entity.HasOne(d => d.products);
+            entity.HasOne(d => d.product);
         });
 
         modelBuilder.Entity<Owner>(entity =>

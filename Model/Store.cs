@@ -41,7 +41,7 @@ public class Store: IValidateDataObject, IDataController<StoreDTO, Store>
             var store = new DAO.Store{
                 name = this.name,
                 CNPJ = this.CNPJ,
-                owner = owner;
+                owner = owner
             };
 
             context.stores.Add(store);
