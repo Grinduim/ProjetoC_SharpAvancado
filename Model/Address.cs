@@ -13,21 +13,21 @@ public class Address : IValidateDataObject, IDataController<AddressDTO, Address>
     private String city ;
     private String state ;
     private String country ;
-    private String poste_code ;
+    private String postal_code ;
     public List<AddressDTO> addressDTO = new List<AddressDTO>();
 
-    public Address(String street, String city, String state, String country, String poste_code)
+    public Address(String street, String city, String state, String country, String postal_code)
     {
         this.street = street;
         this.city = city;
         this.state = state;
         this.country = country;
-        this.poste_code = poste_code;
+        this.postal_code = postal_code;
     }
 
     public static Address convertDTOToModel(AddressDTO obj)
     {
-        return new Address(obj.street, obj.city, obj.state, obj.country, obj.poste_code);
+        return new Address(obj.street, obj.city, obj.state, obj.country, obj.postal_code);
     }
 
     public void delete(AddressDTO obj)
@@ -45,7 +45,7 @@ public class Address : IValidateDataObject, IDataController<AddressDTO, Address>
                 city = this.city,
                 state = this.state,
                 country = this.country,
-                poste_code = this.poste_code
+                postal_code = this.postal_code
             };
 
             context.addresses.Add(address);
@@ -87,7 +87,7 @@ public class Address : IValidateDataObject, IDataController<AddressDTO, Address>
 
         addressDTO.country = this.country;
 
-        addressDTO.poste_code = this.poste_code;
+        addressDTO.postal_code = this.postal_code;
 
         return addressDTO;
     }
@@ -120,8 +120,8 @@ public class Address : IValidateDataObject, IDataController<AddressDTO, Address>
     public String getCountry() { return this.country; }
 
 
-    public void setPostalCode(String poste_code) { this.poste_code = poste_code; }
-    public String getPostalCode() { return this.poste_code; }
+    public void setPostalCode(String postal_code) { this.postal_code = postal_code; }
+    public String getPostalCode() { return this.postal_code; }
 
    
 }
