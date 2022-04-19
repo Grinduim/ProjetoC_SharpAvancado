@@ -8,17 +8,13 @@ using DTO;
 public class Address : IValidateDataObject, IDataController<AddressDTO, Address>
 {
 
-    #region VARIAVEIS
+  
     private String street ;
     private String city ;
     private String state ;
     private String country ;
     private String poste_code ;
     public List<AddressDTO> addressDTO = new List<AddressDTO>();
-    #endregion
-
-
-    public Address() { }
 
     public Address(String street, String city, String state, String country, String poste_code)
     {
@@ -107,7 +103,7 @@ public class Address : IValidateDataObject, IDataController<AddressDTO, Address>
         return true;
     }
 
-    #region GETS E SETS
+
     public void setStreet(String street) { this.street = street; }
     public String getStreet() { return this.street; }
 
@@ -126,7 +122,7 @@ public class Address : IValidateDataObject, IDataController<AddressDTO, Address>
 
     public void setPostalCode(String poste_code) { this.poste_code = poste_code; }
     public String getPostalCode() { return this.poste_code; }
-#endregion
+
    
 }
 

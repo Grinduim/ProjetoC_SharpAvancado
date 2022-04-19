@@ -68,6 +68,7 @@ public class Purchase : IValidateDataObject , IDataController<PurchaseDTO,Purcha
         return true;
     }
 
+
     public void updateStatus(int PurchaseStatusEnum)
     {
         this.purchase_status = PurchaseStatusEnum;
@@ -92,7 +93,7 @@ public class Purchase : IValidateDataObject , IDataController<PurchaseDTO,Purcha
     {
 
     }
-
+    
     public int save(){
         var id = 0;
         using(var context = new DaoContext()){
@@ -100,6 +101,31 @@ public class Purchase : IValidateDataObject , IDataController<PurchaseDTO,Purcha
 
             }
         }
+    }
+
+     public PurchaseDTO convertModelToDTO()
+    {
+        var purchaseDTO = new purchaseDTO();
+
+        purchaseDTO.date_purchase = this.date_purchase;
+
+        purchaseDTO.payment_type = this.payment_type;
+
+        purchaseDTO.purchase_status = this.purchase_status;
+
+        purchaseDTO.purchase_value = this.purchase_value;
+
+        purchaseDTO.number_confirmation = this.number_confirmation;
+
+        purchaseDTO.number_nf = this.number_nf;
+
+        purchaseDTO.client = this.client.convertModelToDTO();
+
+        purchaseDTO.store = this.store;
+
+    
+
+        return purchaseDTO;
     }
 }
 

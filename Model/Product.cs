@@ -12,7 +12,11 @@ public class Product : IValidateDataObject, IDataController<ProductDTO, Product>
 
     public static Product convertDTOToModel(ProductDTO obj)
     {
-        return new Product();
+        var product = new Product();
+        product.name = obj.name;
+        product.bar_code = obj.bar_code;
+
+        return product;
     }
 
     public void delete(ProductDTO obj)
@@ -80,7 +84,6 @@ public class Product : IValidateDataObject, IDataController<ProductDTO, Product>
 
     public Boolean validateObject()
     {
-
         if (this.getName() == null) return false;
         if (this.getBarCode() == null) return false;
         return true;

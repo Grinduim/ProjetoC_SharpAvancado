@@ -13,37 +13,41 @@ public class Store: IValidateDataObject, IDataController<StoreDTO, Store>
 
     public Store(Owner owner) { this.owner = owner; }
 
+
     public static Store convertDTOToModel(StoreDTO obj)
     {
-        return new Store(Owner.convertDTOToModel(obj.owner));
+        var store = new Store(Owner.convertDTOToModel(obj.owner));
+        store.setName(obj.name);
+        store.setCNPJ(obj.CNPJ);
+     
+        foreach(var purch in obj.purchase){
+            store.addNewPurchase(Purchase.convertDTOToModel(purch));
+        }
+
+        return store;
     }
 
     public void delete(StoreDTO obj)
     {
 
     }
-    public int save()
+    public int save(int owner)
     {
         var id = 0;
 
         using(var context = new DaoContext())
         {
 
-            var owner = new DAO.Owner{
+            var ownerDAO = context.owners.Where(c => c.id == owner).Single();
 
-            };
-
-            var
-            
             var store = new DAO.Store{
                 name = this.name,
                 CNPJ = this.CNPJ,
-                owner = owner
-                purchases = purchases.
+                owner = ownerDAO
             };
 
             context.stores.Add(store);
-
+            context.Entry(store.owner).State = Microsoft.EntityFrameworkCore.EntityState.Unchanged;
             context.SaveChanges();
 
             id = store.id;
@@ -75,10 +79,13 @@ public class Store: IValidateDataObject, IDataController<StoreDTO, Store>
 
         storeDTO.name = this.name;
         storeDTO.CNPJ = this.CNPJ;
-        storeDTO.owner = this.owner;
-        storeDTO.p= this.purchases;
+        storeDTO.owner = this.owner.convertModelToDTO();
 
-        return StoreDTO;
+        foreach(var purch in this.purchases){
+            storeDTO.purchase.Add(purch.convertModelToDTO());
+        }
+
+        return storeDTO;
     }
 
 

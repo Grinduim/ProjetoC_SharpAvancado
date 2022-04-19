@@ -58,6 +58,15 @@ public class Client : Person, IValidateDataObject, IDataController<ClientDTO, Cl
 
         using (var context = new DaoContext())
         {
+
+            var address = new DAO.Address{
+                street = this.address.getStreet(),
+                city = this.address.getCity(),
+                state = this.address.getState(),
+                country = this.address.getCountry(),
+                poste_code = this.address.getPostalCode()
+            };
+
             var client = new DAO.Client
             {
                 name = this.name,
@@ -66,7 +75,8 @@ public class Client : Person, IValidateDataObject, IDataController<ClientDTO, Cl
                 email = this.email,
                 phone = this.phone,
                 passwd = this.passwd,
-                login = this.login
+                login = this.login,
+                address = address
             };
 
             context.clients.Add(client);
