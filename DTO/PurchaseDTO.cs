@@ -7,4 +7,5 @@ public class PurchaseDTO
     public int purchase_status;
     public String number_confirmation;
     public String number_nf;
+    public ClientDTO client;
 }

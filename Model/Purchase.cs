@@ -1,17 +1,21 @@
 using Enums;
 namespace Model;
 using Interfaces;
+using DAO;
+using DTO;
 using Microsoft.EntityFrameworkCore;
-public class Purchase : IValidateDataObject<Purchase>
+public class Purchase : IValidateDataObject , IDataController<PurchaseDTO,Purchase>
 {
     private DateTime date_purchase;
     private int payment_type;
     private int purchase_status;
-    private double purchase_values = 0;
+    private double purchase_value= 0;
     private String number_confirmation;
     private String number_nf = "";
     private Client client;
-    private Store stores;
+    private Store store;
+
+    private List<PurchaseDTO> purchaseDTO= new List<PurchaseDTO>();
     private List<Product> products = new List<Product>();
 
 
@@ -46,20 +50,20 @@ public class Purchase : IValidateDataObject<Purchase>
     public void setPurchaseStatus(PurchaseStatusEnum purchase_status) { this.purchase_status = (int)purchase_status; }
 
 
-    public double getPurchaseValues() => purchase_values;
-    public void setPurchaseValues(double purchase_values) { this.purchase_values = purchase_values; }
+    public double getPurchaseValues() => purchase_value;
+    public void setPurchaseValues(double purchase_values) { this.purchase_value = purchase_values; }
 
 
-    public Boolean validateObject(Purchase obj)
+    public Boolean validateObject()
     {
 
-        if (obj.getDataPurchase() == null) return false;
-        if (obj.getNumberConfirmation() == null) return false;
-        if (obj.getNumberNf() == null) return false;
-        if (obj.getProducts() == null) return false;
-        if (obj.getPurchaseValues() == 0) return false;
-        if (obj.GetClient() == null) return false;
-        if (obj.GetStores() == null) return false;
+        if (this.getDataPurchase() == null) return false;
+        if (this.getNumberConfirmation() == null) return false;
+        if (this.getNumberNf() == null) return false;
+        if (this.getProducts() == null) return false;
+        if (this.getPurchaseValues() == 0) return false;
+        if (this.GetClient() == null) return false;
+        if (this.GetStores() == null) return false;
 
         return true;
     }
@@ -67,6 +71,35 @@ public class Purchase : IValidateDataObject<Purchase>
     public void updateStatus(int PurchaseStatusEnum)
     {
         this.purchase_status = PurchaseStatusEnum;
+    }
+
+    public static Purchase convertDTOToModel(PurchaseDTO obj){
+        var purchase = new Purchase();
+        purchase.client =  Client.convertDTOToModel(obj.client);
+        purchase.date_purchase = obj.data_purchase;
+        purchase.purchase_value = obj.purchase_value;
+        purchase.payment_type = obj.payment_type;
+        purchase.purchase_status = obj.purchase_status;
+        purchase.number_confirmation = obj.number_confirmation;
+        purchase.number_nf = obj.number_nf;
+
+        return new Purchase();
+    }
+    // terminarn o restante das coisa que tem q terminar
+    // terminar a implementação da DataController
+
+    public void delete(OwnerDTO obj)
+    {
+
+    }
+
+    public int save(){
+        var id = 0;
+        using(var context = new DaoContext()){
+            var purchase = new DAO.Purchase{
+
+            }
+        }
     }
 }
 

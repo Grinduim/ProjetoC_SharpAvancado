@@ -36,8 +36,6 @@ public class Owner : Person, IValidateDataObject, IDataController<OwnerDTO, Owne
                 country = this.address.getCountry(),
                 poste_code = this.address.getPostalCode()
             };
-
-
             var owner = new DAO.Owner{
                 name = this.name,
                 date_of_birth = this.date_of_birth,

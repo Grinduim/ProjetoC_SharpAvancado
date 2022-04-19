@@ -95,8 +95,6 @@ public class Client : Person, IValidateDataObject, IDataController<ClientDTO, Cl
     {
         return this.clientDTO;
     }
-
-
     public ClientDTO convertModelToDTO()
     {
         var clientDTO = new ClientDTO();
