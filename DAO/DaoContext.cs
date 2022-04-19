@@ -78,7 +78,7 @@ public class DaoContext : DbContext
             entity.Property(e => e.number_nf).IsRequired();
             entity.HasOne(d => d.client);
             entity.HasOne(d => d.store);
-            entity.HasOne(d => d.products);
+            entity.HasOne(d => d.product);
         });
 
         modelBuilder.Entity<Owner>(entity =>

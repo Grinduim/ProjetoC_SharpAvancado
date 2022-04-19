@@ -10,6 +10,6 @@ public class Purchase
     public String number_nf;
     public Client client;
     public Store store;
-    public Product products;
+    public Product product;
 }
 
