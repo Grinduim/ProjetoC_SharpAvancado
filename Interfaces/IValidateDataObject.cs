@@ -4,6 +4,6 @@ namespace Interfaces
 {
     public interface IValidateDataObject{
        
-        Boolean validateObject();
+        // Boolean validateObject();
     }
 }

@@ -8,7 +8,9 @@
     ".NETCoreApp,Version=v6.0": {
       "console/1.0.0": {
         "dependencies": {
-          "DAO": "1.0.0"
+          "DAO": "1.0.0",
+          "DTO": "1.0.0",
+          "Model": "1.0.0"
         },
         "runtime": {
           "console.dll": {}
@@ -464,6 +466,37 @@
         "runtime": {
           "DAO.dll": {}
         }
+      },
+      "DTO/1.0.0": {
+        "dependencies": {
+          "DAO": "1.0.0"
+        },
+        "runtime": {
+          "DTO.dll": {}
+        }
+      },
+      "Enums/1.0.0": {
+        "runtime": {
+          "Enums.dll": {}
+        }
+      },
+      "Interfaces/1.0.0": {
+        "runtime": {
+          "Interfaces.dll": {}
+        }
+      },
+      "Model/1.0.0": {
+        "dependencies": {
+          "DAO": "1.0.0",
+          "DTO": "1.0.0",
+          "Enums": "1.0.0",
+          "Interfaces": "1.0.0",
+          "Microsoft.EntityFrameworkCore": "6.0.3",
+          "Microsoft.EntityFrameworkCore.SqlServer": "6.0.3"
+        },
+        "runtime": {
+          "Model.dll": {}
+        }
       }
     }
   },
@@ -754,6 +787,26 @@
       "hashPath": "system.windows.extensions.4.7.0.nupkg.sha512"
     },
     "DAO/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "DTO/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Enums/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Interfaces/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Model/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

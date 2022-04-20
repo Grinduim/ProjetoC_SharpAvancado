@@ -73,7 +73,7 @@ public class Client : Person, IValidateDataObject, IDataController<ClientDTO, Cl
             {
                 name = this.name,
                 date_of_birth = this.date_of_birth,
-                document = "1235468",
+                document = this.document,
                 email = this.email,
                 phone = this.phone,
                 passwd = this.passwd,
@@ -86,7 +86,7 @@ public class Client : Person, IValidateDataObject, IDataController<ClientDTO, Cl
             context.SaveChanges();
             
 
-            //id = client.id;
+            id = client.id;
 
         }
         return id;

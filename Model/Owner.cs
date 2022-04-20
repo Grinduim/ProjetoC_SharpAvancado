@@ -29,6 +29,30 @@ public class Owner : Person, IValidateDataObject, IDataController<OwnerDTO, Owne
         using(var context = new DaoContext())
         {
 
+            // var address = new DAO.Address{
+            //     street = this.address.getStreet(),
+            //     city = this.address.getCity(),
+            //     state = this.address.getState(),
+            //     country = this.address.getCountry(),
+            //     postal_code = this.address.getPostalCode()
+            // };
+            // var owner = new DAO.Owner{
+            //     name = this.name,
+            //     date_of_birth = this.date_of_birth,
+            //     document = this.document,
+            //     email = this.email,
+            //     phone = this.phone,
+            //     login = this.login,
+            //     address = address,
+            //     passwd = this.passwd
+            // };
+
+            // context.owners.Add(owner);
+
+            // context.SaveChanges();
+
+            // id = owner.id;
+
             var address = new DAO.Address{
                 street = this.address.getStreet(),
                 city = this.address.getCity(),
@@ -36,20 +60,25 @@ public class Owner : Person, IValidateDataObject, IDataController<OwnerDTO, Owne
                 country = this.address.getCountry(),
                 postal_code = this.address.getPostalCode()
             };
-            var owner = new DAO.Owner{
+            
+            context.addresses.Add(address);
+
+            var owner = new DAO.Owner
+            {
                 name = this.name,
                 date_of_birth = this.date_of_birth,
                 document = this.document,
                 email = this.email,
                 phone = this.phone,
+                passwd = this.passwd,
                 login = this.login,
-                address = address,
-                passwd = this.passwd
+                address = address
             };
 
             context.owners.Add(owner);
 
             context.SaveChanges();
+            
 
             id = owner.id;
 

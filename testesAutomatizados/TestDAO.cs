@@ -1,6 +1,7 @@
 using NUnit.Framework;
 using Model;
 using DTO;
+using System;
 
 namespace testesAutomatizados
 {
@@ -64,6 +65,10 @@ namespace testesAutomatizados
             clientDTO.passwd = "sdfsdgfgd";
 
             clientDTO.phone = "41999999999";
+            
+            clientDTO.document = "1524521515";
+            
+            clientDTO.date_of_birth = new DateTime(2002, 5, 1, 8, 30, 30);
 
             var clientModel = Client.convertDTOToModel(clientDTO);
 
@@ -105,6 +110,10 @@ namespace testesAutomatizados
             ownerDTO.passwd = "sdfsdgfgd";
 
             ownerDTO.phone = "41999999999";
+            
+            ownerDTO.document = "1252451245";
+            
+            ownerDTO.date_of_birth = new DateTime(2002, 5, 1, 8, 30, 30);
 
             var ownerModel = Owner.convertDTOToModel(ownerDTO);
 

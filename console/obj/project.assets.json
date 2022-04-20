@@ -608,6 +608,57 @@
         "runtime": {
           "bin/placeholder/DAO.dll": {}
         }
+      },
+      "DTO/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "DAO": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/DTO.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DTO.dll": {}
+        }
+      },
+      "Enums/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/Enums.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Enums.dll": {}
+        }
+      },
+      "Interfaces/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/Interfaces.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Interfaces.dll": {}
+        }
+      },
+      "Model/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "DAO": "1.0.0",
+          "DTO": "1.0.0",
+          "Enums": "1.0.0",
+          "Interfaces": "1.0.0",
+          "Microsoft.EntityFrameworkCore": "6.0.3",
+          "Microsoft.EntityFrameworkCore.SqlServer": "6.0.3"
+        },
+        "compile": {
+          "bin/placeholder/Model.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Model.dll": {}
+        }
       }
     }
   },
@@ -1777,11 +1828,33 @@
       "type": "project",
       "path": "../DAO/DAO.csproj",
       "msbuildProject": "../DAO/DAO.csproj"
+    },
+    "DTO/1.0.0": {
+      "type": "project",
+      "path": "../DTO/DTO.csproj",
+      "msbuildProject": "../DTO/DTO.csproj"
+    },
+    "Enums/1.0.0": {
+      "type": "project",
+      "path": "../Enums/Enums.csproj",
+      "msbuildProject": "../Enums/Enums.csproj"
+    },
+    "Interfaces/1.0.0": {
+      "type": "project",
+      "path": "../Interfaces/Interfaces.csproj",
+      "msbuildProject": "../Interfaces/Interfaces.csproj"
+    },
+    "Model/1.0.0": {
+      "type": "project",
+      "path": "../Model/Model.csproj",
+      "msbuildProject": "../Model/Model.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "DAO >= 1.0.0"
+      "DAO >= 1.0.0",
+      "DTO >= 1.0.0",
+      "Model >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -1813,6 +1886,12 @@
           "projectReferences": {
             "C:\\Users\\disrct\\Desktop\\ProjetoC_SharpAvancado\\DAO\\DAO.csproj": {
               "projectPath": "C:\\Users\\disrct\\Desktop\\ProjetoC_SharpAvancado\\DAO\\DAO.csproj"
+            },
+            "C:\\Users\\disrct\\Desktop\\ProjetoC_SharpAvancado\\DTO\\DTO.csproj": {
+              "projectPath": "C:\\Users\\disrct\\Desktop\\ProjetoC_SharpAvancado\\DTO\\DTO.csproj"
+            },
+            "C:\\Users\\disrct\\Desktop\\ProjetoC_SharpAvancado\\Model\\Model.csproj": {
+              "projectPath": "C:\\Users\\disrct\\Desktop\\ProjetoC_SharpAvancado\\Model\\Model.csproj"
             }
           }
         }
