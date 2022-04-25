@@ -9,7 +9,7 @@
 // { 
 //     public static Address adr = new Address("rua teste 1", "cidadeUm", "EstadoDois", "PaisTres", "80050450");  
 
-//     //[Test]
+//     [Test]
 //     public void ValidateProductDataWithOutName(){        
 
 //         Product product = new Product();
@@ -21,7 +21,7 @@
 //         Assert.That(product.validateObject(), Is.EqualTo(false));
            
 //     }
-//     //[Test]
+//     [Test]
 //     public void ValidateProductDataWithOutUnitPrice(){
 
 //        Product product = new Product();
@@ -33,7 +33,7 @@
 //         Assert.That(product.validateObject(), Is.EqualTo(false));
            
 //     }
-//    // [Test]
+//     [Test]
 //      public void ValidateProductDataWithOutBarCode(){
 
 //         Product product = new Product();
@@ -44,7 +44,7 @@
 
 //         Assert.That(product.validateObject(), Is.EqualTo(false));           
 //     }
-//     //[Test]
+//     [Test]
 //     public void ValidateOwnerWithOutName(){
 //         Owner testOwner = Owner.getInstance(adr);
        
@@ -55,7 +55,7 @@
 //         Assert.That(testOwner.validateObject(), Is.EqualTo(false));       
 //     }
 
-//     //[Test]
+//     [Test]
 //     public void ValidateOwnerWithOutEmail(){
 //         Owner testOwner = Owner.getInstance(adr);
              
@@ -66,7 +66,7 @@
 //         Assert.That(testOwner.validateObject(), Is.EqualTo(false));      
 
 //     }
-//     //[Test]
+//     [Test]
 //     public void ValidateOwnerWithOutLogin(){
 //         Owner testOwner = Owner.getInstance(adr);
              
@@ -78,7 +78,7 @@
 
 //     }
 
-//     //[Test]
+//     [Test]
 //     public void ValidateOwnerWithOutPhone(){
 //         Owner testOwner = Owner.getInstance(adr);
              
@@ -89,7 +89,7 @@
 
 //     }
 
-//     //[Test]
+//     [Test]
 //     public void ValidateClientWithOutName(){
 //         Client client = Client.getInstance(adr);
        
@@ -100,7 +100,7 @@
 //         Assert.That(client.validateObject(), Is.EqualTo(false));       
 //     }
 
-//    // [Test]
+//    [Test]
 //     public void ValidateClientWithOutEmail(){
 //         Client client = Client.getInstance(adr);
              
@@ -111,7 +111,7 @@
 //         Assert.That(client.validateObject(), Is.EqualTo(false));      
 
 //     }
-//     //[Test]
+//     [Test]
 //     public void ValidateClientWithOutLogin(){
 //         Client client = Client.getInstance(adr);
              
@@ -123,7 +123,7 @@
 
 //     }
 
-//     //[Test]
+//     [Test]
 //     public void ValidateClientWithOutPhone(){
 //         Client client = Client.getInstance(adr);
               
@@ -134,7 +134,7 @@
 
 //     }
 
-//     //[Test]
+//     [Test]
 //     public void ValidateStoreWithOutName(){
 //         Address adr = new Address("rua teste 1", "cidadeUm", "EstadoDois", "PaisTres", "80050450"); 
 
@@ -153,7 +153,7 @@
 //         Assert.That(store.validateObject(), Is.EqualTo(false));
 //     }
 
-//     //[Test]
+//     [Test]
 //     public void ValidateStoreWithOutCNPJ(){
 //         Address adr = new Address("rua teste 1", "cidadeUm", "EstadoDois", "PaisTres", "80050450"); 
 
@@ -172,13 +172,13 @@
 //         Assert.That(store.validateObject(), Is.EqualTo(false));
 //     }
 
-//    // [Test]
+//    [Test]
 //     public void ValidateStockWithProductWithoutQuantity(){
 //         Stocks stock = new Stocks();
 
 //         Address adr = new Address("rua teste 1", "cidadeUm", "EstadoDois", "PaisTres", "80050450"); 
 
-//         Owner testOwner = Owner.getInstance(adr);
+//         Owner testOwner = Owner.getInstance(adr);        
 
 //         Store store = new Store(testOwner);      
 
@@ -192,7 +192,7 @@
 //         Assert.That(stock.validateObject(), Is.EqualTo(false));
 //     }
 
-//     //[Test]
+//     [Test]
 //     public void ValidateStockWithQuantityWithoutProduct(){
 //         Stocks stock = new Stocks();
 

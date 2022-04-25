@@ -160,7 +160,7 @@
 
 //         }
 
-//         [Test]
+//         //[Test]
 //         public void StoreCreateTest()
 //         {
 //             Address adr = new Address("rua teste 1", "cidadeUm", "EstadoDois", "PaisTres", "80050450"); 

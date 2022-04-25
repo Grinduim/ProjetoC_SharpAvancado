@@ -15,7 +15,16 @@ public class Owner : Person, IValidateDataObject, IDataController<OwnerDTO, Owne
 
     public static Owner convertDTOToModel(OwnerDTO obj)
     {
-        return new Owner(Address.convertDTOToModel(obj.address));
+        var owner = new Owner(Address.convertDTOToModel(obj.address));
+        owner.name = obj.name;
+        owner.date_of_birth = obj.date_of_birth;
+        owner.document = obj.document;
+        owner.email = obj.email;
+        owner.phone = obj.phone;
+        owner.login = obj.login;
+        owner.passwd = obj.passwd;
+
+        return owner;
     }
 
     public void delete(OwnerDTO obj)
@@ -140,13 +149,17 @@ public class Owner : Person, IValidateDataObject, IDataController<OwnerDTO, Owne
 
     public Boolean validateObject()
     {
-        if (this.getName() == null) return false;
-        if (this.getDateOfBirth() == null) return false;
-        if (this.getDocument() == null) return false;
+
+        Console.WriteLine("entrei no validade");
+        //if (this.getName() == null) return false;
+       // if (this.getDateOfBirth() == null) return false;
+       // if (this.getDocument() == null) return false;
+        Console.WriteLine(this.getName());
         if (this.getEmail() == null) return false;
         if (this.getPhone() == null) return false;
         if (this.getLogin() == null) return false;
         if (this.getAddress().validateObject() == false) return false;
+        Console.WriteLine("cheguei ao final");
         return true;
     }
 }
