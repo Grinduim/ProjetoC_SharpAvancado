@@ -8,4 +8,7 @@ public class PurchaseDTO
     public String number_confirmation;
     public String number_nf;
     public ClientDTO client;
+    public List<ProductDTO> productsDTO = new List<ProductDTO>();
+
+    public StoreDTO store;
 }

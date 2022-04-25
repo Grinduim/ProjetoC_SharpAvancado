@@ -27,7 +27,7 @@ public class Product : IValidateDataObject, IDataController<ProductDTO, Product>
     {
         var id = 0;
 
-        using(var context = new DaoContext())
+        using(var context = new DAOContext())
         {
             var product = new DAO.Product{
                 name = this.name,

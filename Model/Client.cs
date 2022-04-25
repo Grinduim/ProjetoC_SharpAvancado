@@ -56,7 +56,7 @@ public class Client : Person, IValidateDataObject, IDataController<ClientDTO, Cl
     {
         var id = 0;
 
-        using (var context = new DaoContext())
+        using (var context = new DAOContext())
         {
 
             var address = new DAO.Address{

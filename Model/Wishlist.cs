@@ -13,12 +13,17 @@ public class WishList : IValidateDataObject, IDataController<WishListDTO, WishLi
         this.client = client;
     }
 
+
+    public WishList()
+    {
+    }
     public static WishList convertDTOToModel(WishListDTO obj)
     {
 
-        var wishList =  new WishList(Client.convertDTOToModel(obj.client));
+        var wishList = new WishList(Client.convertDTOToModel(obj.client));
 
-        foreach(var prod in obj.product){
+        foreach (var prod in obj.product)
+        {
             wishList.addProductToWishList(Product.convertDTOToModel(prod));
         }
 
@@ -29,17 +34,18 @@ public class WishList : IValidateDataObject, IDataController<WishListDTO, WishLi
     {
 
     }
-    public int save()
+    public int save(string document, int productId)
     {
         var id = 0;
 
-        using(var context = new DaoContext())
+        using (var context = new DAOContext())
         {
 
-            var clientDAO = context.Client.FirstOrDefault(c => c.id  ==1);
-            var productDAO = context.products.Where(c => c.id == 1).Single();
+            var clientDAO = context.Client.FirstOrDefault(c => c.document == document);
+            var productDAO = context.products.Where(c => c.id == productId).Single();
 
-            var wishList = new DAO.WishList{
+            var wishList = new DAO.WishList
+            {
                 client = clientDAO,
                 product = productDAO
             };
@@ -51,7 +57,7 @@ public class WishList : IValidateDataObject, IDataController<WishListDTO, WishLi
             id = wishList.id;
 
         }
-         return id;
+        return id;
     }
 
     public void update(WishListDTO obj)
@@ -66,31 +72,26 @@ public class WishList : IValidateDataObject, IDataController<WishListDTO, WishLi
     }
 
     public List<WishListDTO> getAll()
-    {        
-        return this.wishListDTO;      
+    {
+        return this.wishListDTO;
     }
 
-   
+
     public WishListDTO convertModelToDTO()
     {
         var wishListDTO = new WishListDTO();
 
         wishListDTO.client = this.client.convertModelToDTO();
 
-        foreach(var prod in this.products){
+        foreach (var prod in this.products)
+        {
             wishListDTO.product.Add(prod.convertModelToDTO());
         }
 
-      
+
 
         return wishListDTO;
     }
-
-
-
-
-
-
 
     public Boolean validateObject()
     {

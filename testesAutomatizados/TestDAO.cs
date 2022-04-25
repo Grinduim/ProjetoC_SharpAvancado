@@ -74,7 +74,7 @@ namespace testesAutomatizados
             
             clientDTO.date_of_birth = new DateTime(2002, 5, 1, 8, 30, 30);
 
-            var clientModel = Model.Client.converteDTOToModel(clientDTO);
+            var clientModel = Model.Client.convertDTOToModel(clientDTO);
 
             if(clientModel.validateObject()){
                 id = clientModel.save();
@@ -114,7 +114,7 @@ namespace testesAutomatizados
             clientDTO2.date_of_birth = new DateTime(2002, 5, 1, 8, 30, 30);
             
 
-            clientModel = Model.Client.converteDTOToModel(clientDTO2);
+            clientModel = Model.Client.convertDTOToModel(clientDTO2);
 
             if(clientModel.validateObject()){
                 id = clientModel.save();
@@ -152,7 +152,7 @@ namespace testesAutomatizados
             
             clientDTO3.date_of_birth = new DateTime(2002, 5, 1, 8, 30, 30);
 
-            clientModel = Model.Client.converteDTOToModel(clientDTO3);
+            clientModel = Model.Client.convertDTOToModel(clientDTO3);
 
             if(clientModel.validateObject()){
                 id = clientModel.save();
@@ -191,7 +191,7 @@ namespace testesAutomatizados
             
             clientDTO4.date_of_birth = new DateTime(2002, 5, 1, 8, 30, 30);
 
-            clientModel = Model.Client.converteDTOToModel(clientDTO4);
+            clientModel = Model.Client.convertDTOToModel(clientDTO4);
 
             if(clientModel.validateObject()){
                 id = clientModel.save();
@@ -230,7 +230,7 @@ namespace testesAutomatizados
             
             clientDTO5.date_of_birth = new DateTime(2002, 5, 1, 8, 30, 30);
 
-            clientModel = Model.Client.converteDTOToModel(clientDTO5);
+            clientModel = Model.Client.convertDTOToModel(clientDTO5);
 
             if(clientModel.validateObject()){
                 id = clientModel.save();
@@ -243,7 +243,7 @@ namespace testesAutomatizados
         public void insertOwner()
         {
             var id = 0;
-
+            
             var addressDTO  =  new AddressDTO();
 
             addressDTO.street = "rua owner 1";
@@ -275,10 +275,12 @@ namespace testesAutomatizados
             
             ownerDTO.date_of_birth = new DateTime(2002, 5, 1, 8, 30, 30);
           
-            var ownerModel = Model.Owner.converteDTOToModel(ownerDTO);
-
+            var ownerModel = Model.Owner.convertDTOToModel(ownerDTO);
+            
             if(ownerModel.validateObject()){
+                
                 id = ownerModel.save();
+                
             }
 
             Assert.That(id, Is.Not.EqualTo(0));
@@ -314,7 +316,7 @@ namespace testesAutomatizados
             
             ownerDTO2.date_of_birth = new DateTime(2002, 5, 1, 8, 30, 30);
 
-            ownerModel = Model.Owner.converteDTOToModel(ownerDTO2);
+            ownerModel = Model.Owner.convertDTOToModel(ownerDTO2);
 
             if(ownerModel.validateObject()){
                 id = ownerModel.save();
@@ -353,7 +355,7 @@ namespace testesAutomatizados
             
             ownerDTO3.date_of_birth = new DateTime(2002, 5, 1, 8, 30, 30);
 
-            ownerModel = Model.Owner.converteDTOToModel(ownerDTO3);
+            ownerModel = Model.Owner.convertDTOToModel(ownerDTO3);
 
             if(ownerModel.validateObject()){
                 id = ownerModel.save();
@@ -392,7 +394,7 @@ namespace testesAutomatizados
             
             ownerDTO4.date_of_birth = new DateTime(2002, 5, 1, 8, 30, 30);
 
-            ownerModel = Model.Owner.converteDTOToModel(ownerDTO4);
+            ownerModel = Model.Owner.convertDTOToModel(ownerDTO4);
 
             if(ownerModel.validateObject()){
                 id = ownerModel.save();
@@ -450,10 +452,13 @@ namespace testesAutomatizados
 
             foreach(var str in stores){
 
-                var storeModel = Model.Store.converteDTOToModel(str);               
-
+                var storeModel = Model.Store.convertDTOToModel(str);               
+                Console.WriteLine(storeModel.getName());
+                
                 if(storeModel.validateObject()){
+           
                     id = storeModel.save(dono);
+              
                 }
 
                 dono++;
@@ -588,7 +593,7 @@ namespace testesAutomatizados
 
             purchaseDTO.data_purchase = new DateTime(2022, 4, 1, 8, 30, 3);
 
-            purchaseDTO.confirmation_number = "1258458785254";
+            purchaseDTO.number_confirmation = "1258458785254";
 
             purchaseDTO.number_nf = "5246824687";
 
@@ -629,6 +634,18 @@ namespace testesAutomatizados
 
             storeDTO1.CNPJ = "52647825458";      
 
+             var addressDTO5  =  new AddressDTO();
+
+            addressDTO5.street = "rua cliente 1";
+
+            addressDTO5.state = "estado cliente 1";
+
+            addressDTO5.city  = "cidade cliente 1";
+
+            addressDTO5.country = "pais cliente 1";
+
+            addressDTO5.postal_code = "12cliente5";
+
             var clientDTO5 = new ClientDTO();
 
             clientDTO5.name = "Beatriz Silva";
@@ -644,6 +661,8 @@ namespace testesAutomatizados
             clientDTO5.document = "753256842";
             
             clientDTO5.date_of_birth = new DateTime(2002, 5, 1, 8, 30, 30);
+
+            clientDTO5.address = addressDTO5;
 
             purchaseDTO.client = clientDTO5;
 

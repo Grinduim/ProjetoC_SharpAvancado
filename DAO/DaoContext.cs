@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 
 
-public class DaoContext : DbContext
+public class DAOContext : DbContext
 {
     // mapeamento da entidade para a tabela
     public DbSet<Address> addresses { get; set; }
@@ -19,7 +19,7 @@ public class DaoContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        optionsBuilder.UseSqlServer("Data Source = JVLPC0497;" + "Initial Catalog = MarketPlace2; Integrated Security=True");
+        optionsBuilder.UseSqlServer("Data Source = JVLPC0497;" + "Initial Catalog = MarketPlace; Integrated Security=True");
     }
 
 

@@ -98,7 +98,7 @@ public class Purchase : IValidateDataObject, IDataController<PurchaseDTO, Purcha
     public int save()
     {
         var id = 0;
-        using (var context = new DaoContext())
+        using (var context = new DAOContext())
         {
             var clientDAO =  context.Client.FirstOrDefault(c => c.id == 1);
             var storeDAO = context.stores.FirstOrDefault(s =>s.id ==1);

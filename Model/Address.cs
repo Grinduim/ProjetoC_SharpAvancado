@@ -38,7 +38,7 @@ public class Address : IValidateDataObject, IDataController<AddressDTO, Address>
     {
         var id = 0;
 
-        using(var context = new DaoContext())
+        using(var context = new DAOContext())
         {
             var address = new DAO.Address{
                 street = this.street,

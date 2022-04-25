@@ -35,32 +35,8 @@ public class Owner : Person, IValidateDataObject, IDataController<OwnerDTO, Owne
     {
         var id = 0;
 
-        using(var context = new DaoContext())
+        using(var context = new DAOContext())
         {
-
-            // var address = new DAO.Address{
-            //     street = this.address.getStreet(),
-            //     city = this.address.getCity(),
-            //     state = this.address.getState(),
-            //     country = this.address.getCountry(),
-            //     postal_code = this.address.getPostalCode()
-            // };
-            // var owner = new DAO.Owner{
-            //     name = this.name,
-            //     date_of_birth = this.date_of_birth,
-            //     document = this.document,
-            //     email = this.email,
-            //     phone = this.phone,
-            //     login = this.login,
-            //     address = address,
-            //     passwd = this.passwd
-            // };
-
-            // context.owners.Add(owner);
-
-            // context.SaveChanges();
-
-            // id = owner.id;
 
             var address = new DAO.Address{
                 street = this.address.getStreet(),

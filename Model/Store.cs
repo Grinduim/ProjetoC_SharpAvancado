@@ -2,6 +2,7 @@ namespace Model;
 using Interfaces;
 using DAO;
 using DTO;
+using System.Linq;
 
 public class Store: IValidateDataObject, IDataController<StoreDTO, Store>
 {
@@ -11,15 +12,16 @@ public class Store: IValidateDataObject, IDataController<StoreDTO, Store>
     private List<Purchase> purchases = new List<Purchase>();
     public List<StoreDTO> storeDTO = new List<StoreDTO>();
 
-    public Store(Owner owner) { this.owner = owner; }
+    private Store(Owner owner) { this.owner = owner; }
 
+    public Store(){}
 
     public static Store convertDTOToModel(StoreDTO obj)
     {
-        var store = new Store(Owner.convertDTOToModel(obj.owner));
+        // var store = new Store(Owner.convertDTOToModel(obj.owner));
+        var store = new Store();
         store.setName(obj.name);
-        store.setCNPJ(obj.CNPJ);
-     
+        store.setCNPJ(obj.CNPJ);       
         foreach(var purch in obj.purchase){
             store.addNewPurchase(Purchase.convertDTOToModel(purch));
         }
@@ -31,14 +33,14 @@ public class Store: IValidateDataObject, IDataController<StoreDTO, Store>
     {
 
     }
-    public int save(int owner)
+    public int save(int ownerid)
     {
-        var id = 0;
-
-        using(var context = new DaoContext())
+        
+        var id = 0;      
+        using(var context = new DAOContext())
         {
-
-            var ownerDAO = context.owners.Where(c => c.id == owner).Single();
+            
+            var ownerDAO = context.owners.FirstOrDefault(o => o.id == ownerid);            
 
             var store = new DAO.Store{
                 name = this.name,
@@ -91,11 +93,14 @@ public class Store: IValidateDataObject, IDataController<StoreDTO, Store>
 
 
    public Boolean validateObject()
-    {
+    {             
+        
         if (this.getName() == null) return false;
+        
         if (this.getCNPJ() == null) return false;
-        if (this.getOwner() == null) return false;
-        if (this.getPurchases() == null) return false;
+        //if(this.owner.validateObject())return false;
+        
+       
         return true;
     }
 
