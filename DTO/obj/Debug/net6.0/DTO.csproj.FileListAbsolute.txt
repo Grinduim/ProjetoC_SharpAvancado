@@ -28,3 +28,18 @@ S:\COM\Human_Resources\01.Engineering_Tech_School\02.Internal\10 - Aprendizes\5 
 C:\Users\disrct\Desktop\ProjetoC_SharpAvancado\DTO\bin\Debug\net6.0\DAO.dll
 C:\Users\disrct\Desktop\ProjetoC_SharpAvancado\DTO\bin\Debug\net6.0\DAO.pdb
 C:\Users\disrct\Desktop\ProjetoC_SharpAvancado\DTO\obj\Debug\net6.0\DTO.csproj.CopyComplete
+S:\COM\Human_Resources\01.Engineering_Tech_School\02.Internal\10 - Aprendizes\5 - Desenvolvimento de Sistemas\1 - Alunos\Allan Kley\ProjetoC_SharpAvancado\DTO\bin\Debug\net6.0\DTO.deps.json
+S:\COM\Human_Resources\01.Engineering_Tech_School\02.Internal\10 - Aprendizes\5 - Desenvolvimento de Sistemas\1 - Alunos\Allan Kley\ProjetoC_SharpAvancado\DTO\bin\Debug\net6.0\DTO.dll
+S:\COM\Human_Resources\01.Engineering_Tech_School\02.Internal\10 - Aprendizes\5 - Desenvolvimento de Sistemas\1 - Alunos\Allan Kley\ProjetoC_SharpAvancado\DTO\bin\Debug\net6.0\DTO.pdb
+S:\COM\Human_Resources\01.Engineering_Tech_School\02.Internal\10 - Aprendizes\5 - Desenvolvimento de Sistemas\1 - Alunos\Allan Kley\ProjetoC_SharpAvancado\DTO\bin\Debug\net6.0\DAO.dll
+S:\COM\Human_Resources\01.Engineering_Tech_School\02.Internal\10 - Aprendizes\5 - Desenvolvimento de Sistemas\1 - Alunos\Allan Kley\ProjetoC_SharpAvancado\DTO\bin\Debug\net6.0\DAO.pdb
+S:\COM\Human_Resources\01.Engineering_Tech_School\02.Internal\10 - Aprendizes\5 - Desenvolvimento de Sistemas\1 - Alunos\Allan Kley\ProjetoC_SharpAvancado\DTO\obj\Debug\net6.0\DTO.csproj.AssemblyReference.cache
+S:\COM\Human_Resources\01.Engineering_Tech_School\02.Internal\10 - Aprendizes\5 - Desenvolvimento de Sistemas\1 - Alunos\Allan Kley\ProjetoC_SharpAvancado\DTO\obj\Debug\net6.0\DTO.GeneratedMSBuildEditorConfig.editorconfig
+S:\COM\Human_Resources\01.Engineering_Tech_School\02.Internal\10 - Aprendizes\5 - Desenvolvimento de Sistemas\1 - Alunos\Allan Kley\ProjetoC_SharpAvancado\DTO\obj\Debug\net6.0\DTO.AssemblyInfoInputs.cache
+S:\COM\Human_Resources\01.Engineering_Tech_School\02.Internal\10 - Aprendizes\5 - Desenvolvimento de Sistemas\1 - Alunos\Allan Kley\ProjetoC_SharpAvancado\DTO\obj\Debug\net6.0\DTO.AssemblyInfo.cs
+S:\COM\Human_Resources\01.Engineering_Tech_School\02.Internal\10 - Aprendizes\5 - Desenvolvimento de Sistemas\1 - Alunos\Allan Kley\ProjetoC_SharpAvancado\DTO\obj\Debug\net6.0\DTO.csproj.CoreCompileInputs.cache
+S:\COM\Human_Resources\01.Engineering_Tech_School\02.Internal\10 - Aprendizes\5 - Desenvolvimento de Sistemas\1 - Alunos\Allan Kley\ProjetoC_SharpAvancado\DTO\obj\Debug\net6.0\DTO.csproj.CopyComplete
+S:\COM\Human_Resources\01.Engineering_Tech_School\02.Internal\10 - Aprendizes\5 - Desenvolvimento de Sistemas\1 - Alunos\Allan Kley\ProjetoC_SharpAvancado\DTO\obj\Debug\net6.0\DTO.dll
+S:\COM\Human_Resources\01.Engineering_Tech_School\02.Internal\10 - Aprendizes\5 - Desenvolvimento de Sistemas\1 - Alunos\Allan Kley\ProjetoC_SharpAvancado\DTO\obj\Debug\net6.0\refint\DTO.dll
+S:\COM\Human_Resources\01.Engineering_Tech_School\02.Internal\10 - Aprendizes\5 - Desenvolvimento de Sistemas\1 - Alunos\Allan Kley\ProjetoC_SharpAvancado\DTO\obj\Debug\net6.0\DTO.pdb
+S:\COM\Human_Resources\01.Engineering_Tech_School\02.Internal\10 - Aprendizes\5 - Desenvolvimento de Sistemas\1 - Alunos\Allan Kley\ProjetoC_SharpAvancado\DTO\obj\Debug\net6.0\ref\DTO.dll

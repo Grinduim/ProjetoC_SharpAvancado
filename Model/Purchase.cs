@@ -18,57 +18,6 @@ public class Purchase : IValidateDataObject, IDataController<PurchaseDTO, Purcha
     private List<PurchaseDTO> purchaseDTO = new List<PurchaseDTO>();
     private List<Product> products = new List<Product>();
 
-
-    public DateTime getDataPurchase() { return this.date_purchase; }
-    public void setDataPurchase(DateTime date_purchase) { this.date_purchase = date_purchase; }
-
-
-    public int getPaymentType() { return this.payment_type; }
-    public void setPaymentType(PaymentEnum payment_type) { this.payment_type = (int)payment_type; }
-
-
-    public String getNumberConfirmation() { return this.number_confirmation; }
-    public void setNumberConfirmation(string number_confirmation) { this.number_confirmation = number_confirmation; }
-
-
-    public String getNumberNf() { return this.number_nf; }
-    public void setNumberNf(string number_nf) { this.number_nf = number_nf; }
-
-
-    public Client GetClient() { return this.client; }
-    public void setClient(Client client) { this.client = client; }
-
-    public Store GetStore() { return this.store; }
-    public void setStore(Store stores) { this.store = stores; }
-
-
-    public List<Product> getProducts() { return this.products; }
-    public void setProducts(List<Product> products) { this.products = products; }
-
-
-    public int getPurchaseStatus() => purchase_status;
-    public void setPurchaseStatus(PurchaseStatusEnum purchase_status) { this.purchase_status = (int)purchase_status; }
-
-
-    public double getPurchaseValues() => purchase_value;
-    public void setPurchaseValues(double purchase_values) { this.purchase_value = purchase_values; }
-
-
-    public Boolean validateObject()
-    {
-
-        if (this.getDataPurchase() == null) return false;
-        if (this.getNumberConfirmation() == null) return false;
-        if (this.getNumberNf() == null) return false;
-        if (this.getProducts() == null) return false;
-        if (this.getPurchaseValues() == 0) return false;
-        if (this.GetClient() == null) return false;
-        if (this.GetStore() == null) return false;
-
-        return true;
-    }
-
-
     public void updateStatus(int PurchaseStatusEnum)
     {
         this.purchase_status = PurchaseStatusEnum;
@@ -76,6 +25,7 @@ public class Purchase : IValidateDataObject, IDataController<PurchaseDTO, Purcha
 
     public static Purchase convertDTOToModel(PurchaseDTO obj)
     {
+        
         var purchase = new Purchase();
         purchase.client = Client.convertDTOToModel(obj.client);
         purchase.date_purchase = obj.data_purchase;
@@ -87,8 +37,7 @@ public class Purchase : IValidateDataObject, IDataController<PurchaseDTO, Purcha
 
         return purchase;
     }
-    // terminarn o restante das coisa que tem q terminar
-    // terminar a implementação da DataController
+
 
     public void delete(PurchaseDTO obj)
     {
@@ -115,7 +64,7 @@ public class Purchase : IValidateDataObject, IDataController<PurchaseDTO, Purcha
                 store = storeDAO,
                 product = productsDAO
             };
-
+            
             context.purchases.Add(purchase);
             context.Entry(purchase.client).State = Microsoft.EntityFrameworkCore.EntityState.Unchanged;
             context.Entry(purchase.store).State = Microsoft.EntityFrameworkCore.EntityState.Unchanged;
@@ -152,6 +101,51 @@ public class Purchase : IValidateDataObject, IDataController<PurchaseDTO, Purcha
 
         return purchaseDTO;
     }
+
+    public Boolean validateObject()
+    {
+  
+        if (this.getDataPurchase() == null) return false;
+        if (this.getNumberConfirmation() == null) return false;
+        if (this.getNumberNf() == null) return false;
+        if (this.getPurchaseValues() == 0) return false;
+
+        return true;
+    }
+
+    public DateTime getDataPurchase() { return this.date_purchase; }
+    public void setDataPurchase(DateTime date_purchase) { this.date_purchase = date_purchase; }
+
+
+    public int getPaymentType() { return this.payment_type; }
+    public void setPaymentType(PaymentEnum payment_type) { this.payment_type = (int)payment_type; }
+
+
+    public String getNumberConfirmation() { return this.number_confirmation; }
+    public void setNumberConfirmation(string number_confirmation) { this.number_confirmation = number_confirmation; }
+
+
+    public String getNumberNf() { return this.number_nf; }
+    public void setNumberNf(string number_nf) { this.number_nf = number_nf; }
+
+
+    public Client GetClient() { return this.client; }
+    public void setClient(Client client) { this.client = client; }
+
+    public Store GetStore() { return this.store; }
+    public void setStore(Store stores) { this.store = stores; }
+
+
+    public List<Product> getProducts() { return this.products; }
+    public void setProducts(List<Product> products) { this.products = products; }
+
+
+    public int getPurchaseStatus() => purchase_status;
+    public void setPurchaseStatus(PurchaseStatusEnum purchase_status) { this.purchase_status = (int)purchase_status; }
+
+
+    public double getPurchaseValues() => purchase_value;
+    public void setPurchaseValues(double purchase_values) { this.purchase_value = purchase_values; }
 
 }
 

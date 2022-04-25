@@ -565,7 +565,7 @@ namespace testesAutomatizados
         public void insertWishList()
         {
             int id = 0;
-
+   
             using(var context = new DAOContext())
             {
                 for(int client= 1; client < 5; client++){
@@ -588,7 +588,7 @@ namespace testesAutomatizados
         public void insertPurchase()
         {
             var id = 0;
-
+    
             var purchaseDTO = new PurchaseDTO();
 
             purchaseDTO.data_purchase = new DateTime(2022, 4, 1, 8, 30, 3);
@@ -604,7 +604,7 @@ namespace testesAutomatizados
             purchaseDTO.purchase_value = 25.00;
 
             var productDTO1 = new ProductDTO();
-
+         
             productDTO1.name = "produto 1";
 
             productDTO1.bar_code = "12521142521252325";
@@ -619,7 +619,7 @@ namespace testesAutomatizados
 
             purchaseDTO.productsDTO.Add(productDTO2);
      
-
+            
             var productDTO4 = new ProductDTO();
 
             productDTO4.name = "produto 4";
@@ -669,10 +669,17 @@ namespace testesAutomatizados
             purchaseDTO.store = storeDTO1;
 
             var purchase = Model.Purchase.convertDTOToModel(purchaseDTO);
+    
 
+            
             if(purchase.validateObject()){
+         
                 id=purchase.save();
+                
+              
             }
+
+              Assert.That(id, Is.Not.EqualTo(0));
         }
 
         
