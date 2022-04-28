@@ -4,14 +4,14 @@ using Microsoft.AspNetCore.Mvc;
 namespace Controller.Controllers;
 
 [ApiController]
-[Route("api/[controller]")]
+[Route("client")]
 public class ClientController : ControllerBase
 {
     public void registerClient( ClientDTO cliete){
         
     }
     [HttpGet]
-    [Route("GetInformations")]
+    [Route("get")]
     public int getInformations(int ClientID){
         return 3;
     }
