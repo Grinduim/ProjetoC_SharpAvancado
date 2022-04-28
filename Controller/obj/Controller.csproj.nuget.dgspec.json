@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\disrct\\Desktop\\ProjetoC_SharpAvancado\\Interfaces\\Interfaces.csproj": {}
+    "C:\\Users\\disrct\\Desktop\\ProjetoC_SharpAvancado\\Controller\\Controller.csproj": {}
   },
   "projects": {
-    "C:\\Users\\disrct\\Desktop\\ProjetoC_SharpAvancado\\Interfaces\\Interfaces.csproj": {
+    "C:\\Users\\disrct\\Desktop\\ProjetoC_SharpAvancado\\Controller\\Controller.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\disrct\\Desktop\\ProjetoC_SharpAvancado\\Interfaces\\Interfaces.csproj",
-        "projectName": "Interfaces",
-        "projectPath": "C:\\Users\\disrct\\Desktop\\ProjetoC_SharpAvancado\\Interfaces\\Interfaces.csproj",
+        "projectUniqueName": "C:\\Users\\disrct\\Desktop\\ProjetoC_SharpAvancado\\Controller\\Controller.csproj",
+        "projectName": "Controller",
+        "projectPath": "C:\\Users\\disrct\\Desktop\\ProjetoC_SharpAvancado\\Controller\\Controller.csproj",
         "packagesPath": "C:\\Users\\disrct\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\disrct\\Desktop\\ProjetoC_SharpAvancado\\Interfaces\\obj\\",
+        "outputPath": "C:\\Users\\disrct\\Desktop\\ProjetoC_SharpAvancado\\Controller\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\disrct\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -39,6 +39,12 @@
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
+          "dependencies": {
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.2.3, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -50,6 +56,9 @@
           "assetTargetFallback": true,
           "warn": true,
           "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
