@@ -1,4 +1,5 @@
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddControllers().AddNewtonsoftJson();
 
 // Add services to the container.
 
@@ -16,7 +17,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
+
 
 app.UseAuthorization();
 
