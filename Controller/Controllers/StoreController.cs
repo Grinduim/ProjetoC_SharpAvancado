@@ -1,3 +1,6 @@
+using DTO;
+using Model;
+using System;
 namespace Controller.Controllers
 {
     public class StoreController
@@ -6,7 +9,7 @@ namespace Controller.Controllers
 
         }
 
-        public void registerStore(StoreDto store){
+        public void registerStore(StoreDTO store){
 
         }
     }

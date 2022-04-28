@@ -1,17 +1,18 @@
+using DTO;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Controller.Controllers;
 
 [ApiController]
-[Route("[Client]")]
-
+[Route("api/[controller]")]
 public class ClientController : ControllerBase
 {
     public void registerClient( ClientDTO cliete){
         
     }
-
-    public Client getInformations(){
-        return new Client();
+    [HttpGet]
+    [Route("GetInformations")]
+    public int getInformations(int ClientID){
+        return 3;
     }
 }

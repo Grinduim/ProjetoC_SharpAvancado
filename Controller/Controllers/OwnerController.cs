@@ -1,13 +1,18 @@
+using DTO;
+using Model;
+using System;
 namespace Controller.Controllers
 {
     public class OwnerController
     {
-        public void registerOwner( OwnerDTO owner){
-        
-    }
+        public void registerOwner(OwnerDTO owner)
+        {
 
-    public Owner getInformations(){
-        return new Owner();
-    }
+        }
+
+        public void getInformations()
+        {
+            return;
+        }
     }
 }
