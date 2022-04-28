@@ -16,16 +16,8 @@ namespace Controller.Controllers
             var addressModel = Model.Address.convertDTOToModel(address);
             int id = addressModel.save();
             return new {
-                street = address.street,
-                city = address.city,
-                state = address.state,
-                country = address.country,
-                postal_code = address.postal_code,
-                id = id
+                response = "salvou on banco"
             };
-            
-
-
         }   
 
         public void removeAddress(AddressDTO address){
