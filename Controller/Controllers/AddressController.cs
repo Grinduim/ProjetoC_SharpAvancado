@@ -12,18 +12,33 @@ namespace Controller.Controllers
 
         [HttpPost]
         [Route("register")]
-        public object registerAddress([FromBody]AddressDTO address){
+        public object registerAddress([FromBody] AddressDTO address)
+        {
             var addressModel = Model.Address.convertDTOToModel(address);
             int id = addressModel.save();
-            return new {
+            return new
+            {
                 response = "salvou on banco"
             };
-        }   
-
-        public void removeAddress(AddressDTO address){
         }
 
-        public void updateAddress(AddressDTO address){
+        [HttpDelete]
+        [Route("Delete")]
+        public void removeAddress([FromBody] AddressDTO address)
+        {
+            var addressModel = Model.Address.convertDTOToModel(address);
+            addressModel.delete();
+            return new {
+                status = "ok",
+                mensagem = "Excluido com sucesso"
+            };
+
+            
+
+        }
+
+        public void updateAddress(AddressDTO address)
+        {
         }
     }
 }

@@ -1,11 +1,49 @@
 using Microsoft.AspNetCore.Mvc;
+using Model;
+using DTO;
 
 namespace Controller.Controllers;
 
 [ApiController]
-[Route("[controller]")]
+[Route("product")]
 
 public class ProductController : ControllerBase
 {
-    
+
+
+    [HttpPost]
+    [Route("create")]
+    public object createProduct([FromBody] ProductDTO product){
+        var productModel = Model.Product.convertDTOToModel(product);
+
+        int id =  productModel.save();
+        if(id == -1){
+            return new {
+                response = "Registro já existe"};
+        }
+        return new {response = id};
+    }
+
+    [HttpDelete]
+    [Route("delete")]
+    public object  deleteProduct([FromBody]ProductDTO product){
+        var productModel =  Model.Product.convertDTOToModel(product);
+        productModel.delete();
+
+        return new{
+            status = "ok",
+            mensagem = "excluido com sucesso"
+        };
+    }
+
+    [HttpPut]
+    [Route("update")]
+    public object updateProduct([FromBody] ProductDTO product){
+        var productModel =  Model.Product.convertDTOToModel(product); 
+        productModel.update(product);
+        return new { aa=  "aaa"};
+    }
+
+
+
 }
