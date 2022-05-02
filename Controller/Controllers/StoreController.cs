@@ -1,16 +1,40 @@
 using DTO;
 using Model;
 using System;
-namespace Controller.Controllers
+using Microsoft.AspNetCore.Mvc;
+namespace Controller.Controllers;
+
+
+[ApiController]
+[Route("[controller]")]
+
+public class StoreController : ControllerBase
 {
-    public class StoreController
-    {
-        public void getAllStore(){
 
-        }
+// [HttpGet]
+// [Route("get/{document}")]
+// public ClientDTO getAllStore(String document){
 
-        public void registerStore(StoreDTO store){
+//     var client = Model.Client.find(document);
 
-        }
+//     return client;
+// }
+
+    [HttpPost]
+    [Route("register")]
+    public void registerStore([FromBody]StoreDTO store){
+        var storeModel = Model.Store.convertDTOToModel(store);
+        var owner = Model.Owner.convertDTOToModel(store.owner);
+        
+        var ownerOBJ = owner.find(owner.getDocument());
+
+        var id = storeModel.save(ownerOBJ.id);
+
+
+   
+
+        return new {
+                response = "salvou no banco"
+        };
     }
 }
