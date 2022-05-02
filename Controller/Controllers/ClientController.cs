@@ -1,10 +1,11 @@
 using DTO;
+using DAO;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Controller.Controllers;
 
 [ApiController]
-[Route("client")]
+[Route("[controller]")]
 public class ClientController : ControllerBase
 {
     [HttpPost]
@@ -14,15 +15,20 @@ public class ClientController : ControllerBase
         int id = clientModel.save();
 
         return new {
-                response = "salvou on banco"
+                response = "salvou no banco"
         };
     }   
 
 
-
+    
     [HttpGet]
-    [Route("get")]
-    public int getInformations(int ClientID){
-        return 3;
+    [Route("get/{document}")]
+    public ClientDTO getInformations(String document){
+
+        var client = Model.Client.find(document);
+    
+        return client;
     }
 }
+
+

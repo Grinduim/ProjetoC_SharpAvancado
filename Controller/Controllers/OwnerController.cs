@@ -1,18 +1,31 @@
 using DTO;
-using Model;
-using System;
-namespace Controller.Controllers
+using Microsoft.AspNetCore.Mvc;
+
+namespace Controller.Controllers;
+
+[ApiController]
+[Route("[controller]")]
+public class OwnerController : ControllerBase
 {
-    public class OwnerController
-    {
-        public void registerOwner(OwnerDTO owner)
-        {
+    [HttpPost]
+    [Route("register")]
+    public object registerOwner([FromBody]OwnerDTO owner){
+        var ownerModel = Model.Owner.convertDTOToModel(owner);
+        int id = ownerModel.save();
 
-        }
+        return new {
+                response = "salvou no banco"
+        };
+    }   
 
-        public void getInformations()
-        {
-            return;
-        }
+
+
+    [HttpGet]
+    [Route("get/{document}")]
+    public OwnerDTO getInformations(String document){
+
+        var owner = Model.Owner.find(document);
+    
+        return owner;
     }
 }
