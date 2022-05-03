@@ -18,14 +18,12 @@ public class ClientController : ControllerBase
                 response = "salvou no banco"
         };
     }   
-
-
     
     [HttpGet]
     [Route("get/{document}")]
     public object getInformations(String document){
 
-        var client = Model.Client.find(document);
+        var client = Model.Client.FindByDocument(document);
     
         return client;
     }

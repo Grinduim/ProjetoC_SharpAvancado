@@ -2,6 +2,7 @@ namespace Model;
 using Interfaces;
 using DAO;
 using DTO;
+using Microsoft.EntityFrameworkCore;
 public class Owner : Person, IValidateDataObject, IDataController<OwnerDTO, Owner>
 {
     private static Owner instance;
@@ -81,6 +82,28 @@ public class Owner : Person, IValidateDataObject, IDataController<OwnerDTO, Owne
 
         return new OwnerDTO();
     }
+
+    public static object FindByDocument(String documentDTO)
+    {
+        using (var context = new DAOContext())
+        {
+
+            var ownerDAO = context.owners.Include(i => i.address).FirstOrDefault(o => o.document == documentDTO);
+
+            return new
+            {
+                id = ownerDAO.id,
+                name = ownerDAO.name,
+                email = ownerDAO.email,
+                date_of_birth = ownerDAO.date_of_birth,
+                document = ownerDAO.document,
+                phone = ownerDAO.phone,
+                login = ownerDAO.login,
+                address = ownerDAO.address,
+                passwd = ownerDAO.passwd
+        };
+    }
+}
 
     public List<OwnerDTO> getAll()
     {        

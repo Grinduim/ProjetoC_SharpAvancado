@@ -69,6 +69,19 @@ public class Store: IValidateDataObject, IDataController<StoreDTO, Store>
         return new StoreDTO();
     }
 
+
+
+    public static int GetOwnerId(Owner owner){
+
+         using(var context = new DAOContext())
+        {
+            var ownerDAO = context.owners.FirstOrDefault(o => o.document == owner.getDocument()); 
+            return ownerDAO.id;
+        }
+    }
+
+
+    
     public List<StoreDTO> getAll()
     {        
         return this.storeDTO;      

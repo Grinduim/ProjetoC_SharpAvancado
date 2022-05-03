@@ -23,15 +23,10 @@ public class StoreController : ControllerBase
     [HttpPost]
     [Route("register")]
     public object registerStore([FromBody]StoreDTO store){
+
         var storeModel = Model.Store.convertDTOToModel(store);
-        var owner = Model.Owner.convertDTOToModel(store.owner);
-        
-        // var ownerOBJ = owner.find(owner.getDocument());
 
-        // var id = storeModel.save(ownerOBJ.id);
-
-
-   
+        var id = storeModel.save(Model.Store.GetOwnerId(storeModel.getOwner()));
 
         return new {
                 response = "salvou no banco"

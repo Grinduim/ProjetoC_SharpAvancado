@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Pv3G40C8u17hrZfsoAlnu07yEIwRftGxNl9LYl+QjN8WJp1tHf7eua9XL8eEPAtqaCx8NBGyUPvVkga6ROfVIA==",
+  "dgSpecHash": "UJqS1/403kuhlvgDoTgH041dyaU3cm+hSf6fstsGMwZ+F/MsAD3+rWLndcpGo7uoCMCZsi8f5Czv4bTFEBYjPQ==",
   "success": true,
-  "projectFilePath": "S:\\COM\\Human_Resources\\01.Engineering_Tech_School\\02.Internal\\10 - Aprendizes\\5 - Desenvolvimento de Sistemas\\1 - Alunos\\Allan Kley\\ProjetoC_SharpAvancado\\testesAutomatizados\\testesAutomatizados.csproj",
+  "projectFilePath": "C:\\Users\\disrct\\Desktop\\ProjetoC_SharpAvancado\\testesAutomatizados\\testesAutomatizados.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\disrct\\.nuget\\packages\\microsoft.codecoverage\\16.5.0\\microsoft.codecoverage.16.5.0.nupkg.sha512",
     "C:\\Users\\disrct\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",

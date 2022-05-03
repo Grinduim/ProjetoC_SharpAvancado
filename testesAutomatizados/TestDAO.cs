@@ -675,7 +675,6 @@ namespace testesAutomatizados
             if(purchase.validateObject()){
          
                 id=purchase.save();
-                
               
             }
 
