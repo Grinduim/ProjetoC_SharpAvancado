@@ -122,7 +122,7 @@ public class Client : Person, IValidateDataObject, IDataController<ClientDTO, Cl
                 phone = clientDAO.phone,
                 login = clientDAO.login,
                 address = clientDAO.address,
-                passwd = clientDAO.p
+                passwd = clientDAO.passwd
         };
     }
 }

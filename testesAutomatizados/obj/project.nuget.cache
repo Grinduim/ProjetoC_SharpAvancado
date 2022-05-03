@@ -1,6 +1,10 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "UJqS1/403kuhlvgDoTgH041dyaU3cm+hSf6fstsGMwZ+F/MsAD3+rWLndcpGo7uoCMCZsi8f5Czv4bTFEBYjPQ==",
+=======
+  "dgSpecHash": "rrWuuo63XbZ3G/eKJO32QK7u74HMywl+A1SaoY8WJ0sBtPNTF7WJrA4zDvfTSZ3fPMVGJXoeVnwnHKOMskzalQ==",
+>>>>>>> 4168dbb645de07a19275f0af0af9cb916e1512a6
   "success": true,
   "projectFilePath": "C:\\Users\\disrct\\Desktop\\ProjetoC_SharpAvancado\\testesAutomatizados\\testesAutomatizados.csproj",
   "expectedPackageFiles": [

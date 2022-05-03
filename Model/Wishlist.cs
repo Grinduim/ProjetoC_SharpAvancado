@@ -42,7 +42,7 @@ public class WishList : IValidateDataObject, IDataController<WishListDTO, WishLi
         {
 
             var clientDAO = context.Client.FirstOrDefault(c => c.document == document);
-            var productDAO = context.products.Where(c => c.id == productId).Single();
+            var productDAO = context.products.FirstOrDefault(c => c.id == productId);
 
             var wishList = new DAO.WishList
             {

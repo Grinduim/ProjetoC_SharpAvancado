@@ -51,7 +51,7 @@ public class Purchase : IValidateDataObject, IDataController<PurchaseDTO, Purcha
         {
             var clientDAO =  context.Client.FirstOrDefault(c => c.id == 1);
             var storeDAO = context.stores.FirstOrDefault(s =>s.id ==1);
-            var productsDAO = context.products.Where(p => p.id == 1).Single();
+            var productsDAO = context.products.FirstOrDefault(x=> x.id == 1);
             
             var purchase = new DAO.Purchase {
                 date_purchase = this.date_purchase,
@@ -66,9 +66,9 @@ public class Purchase : IValidateDataObject, IDataController<PurchaseDTO, Purcha
             };
             
             context.purchases.Add(purchase);
-            context.Entry(purchase.client).State = Microsoft.EntityFrameworkCore.EntityState.Unchanged;
-            context.Entry(purchase.store).State = Microsoft.EntityFrameworkCore.EntityState.Unchanged;
-            context.Entry(purchase.product).State = Microsoft.EntityFrameworkCore.EntityState.Unchanged;
+            // context.Entry(purchase.client).State = Microsoft.EntityFrameworkCore.EntityState.Unchanged;
+            // context.Entry(purchase.store).State = Microsoft.EntityFrameworkCore.EntityState.Unchanged;
+            // context.Entry(purchase.product).State = Microsoft.EntityFrameworkCore.EntityState.Unchanged;
             context.SaveChanges();
             id = purchase.id;
             

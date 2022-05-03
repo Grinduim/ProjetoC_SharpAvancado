@@ -40,9 +40,17 @@ public class ProductController : ControllerBase
     [Route("update")]
     public object updateProduct([FromBody] ProductDTO product){
         var productModel =  Model.Product.convertDTOToModel(product); 
+        
         productModel.update(product);
-        return new { aa=  "aaa"};
+        return new { status = "sucess"};
     }
+
+    [HttpGet]
+    [Route("getall")]
+    public object allProducts(){
+        return Model.Product.getAllStatic();
+    }
+
 
 
 

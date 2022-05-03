@@ -36,17 +36,18 @@ public class Owner : Person, IValidateDataObject, IDataController<OwnerDTO, Owne
     {
         var id = 0;
 
-        using(var context = new DAOContext())
+        using (var context = new DAOContext())
         {
 
-            var address = new DAO.Address{
+            var address = new DAO.Address
+            {
                 street = this.address.getStreet(),
                 city = this.address.getCity(),
                 state = this.address.getState(),
                 country = this.address.getCountry(),
                 postal_code = this.address.getPostalCode()
             };
-            
+
             context.addresses.Add(address);
 
             var owner = new DAO.Owner
@@ -64,12 +65,12 @@ public class Owner : Person, IValidateDataObject, IDataController<OwnerDTO, Owne
             context.owners.Add(owner);
 
             context.SaveChanges();
-            
+
 
             id = owner.id;
 
         }
-         return id;
+        return id;
     }
 
     public void update(OwnerDTO obj)
@@ -106,11 +107,11 @@ public class Owner : Person, IValidateDataObject, IDataController<OwnerDTO, Owne
 }
 
     public List<OwnerDTO> getAll()
-    {        
-        return this.ownerDTO;      
+    {
+        return this.ownerDTO;
     }
 
-   
+
     public OwnerDTO convertModelToDTO()
     {
         var ownerDTO = new OwnerDTO();
@@ -131,7 +132,7 @@ public class Owner : Person, IValidateDataObject, IDataController<OwnerDTO, Owne
 
         ownerDTO.passwd = this.passwd;
 
-    
+
 
         return ownerDTO;
     }
@@ -151,8 +152,8 @@ public class Owner : Person, IValidateDataObject, IDataController<OwnerDTO, Owne
 
         Console.WriteLine("entrei no validade");
         //if (this.getName() == null) return false;
-       // if (this.getDateOfBirth() == null) return false;
-       // if (this.getDocument() == null) return false;
+        // if (this.getDateOfBirth() == null) return false;
+        // if (this.getDocument() == null) return false;
         Console.WriteLine(this.getName());
         if (this.getEmail() == null) return false;
         if (this.getPhone() == null) return false;

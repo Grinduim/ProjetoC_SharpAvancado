@@ -22,10 +22,10 @@ public class OwnerController : ControllerBase
 
     [HttpGet]
     [Route("get/{document}")]
-    public OwnerDTO getInformations(String document){
+    public object getInformations(String document){
 
-        // var owner = Model.Owner.find(document);
+        var owner = Model.Owner.FindByDocument(document);
     
-        return new OwnerDTO();
+        return owner;
     }
 }

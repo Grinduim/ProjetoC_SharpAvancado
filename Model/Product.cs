@@ -22,13 +22,14 @@ public class Product : IValidateDataObject, IDataController<ProductDTO, Product>
     }
 
     public void delete()
-    {   
-        using(var context = new DAOContext()){
-            
+    {
+        using (var context = new DAOContext())
+        {
+
             var product = context.products.FirstOrDefault(c => c.bar_code == this.bar_code);
 
             context.products.Remove(product);
-       
+
             context.SaveChanges();
         }
     }
@@ -36,14 +37,16 @@ public class Product : IValidateDataObject, IDataController<ProductDTO, Product>
     {
         var id = 0;
 
-        using(var context = new DAOContext())
+        using (var context = new DAOContext())
         {
             var product = context.products
                 .FirstOrDefault(c => c.bar_code == this.bar_code);
-            if(product != null){
+            if (product != null)
+            {
                 return -1;
             }
-            product = new DAO.Product{
+            product = new DAO.Product
+            {
                 name = this.name,
                 bar_code = this.bar_code,
             };
@@ -55,19 +58,19 @@ public class Product : IValidateDataObject, IDataController<ProductDTO, Product>
             id = product.id;
 
         }
-         return id;
+        return id;
     }
 
     public void update(ProductDTO obj)
     {
-        using(var context =  new DAOContext()){
-            var result =  context.products.FirstOrDefault(p => p.bar_code == this.bar_code);
+        using(var context = new DAOContext()){
+            var product = context.products.FirstOrDefault(i=> i.bar_code == obj.bar_code);
 
-            if(result != null  ){
-                result.name = obj.name;
-                context.Entry(obj).State = EntityState.Modified;
-                context.SaveChanges();
+            if( product != null){
+                context.Entry(product).State = EntityState.Modified;
+                product.name = obj.name;
             }
+            context.SaveChanges();
         }
     }
 
@@ -76,14 +79,31 @@ public class Product : IValidateDataObject, IDataController<ProductDTO, Product>
         return new ProductDTO();
     }
 
-
-
     public List<ProductDTO> getAll()
-    {        
-        return this.productDTO;      
+    {
+        return new List<ProductDTO>();
     }
 
-   
+    public static List<ProductDTO> getAllStatic()
+    {
+        using (var context = new DAOContext())
+        {
+            var productsDAO = context.products;
+
+
+            var productsDTO = new List<ProductDTO>();
+            
+            foreach (var item in productsDAO)
+            {
+                var TransitionDAO = new DTO.ProductDTO();
+                TransitionDAO.bar_code = item.bar_code;
+                TransitionDAO.name = item.name;
+                productsDTO.Add(TransitionDAO);
+            }
+            return productsDTO;
+        }
+    }
+
     public ProductDTO convertModelToDTO()
     {
         var productDTO = new ProductDTO();
