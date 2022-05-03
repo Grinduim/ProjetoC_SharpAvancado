@@ -1,5 +1,6 @@
 namespace Model;
 
+using Microsoft.EntityFrameworkCore;
 using Interfaces;
 using DAO;
 using DTO;
@@ -59,14 +60,15 @@ public class Client : Person, IValidateDataObject, IDataController<ClientDTO, Cl
         using (var context = new DAOContext())
         {
 
-            var address = new DAO.Address{
+            var address = new DAO.Address
+            {
                 street = this.address.getStreet(),
                 city = this.address.getCity(),
                 state = this.address.getState(),
                 country = this.address.getCountry(),
                 postal_code = this.address.getPostalCode()
             };
-            
+
             context.addresses.Add(address);
 
             var client = new DAO.Client
@@ -84,7 +86,7 @@ public class Client : Person, IValidateDataObject, IDataController<ClientDTO, Cl
             context.Client.Add(client);
 
             context.SaveChanges();
-            
+
 
             id = client.id;
 
@@ -104,24 +106,44 @@ public class Client : Person, IValidateDataObject, IDataController<ClientDTO, Cl
         return new ClientDTO();
     }
 
-    public List<ClientDTO> getAll()
+    public static object find(String documentDTO)
     {
-        return this.clientDTO;
-    }
-    public ClientDTO convertModelToDTO()
-    {
-        var clientDTO = new ClientDTO();
+        using (var context = new DAOContext())
+        {
 
-        clientDTO.name = this.name;
-        clientDTO.name = this.name;
-        clientDTO.date_of_birth = this.date_of_birth;
-        clientDTO.document = this.document;
-        clientDTO.email = this.email;
-        clientDTO.phone = this.phone;
-        clientDTO.login = this.login;
-        clientDTO.passwd = this.passwd;
-        clientDTO.address = this.address.convertModelToDTO();
-        return clientDTO;
+            var clientDAO = context.Client.Include(i => i.address).FirstOrDefault(o => o.document == documentDTO);
+
+            return new
+            {
+                name = clientDAO.name,
+                email = clientDAO.email,
+                date_of_birth = clientDAO.date_of_birth,
+                document = clientDAO.document,
+                phone = clientDAO.phone,
+                login = clientDAO.login,
+                address = clientDAO.address,
+                passwd = clientDAO.passwd
+        };
     }
+}
+public List<ClientDTO> getAll()
+{
+    return this.clientDTO;
+}
+public ClientDTO convertModelToDTO()
+{
+    var clientDTO = new ClientDTO();
+
+    clientDTO.name = this.name;
+    clientDTO.name = this.name;
+    clientDTO.date_of_birth = this.date_of_birth;
+    clientDTO.document = this.document;
+    clientDTO.email = this.email;
+    clientDTO.phone = this.phone;
+    clientDTO.login = this.login;
+    clientDTO.passwd = this.passwd;
+    clientDTO.address = this.address.convertModelToDTO();
+    return clientDTO;
+}
 }
 
