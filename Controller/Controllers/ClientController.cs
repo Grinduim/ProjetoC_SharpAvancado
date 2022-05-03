@@ -23,12 +23,11 @@ public class ClientController : ControllerBase
     
     [HttpGet]
     [Route("get/{document}")]
-    public ClientDTO getInformations(String document){
+    public object getInformations(String document){
 
-        // var client = Model.Client.find(document);
+        var client = Model.Client.find(document);
     
-        // return client;
-        return new ClientDTO();
+        return client;
     }
 }
 
