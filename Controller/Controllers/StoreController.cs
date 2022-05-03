@@ -26,13 +26,8 @@ public class StoreController : ControllerBase
         var storeModel = Model.Store.convertDTOToModel(store);
         var owner = Model.Owner.convertDTOToModel(store.owner);
         
-        // var ownerOBJ = owner.find(owner.getDocument());
-
+        var ownerOBJ = Model.Owner.FindByDocument(owner.getDocument());
         // var id = storeModel.save(ownerOBJ.id);
-
-
-   
-
         return new {
                 response = "salvou no banco"
         };

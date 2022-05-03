@@ -32,9 +32,6 @@ public class AddressController: ControllerBase
             status = "ok",
             mensagem = "Excluido com sucesso"
         };
-
-
-
     }
 
     public void updateAddress(AddressDTO address)
