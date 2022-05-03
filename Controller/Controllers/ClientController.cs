@@ -25,9 +25,10 @@ public class ClientController : ControllerBase
     [Route("get/{document}")]
     public ClientDTO getInformations(String document){
 
-        var client = Model.Client.find(document);
+        // var client = Model.Client.find(document);
     
-        return client;
+        // return client;
+        return new ClientDTO();
     }
 }
 

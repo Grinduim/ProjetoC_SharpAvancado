@@ -22,13 +22,13 @@ public class StoreController : ControllerBase
 
     [HttpPost]
     [Route("register")]
-    public void registerStore([FromBody]StoreDTO store){
+    public object registerStore([FromBody]StoreDTO store){
         var storeModel = Model.Store.convertDTOToModel(store);
         var owner = Model.Owner.convertDTOToModel(store.owner);
         
-        var ownerOBJ = owner.find(owner.getDocument());
+        // var ownerOBJ = owner.find(owner.getDocument());
 
-        var id = storeModel.save(ownerOBJ.id);
+        // var id = storeModel.save(ownerOBJ.id);
 
 
    

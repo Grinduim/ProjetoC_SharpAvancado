@@ -24,8 +24,8 @@ public class OwnerController : ControllerBase
     [Route("get/{document}")]
     public OwnerDTO getInformations(String document){
 
-        var owner = Model.Owner.find(document);
+        // var owner = Model.Owner.find(document);
     
-        return owner;
+        return new OwnerDTO();
     }
 }

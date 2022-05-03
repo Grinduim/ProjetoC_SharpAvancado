@@ -6,7 +6,7 @@ namespace Controller.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-public class AddressController
+public class AddressController: ControllerBase
 {
 
     [HttpPost]
@@ -23,7 +23,7 @@ public class AddressController
 
     [HttpDelete]
     [Route("Delete")]
-    public void removeAddress([FromBody] AddressDTO address)
+    public object removeAddress([FromBody] AddressDTO address)
     {
         var addressModel = Model.Address.convertDTOToModel(address);
         addressModel.delete();
@@ -35,26 +35,6 @@ public class AddressController
 
 
 
-    }
-
-    public void updateAddress(AddressDTO address)
-    {
-    }
-
-    [HttpPost]
-    [Route("register")]
-    public object registerAddress([FromBody] AddressDTO address)
-    {
-        var addressModel = Model.Address.convertDTOToModel(address);
-        int id = addressModel.save();
-        return new
-        {
-            response = "salvou on banco"
-        };
-    }
-
-    public void removeAddress(AddressDTO address)
-    {
     }
 
     public void updateAddress(AddressDTO address)
