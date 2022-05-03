@@ -10,7 +10,7 @@ public interface IDataController<T, O>
 
     public void update(T obj);
 
-    public void delete(T obj);
+    public void delete();
 
     public T convertModelToDTO();
 }

@@ -30,7 +30,7 @@ public class WishList : IValidateDataObject, IDataController<WishListDTO, WishLi
         return wishList;
     }
 
-    public void delete(WishListDTO obj)
+    public void delete()
     {
 
     }

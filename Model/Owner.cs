@@ -27,7 +27,7 @@ public class Owner : Person, IValidateDataObject, IDataController<OwnerDTO, Owne
         return owner;
     }
 
-    public void delete(OwnerDTO obj)
+    public void delete()
     {
 
     }

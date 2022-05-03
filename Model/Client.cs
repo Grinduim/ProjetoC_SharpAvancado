@@ -47,7 +47,7 @@ public class Client : Person, IValidateDataObject, IDataController<ClientDTO, Cl
         return client;
     }
 
-    public void delete(ClientDTO obj)
+    public void delete()
     {
 
     }

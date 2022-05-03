@@ -2,6 +2,8 @@ namespace Model;
 using DAO;
 using DTO;
 using Interfaces;
+using Microsoft.EntityFrameworkCore;
+
 public class Product : IValidateDataObject, IDataController<ProductDTO, Product>
 {
     private String name;
@@ -19,9 +21,16 @@ public class Product : IValidateDataObject, IDataController<ProductDTO, Product>
         return product;
     }
 
-    public void delete(ProductDTO obj)
-    {
+    public void delete()
+    {   
+        using(var context = new DAOContext()){
+            
+            var product = context.products.FirstOrDefault(c => c.bar_code == this.bar_code);
 
+            context.products.Remove(product);
+       
+            context.SaveChanges();
+        }
     }
     public int save()
     {
@@ -29,7 +38,12 @@ public class Product : IValidateDataObject, IDataController<ProductDTO, Product>
 
         using(var context = new DAOContext())
         {
-            var product = new DAO.Product{
+            var product = context.products
+                .FirstOrDefault(c => c.bar_code == this.bar_code);
+            if(product != null){
+                return -1;
+            }
+            product = new DAO.Product{
                 name = this.name,
                 bar_code = this.bar_code,
             };
@@ -46,14 +60,23 @@ public class Product : IValidateDataObject, IDataController<ProductDTO, Product>
 
     public void update(ProductDTO obj)
     {
+        using(var context =  new DAOContext()){
+            var result =  context.products.FirstOrDefault(p => p.bar_code == this.bar_code);
 
+            if(result != null  ){
+                result.name = obj.name;
+                context.Entry(obj).State = EntityState.Modified;
+                context.SaveChanges();
+            }
+        }
     }
 
     public ProductDTO findById(int id)
     {
-
         return new ProductDTO();
     }
+
+
 
     public List<ProductDTO> getAll()
     {        
@@ -90,4 +113,3 @@ public class Product : IValidateDataObject, IDataController<ProductDTO, Product>
     }
 
 }
-

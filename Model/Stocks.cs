@@ -26,7 +26,7 @@ public class Stocks : IValidateDataObject, IDataController<StocksDTO, Stocks>
         return stocks;
     }
 
-    public void delete(StocksDTO obj)
+    public void delete()
     {
 
     }

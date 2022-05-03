@@ -39,7 +39,7 @@ public class Purchase : IValidateDataObject, IDataController<PurchaseDTO, Purcha
     }
 
 
-    public void delete(PurchaseDTO obj)
+    public void delete()
     {
 
     }

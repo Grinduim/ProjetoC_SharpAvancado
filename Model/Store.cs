@@ -29,7 +29,7 @@ public class Store: IValidateDataObject, IDataController<StoreDTO, Store>
         return store;
     }
 
-    public void delete(StoreDTO obj)
+    public void delete()
     {
 
     }

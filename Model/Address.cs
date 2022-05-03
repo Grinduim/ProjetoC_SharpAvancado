@@ -30,8 +30,13 @@ public class Address : IValidateDataObject, IDataController<AddressDTO, Address>
         return new Address(obj.street, obj.city, obj.state, obj.country, obj.postal_code);
     }
 
-    public void delete(AddressDTO obj)
+    public void delete()
     {
+        // using( var context =  new DAOContext()){
+        //     var address =  context.addresses.FirstOrDefault();
+        //     context.addresses.Remove(address);
+        //     context.SaveChanges();
+        // }
 
     }
     public int save()
