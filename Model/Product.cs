@@ -8,16 +8,20 @@ public class Product : IValidateDataObject, IDataController<ProductDTO, Product>
 {
     private String name;
     private String bar_code;
-    public List<ProductDTO> productDTO = new List<ProductDTO>();
 
 
 
     public static Product convertDTOToModel(ProductDTO obj)
     {
-        var product = new Product();
-        product.name = obj.name;
-        product.bar_code = obj.bar_code;
-
+        Console.WriteLine("Entrou em product"); 
+        Console.WriteLine(obj.name);
+        var product = new Model.Product{
+            name = obj.name,
+            bar_code = obj.bar_code
+        };
+        Console.WriteLine("Passou Product");
+        Console.WriteLine("passou aq");
+        Console.WriteLine("Saiu de product");
         return product;
     }
 
@@ -82,6 +86,13 @@ public class Product : IValidateDataObject, IDataController<ProductDTO, Product>
     public List<ProductDTO> getAll()
     {
         return new List<ProductDTO>();
+    }
+
+    public int getID(){
+        using(var context = new DAOContext()){
+            var ID  = context.products.FirstOrDefault(p => p.bar_code == this.bar_code).id;
+            return ID;
+        }
     }
 
     public static List<ProductDTO> getAllStatic()

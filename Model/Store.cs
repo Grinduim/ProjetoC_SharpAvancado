@@ -89,6 +89,13 @@ public class Store: IValidateDataObject, IDataController<StoreDTO, Store>
         };
     }
 
+    public int getID(){
+         using(var context = new DAOContext()){
+            var ID  = context.stores.FirstOrDefault(p => p.CNPJ == this.CNPJ).id;
+            return ID;
+        }
+    }
+
     public static List<object> findAll(){
     using (var context = new DAOContext())
         {

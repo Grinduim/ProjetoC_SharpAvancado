@@ -18,11 +18,17 @@ public class Stocks : IValidateDataObject, IDataController<StocksDTO, Stocks>
    
     public static Stocks convertDTOToModel(StocksDTO obj)
     {  
-        var stocks = new Stocks();
-        stocks.quantity = obj.quantity;
-        stocks.unit_price = obj.unit_price;
-        stocks.product = Product.convertDTOToModel(obj.productDTO);
-        stocks.store = Store.convertDTOToModel(obj.store);
+        Console.WriteLine("teste");
+        Stocks stocks = new Stocks{
+            quantity = obj.quantity,
+            unit_price = obj.unit_price,
+            product = Product.convertDTOToModel(obj.productDTO),
+            store = Store.convertDTOToModel(obj.store)
+        };
+        // stocks.quantity = obj.quantity;
+        // stocks.unit_price = obj.unit_price;
+        // stocks.product = Product.convertDTOToModel(obj.productDTO);
+        // stocks.store = Store.convertDTOToModel(obj.store);
         return stocks;
     }
 
@@ -37,8 +43,8 @@ public class Stocks : IValidateDataObject, IDataController<StocksDTO, Stocks>
         using(var context = new DAOContext())
         {
 
-            var store =  context.stores.FirstOrDefault(s=>s.id==lojaId);
-            var product = context.products.FirstOrDefault(p=>p.id==productId);
+            var store =  context.stores.FirstOrDefault(s=>s.CNPJ == lojaId.ToString());
+            var product = context.products.FirstOrDefault(p=>p.bar_code ==productId.ToString());
             var stocks = new DAO.Stocks{
                 quantity = quantidade,
                 unit_price = unit_price,
