@@ -3,6 +3,8 @@ using Interfaces;
 using DAO;
 using DTO;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
+
 
 public class Store: IValidateDataObject, IDataController<StoreDTO, Store>
 {
@@ -69,13 +71,49 @@ public class Store: IValidateDataObject, IDataController<StoreDTO, Store>
         return new StoreDTO();
     }
 
+    public static object find(string CNPJ){
+
+        using (var context = new DAOContext())
+        {
+
+            var storeDAO = context.stores. Include(i => i.owner).Include(i => i.owner.address).FirstOrDefault(o => o.CNPJ == CNPJ);
 
 
-    public static int GetOwnerId(Owner owner){
+
+            return new
+            {
+                name = storeDAO.name,
+                CNPJ = storeDAO.CNPJ,
+                owner = storeDAO.owner
+            };
+        };
+    }
+
+    public static List<object> findAll(){
+    using (var context = new DAOContext())
+        {
+
+            var storeDAO = context.stores. Include(i => i.owner).Include(i => i.owner.address);
+
+            List<object> stores = new List<object>();
+            foreach(object store in storeDAO){
+                stores.Add(store);
+            }
+
+            return stores;
+
+            
+        };
+    }
+
+
+    public static int GetOwnerId(Owner ownerModel){
 
          using(var context = new DAOContext())
         {
-            var ownerDAO = context.owners.FirstOrDefault(o => o.document == owner.getDocument()); 
+
+            Console.WriteLine(ownerModel.getDocument());
+            var ownerDAO = context.owners.FirstOrDefault(o => o.document == ownerModel.getDocument()); 
             return ownerDAO.id;
         }
     }

@@ -11,14 +11,28 @@ namespace Controller.Controllers;
 public class StoreController : ControllerBase
 {
 
-// [HttpGet]
-// [Route("get/{document}")]
-// public ClientDTO getAllStore(String document){
+    [HttpGet]
+    [Route("get/{CNPJ}")]
+    public object getStore(String CNPJ){
 
-//     var client = Model.Client.find(document);
+        var store = Model.Store.find(CNPJ);
 
-//     return client;
-// }
+        return store;
+    }
+
+
+
+    [HttpGet]
+    [Route("get/all")]
+    public List<object> getAllStore(){
+
+        var allStore = Model.Store.findAll();
+
+        return allStore;
+    }
+
+
+
 
     [HttpPost]
     [Route("register")]
@@ -26,7 +40,7 @@ public class StoreController : ControllerBase
 
         var storeModel = Model.Store.convertDTOToModel(store);
 
-        var id = storeModel.save(Model.Store.GetOwnerId(storeModel.getOwner()));
+        storeModel.save(Model.Store.GetOwnerId(Model.Owner.convertDTOToModel(store.owner)));
 
         return new {
                 response = "salvou no banco"
