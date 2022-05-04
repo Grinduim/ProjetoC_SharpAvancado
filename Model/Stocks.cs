@@ -18,7 +18,6 @@ public class Stocks : IValidateDataObject, IDataController<StocksDTO, Stocks>
    
     public static Stocks convertDTOToModel(StocksDTO obj)
     {  
-        Console.WriteLine("teste");
         Stocks stocks = new Stocks{
             quantity = obj.quantity,
             unit_price = obj.unit_price,
@@ -55,7 +54,7 @@ public class Stocks : IValidateDataObject, IDataController<StocksDTO, Stocks>
 
             context.SaveChanges();
 
-            id = product.id;
+            id = stocks.id;
         }
          return id;
     }
