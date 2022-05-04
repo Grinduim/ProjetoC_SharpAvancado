@@ -6,7 +6,7 @@ namespace Controller.Controllers;
 
 
 [ApiController]
-[Route("[controller]")]
+[Route("store")]
 
 public class StoreController : ControllerBase
 {
