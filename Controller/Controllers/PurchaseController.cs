@@ -8,6 +8,10 @@ namespace Controller.Controllers;
 [Route("[controller]")]
 public class PurchaseController : ControllerBase
 {
+
+
+
+    
     [HttpGet]
     [Route("get/client/{document}")]
     public object getClientPurchase(String document){
@@ -16,6 +20,10 @@ public class PurchaseController : ControllerBase
     
         return Purchase;
     }
+
+
+
+
 
     [HttpGet]
     [Route("get/store/{id}")]

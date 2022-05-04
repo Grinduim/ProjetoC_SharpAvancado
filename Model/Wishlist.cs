@@ -60,6 +60,7 @@ public class WishList : IValidateDataObject, IDataController<WishListDTO, WishLi
         return id;
     }
 
+    
     public void update(WishListDTO obj)
     {
 

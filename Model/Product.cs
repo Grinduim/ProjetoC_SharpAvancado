@@ -61,6 +61,17 @@ public class Product : IValidateDataObject, IDataController<ProductDTO, Product>
         return id;
     }
 
+
+    public int findId(){
+
+         using(var context = new DAOContext())
+        {
+            var productDAO = context.products.FirstOrDefault(o => o.bar_code == this.bar_code); 
+            return productDAO.id;
+        }
+    }
+
+
     public void update(ProductDTO obj)
     {
         using(var context = new DAOContext()){
