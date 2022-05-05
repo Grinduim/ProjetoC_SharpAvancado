@@ -27,6 +27,7 @@ public class AddressController: ControllerBase
     {
         var addressModel = Model.Address.convertDTOToModel(address);
         addressModel.delete();
+        
         return new
         {
             status = "ok",

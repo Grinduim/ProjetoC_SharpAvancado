@@ -8,7 +8,7 @@ using DTO;
 public class Address : IValidateDataObject, IDataController<AddressDTO, Address>
 {
 
-
+    private int id;
     private String street ;
     private String city ;
     private String state ;
@@ -27,16 +27,18 @@ public class Address : IValidateDataObject, IDataController<AddressDTO, Address>
 
     public static Address convertDTOToModel(AddressDTO obj)
     {
-        return new Address(obj.street, obj.city, obj.state, obj.country, obj.postal_code);
+        Address address = new Address(obj.street, obj.city, obj.state, obj.country, obj.postal_code);
+        address.id = obj.id;
+        return address;
     }
 
     public void delete()
     {
-        // using( var context =  new DAOContext()){
-        //     var address =  context.addresses.FirstOrDefault(x => x.id == this.id);
-        //     context.addresses.Remove(address);
-        //     context.SaveChanges();
-        // }
+        using( var context =  new DAOContext()){
+            var addressToRemove =  context.addresses.FirstOrDefault(x => x.id == this.id);
+            context.addresses.Remove(addressToRemove);
+            context.SaveChanges();
+        }
 
     }
     public int save()
