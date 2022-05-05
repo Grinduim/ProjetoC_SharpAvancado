@@ -24,8 +24,6 @@ public class DAOContext : DbContext
         }else{
             optionsBuilder.UseSqlServer("Data Source=JVLPC0553;" + "Initial Catalog=MarketPlace; Integrated Security=True");
         }
-
-        
     }
 
 

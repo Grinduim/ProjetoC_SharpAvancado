@@ -11,7 +11,7 @@ public class WishListController : ControllerBase
 
     [HttpPost]
     [Route("register")]
-    public string addProductToWishList([FromBody]WishListDTO wishlist){
+    public object addProductToWishList([FromBody]WishListDTO wishlist){
 
         var wishlistModel = Model.WishList.convertDTOToModel(wishlist);
 
@@ -21,14 +21,29 @@ public class WishListController : ControllerBase
             wishlistModel.save(clientModel.getDocument(), product.findId());
         }
 
-        return "new" ;
-        // {
-        //             response = "salvou no banco"
-        //     };
+        return new
+        {
+                response = "salvou no banco"
+        };
     }   
-    public void removeProductToWishList(object request)
-    {
 
+
+
+    [HttpDelete]
+    [Route("delete")]
+    public object removeProductToWishList([FromBody]WishListDTO wishlist)
+    {
+         var wishlistModel =  Model.WishList.convertDTOToModel(wishlist);
+
+         
+        wishlistModel.deleteProduct();
+
+
+
+        return new
+        {
+                response = "salvou no banco"
+        };
     }
 
 }
