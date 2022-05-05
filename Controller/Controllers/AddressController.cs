@@ -27,7 +27,7 @@ public class AddressController: ControllerBase
     {
         var addressModel = Model.Address.convertDTOToModel(address);
         addressModel.delete();
-        
+
         return new
         {
             status = "ok",
@@ -35,9 +35,15 @@ public class AddressController: ControllerBase
         };
     }
 
-    public void updateAddress(AddressDTO address)
+
+    [HttpPut]
+    [Route("update")]
+    public object updateAddress([FromBody]AddressDTO address)
     {
         
+        var addressModel =  Model.Address.convertDTOToModel(address); 
         
+        addressModel.update(address);
+        return new { status = "sucess"};
     }
 }
