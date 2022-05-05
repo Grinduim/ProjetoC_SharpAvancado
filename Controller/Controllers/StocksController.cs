@@ -11,22 +11,25 @@ namespace Controller.Controllers
     {   
         [HttpPost]
         [Route("addproduct")]
-        public string addProductToStock([FromBody] StocksDTO obj){
+        public object addProductToStock([FromBody] StocksDTO obj){
 
-            Console.WriteLine(obj.productDTO.bar_code);
             Stocks stocksModel = Model.Stocks.convertDTOToModel(obj);
-
             var id = stocksModel.save(stocksModel.getStore().getID(), stocksModel.getProduct().getID(), obj.quantity, obj.unit_price); 
             
-            return "aaaaa";
-            // return new {
-            //     Status = "Save",
-            //     ID = id
-            // };
+            return new {
+                Status = "Save",
+                ID = id
+            };
         }
 
-        public void updateStock(object obj){
+        [HttpPut]
+        [Route("update")]
+        public void updateStock([FromBody] StocksDTO obj){
             
+            Stocks stocksModel = Model.Stocks.convertDTOToModel(obj);
+            
+            stocksModel.update(obj);
+
         }
     }
 }

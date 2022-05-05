@@ -14,7 +14,8 @@ public class Product : IValidateDataObject, IDataController<ProductDTO, Product>
     public static Product convertDTOToModel(ProductDTO obj)
     {
         Console.WriteLine("obj");
-        var product = new Model.Product{
+        var product = new Model.Product
+        {
             name = obj.name,
             bar_code = obj.bar_code
         };
@@ -63,11 +64,12 @@ public class Product : IValidateDataObject, IDataController<ProductDTO, Product>
     }
 
 
-    public int findId(){
+    public int findId()
+    {
 
-         using(var context = new DAOContext())
+        using (var context = new DAOContext())
         {
-            var productDAO = context.products.FirstOrDefault(o => o.bar_code == this.bar_code); 
+            var productDAO = context.products.FirstOrDefault(o => o.bar_code == this.bar_code);
             return productDAO.id;
         }
     }
@@ -75,10 +77,12 @@ public class Product : IValidateDataObject, IDataController<ProductDTO, Product>
 
     public void update(ProductDTO obj)
     {
-        using(var context = new DAOContext()){
-            var product = context.products.FirstOrDefault(i=> i.bar_code == obj.bar_code);
+        using (var context = new DAOContext())
+        {
+            var product = context.products.FirstOrDefault(i => i.bar_code == obj.bar_code);
 
-            if( product != null){
+            if (product != null)
+            {
                 context.Entry(product).State = EntityState.Modified;
                 product.name = obj.name;
             }
@@ -96,10 +100,12 @@ public class Product : IValidateDataObject, IDataController<ProductDTO, Product>
         return new List<ProductDTO>();
     }
 
-    public int getID(){
-        using(var context = new DAOContext()){
-            var ID  = context.products.FirstOrDefault(p => p.bar_code == this.bar_code).id;
-            return ID;
+    public int getID()
+    {
+        using (var context = new DAOContext())
+        {
+            var product = context.products.FirstOrDefault(p => p.bar_code == this.bar_code);
+            return product.id;
         }
     }
 
@@ -111,7 +117,7 @@ public class Product : IValidateDataObject, IDataController<ProductDTO, Product>
 
 
             var productsDTO = new List<ProductDTO>();
-            
+
             foreach (var item in productsDAO)
             {
                 var TransitionDAO = new DTO.ProductDTO();

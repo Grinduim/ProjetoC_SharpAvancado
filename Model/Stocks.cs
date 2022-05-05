@@ -2,6 +2,8 @@ namespace Model;
 using DTO;
 using DAO;
 using Interfaces;
+using Microsoft.EntityFrameworkCore;
+
 public class Stocks : IValidateDataObject, IDataController<StocksDTO, Stocks>
 {
     private int quantity;
@@ -21,7 +23,7 @@ public class Stocks : IValidateDataObject, IDataController<StocksDTO, Stocks>
         Stocks stocks = new Stocks{
             quantity = obj.quantity,
             unit_price = obj.unit_price,
-            product = Product.convertDTOToModel(obj.productDTO),
+            product = Product.convertDTOToModel(obj.product),
             store = Store.convertDTOToModel(obj.store)
         };
         // stocks.quantity = obj.quantity;
@@ -42,8 +44,9 @@ public class Stocks : IValidateDataObject, IDataController<StocksDTO, Stocks>
         using(var context = new DAOContext())
         {
 
-            var store =  context.stores.FirstOrDefault(s=>s.CNPJ == lojaId.ToString());
-            var product = context.products.FirstOrDefault(p=>p.bar_code ==productId.ToString());
+            var store =  context.stores.FirstOrDefault(s=>s.id == lojaId);
+            var product = context.products.FirstOrDefault(p=>p.id ==productId);
+
             var stocks = new DAO.Stocks{
                 quantity = quantidade,
                 unit_price = unit_price,
@@ -61,6 +64,21 @@ public class Stocks : IValidateDataObject, IDataController<StocksDTO, Stocks>
 
     public void update(StocksDTO obj)
     {
+        using (var context = new DAOContext())
+        {
+            var Store = context.stores.FirstOrDefault(s => s.CNPJ == obj.store.CNPJ);
+            var Product = context.products.FirstOrDefault(s=> s.bar_code == obj.product.bar_code);
+
+            var stocks = context.stocks.FirstOrDefault(s=> s.product.id == product.getID() && s.store.id == store.getID() );
+
+            if (stocks != null) 
+            {
+                stocks.quantity = obj.quantity;
+                stocks.unit_price = obj.unit_price;
+                context.SaveChanges();
+            }
+           
+        }
 
     }
 
@@ -82,7 +100,7 @@ public class Stocks : IValidateDataObject, IDataController<StocksDTO, Stocks>
 
         stocksDTO.quantity = this.getQuantity();
         stocksDTO.unit_price = this.getUnitPrice();
-        stocksDTO.productDTO = this.getProduct().convertModelToDTO();
+        stocksDTO.product = this.getProduct().convertModelToDTO();
         stocksDTO.store = this.getStore().convertModelToDTO();
 
         return stocksDTO;
