@@ -13,12 +13,15 @@ public class Product : IValidateDataObject, IDataController<ProductDTO, Product>
 
     public static Product convertDTOToModel(ProductDTO obj)
     {
-        Console.WriteLine("obj");
+        Console.WriteLine("Entrou em product"); 
+        Console.WriteLine(obj.name);
         var product = new Model.Product{
             name = obj.name,
             bar_code = obj.bar_code
         };
-
+        Console.WriteLine("Passou Product");
+        Console.WriteLine("passou aq");
+        Console.WriteLine("Saiu de product");
         return product;
     }
 

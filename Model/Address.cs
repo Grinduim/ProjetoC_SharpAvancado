@@ -3,7 +3,7 @@ namespace Model;
 using Interfaces;
 using DAO;
 using DTO;
-
+using Microsoft.EntityFrameworkCore;
 
 public class Address : IValidateDataObject, IDataController<AddressDTO, Address>
 {
@@ -69,7 +69,19 @@ public class Address : IValidateDataObject, IDataController<AddressDTO, Address>
 
     public void update(AddressDTO obj)
     {
+        using(var context = new DAOContext()){
+            var address = context.addresses.FirstOrDefault(i=> i.id == obj.id);
 
+            if( address != null){
+                context.Entry(address).State = EntityState.Modified;
+                address.street = obj.street;
+                address.city = obj.city;
+                address.state = obj.state;
+                address.country = obj.country;
+                address.postal_code = obj.postal_code;
+            }
+            context.SaveChanges();
+        }
     }
 
     public AddressDTO findById(int id)
