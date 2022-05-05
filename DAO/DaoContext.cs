@@ -47,6 +47,8 @@ public class DAOContext : DbContext
             entity.HasKey(e => e.id);
             entity.Property(e => e.name);
             entity.Property(e => e.bar_code);
+            entity.Property(e=>e.image);
+            entity.Property(e=>e.description);
         });
 
         modelBuilder.Entity<Stocks>(entity =>
