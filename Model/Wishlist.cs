@@ -1,6 +1,7 @@
 namespace Model;
 using Interfaces;
 using DAO;
+using Microsoft.EntityFrameworkCore;
 using DTO;
 public class WishList : IValidateDataObject, IDataController<WishListDTO, WishList>
 {
@@ -32,8 +33,23 @@ public class WishList : IValidateDataObject, IDataController<WishListDTO, WishLi
 
     public void delete()
     {
-
+        
     }
+
+    public void deleteProduct(){
+        using (var context = new DAOContext())
+        {
+            foreach(var product in this.products){
+
+                var productToRemove = context.wishlists.Include(i => i.client).Include(i => i.product).FirstOrDefault(c => (c.product.bar_code == product.getBarCode()) && (c.client.document == this.client.getDocument()));
+ 
+                context.wishlists.Remove(productToRemove);
+                context.SaveChanges();
+            }
+        }
+    }
+
+
     public int save(string document, int productId)
     {
         var id = 0;
@@ -61,6 +77,8 @@ public class WishList : IValidateDataObject, IDataController<WishListDTO, WishLi
     }
 
     
+
+
     public void update(WishListDTO obj)
     {
 
