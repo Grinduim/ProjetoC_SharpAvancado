@@ -23,9 +23,7 @@ public class Product : IValidateDataObject, IDataController<ProductDTO, Product>
             image  = obj.image,
             description = obj.description
         };
-        Console.WriteLine("Passou Product");
-        Console.WriteLine("passou aq");
-        Console.WriteLine("Saiu de product");
+
         return product;
     }
 
