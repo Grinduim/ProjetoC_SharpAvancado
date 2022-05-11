@@ -1,3 +1,4 @@
+import { products } from './../products';
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../products';
 //const axios = require('axios');
@@ -10,10 +11,10 @@ import axios from 'axios';
 })
 export class ProductsListComponent implements OnInit {
 
-  products : [Product] | undefined;
+  products: [Product] | undefined;
 
   constructor() {
-    this.getAllProdutcs();
+      this.getAllProdutcs();
    }
 
   ngOnInit(): void {
@@ -22,16 +23,20 @@ export class ProductsListComponent implements OnInit {
 
   getAllProdutcs(){
 
+    var config = {
+      method: 'get',
+      url: 'http://localhost:5236/product/getall',
+      headers: { }
+    };
 
-    axios.get('http://localhost:5236/product/getall', {
-      headers :{ "Access-Control-Allow-Origin" : "*",
-      "Access-Control-Allow-Headers" : "Origin, X-Requested-With, Content-Type, Accept"}
-    }).then(function (response: any) {
-      console.log(response.data)
+    axios(config)
+    .then(function (response : any) {
+      console.log(JSON.stringify(response.data));
     })
     .catch(function (error: any) {
       console.log(error);
     });
+
   }
 
 }

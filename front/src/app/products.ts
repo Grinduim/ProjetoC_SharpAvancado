@@ -11,21 +11,21 @@ export interface Product {
       id: 1,
       name: 'Phone XL',
       price: 799,
-      description: 'A large phone with one of the best screens',
+      description: 'A Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nemo possimus consectetur',
       image: 'https://c3a4x5w6.rocketcdn.me/blog/app/uploads/2020/06/marketing-digital-produtos-fisicos-768x768.jpg'
     },
     {
       id: 2,
       name: 'Phone Mini',
       price: 699,
-      description: 'A great  cameras',
+      description: 'A Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nemo possimus consectetur',
       image: 'https://c3a4x5w6.rocketcdn.me/blog/app/uploads/2020/06/marketing-digital-produtos-fisicos-768x768.jpg'
     },
     {
       id: 3,
       name: 'Phone Standard',
       price: 299,
-      description: 'BOA NOITE BRUNO',
+      description: 'A Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nemo possimus consectetur',
       image: 'https://c3a4x5w6.rocketcdn.me/blog/app/uploads/2020/06/marketing-digital-produtos-fisicos-768x768.jpg'
     }
   ];
