@@ -11,7 +11,8 @@ import axios from 'axios';
 })
 export class ProductsListComponent implements OnInit {
 
-  products: [Product] | undefined;
+  // products: [Product] | undefined;
+  products = products;
 
   constructor() {
       this.getAllProdutcs();
@@ -26,7 +27,9 @@ export class ProductsListComponent implements OnInit {
     var config = {
       method: 'get',
       url: 'http://localhost:5236/product/getall',
-      headers: { }
+      headers: {
+        'Access-Control-Allow-Origin': '*'
+      }
     };
 
     axios(config)
@@ -39,4 +42,9 @@ export class ProductsListComponent implements OnInit {
 
   }
 
+
+  // itens = document.querySelectorAll(".productComponent");
+  // itens.forEach(elemen(item) {
+  //   item.
+  // });
 }

@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Model;
 using DTO;
+using Microsoft.AspNetCore.Cors;
 
 namespace Controller.Controllers;
 

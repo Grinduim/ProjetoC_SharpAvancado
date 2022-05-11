@@ -1,6 +1,7 @@
 <div class="productsList" *ngIf="products">
-    <div class="productComponent" *ngFor="let product of products">
-      <div class="productComponent-imgtitle">
+    <div class="productComponent" *ngFor="let product of products" >
+
+      <div class="productComponent-imgtitle" >
         <img src= {{product.image}}>
         <h3>
             <a [title]="product.name + 'details'"
