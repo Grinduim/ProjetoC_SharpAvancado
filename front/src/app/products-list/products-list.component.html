@@ -1,0 +1,21 @@
+<div class="productsList" *ngIf="products">
+    <div class="productComponent" *ngFor="let product of products">
+      <div class="productComponent-imgtitle">
+        <img src= {{product.image}}>
+        <h3>
+            <a [title]="product.name + 'details'"
+            [routerLink]="['/product',product.id]">
+                {{product.name}}
+            </a>
+        </h3>
+      </div>
+        <h2>
+            <p class="productComponent-price">${{product.price}}</p>
+        </h2>
+        <h2>
+            <p class="productComponent-description">{{product.description}}</p>
+        </h2>
+
+        <!-- <img class="productComponent-wishlist" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Heart_icon_red_hollow.svg/2166px-Heart_icon_red_hollow.svg.png" alt=""> -->
+    </div>
+</div>
