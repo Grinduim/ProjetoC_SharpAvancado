@@ -163,8 +163,10 @@ app-top-bar h1 {
 .productComponent-imgtitle  img {
   margin-top: 0.5em;
   width: 15em;
+  height: 15em;
   border-radius: 6px;
   object-fit: contain;
+
 }
 
 .productComponent-imgtitle{
