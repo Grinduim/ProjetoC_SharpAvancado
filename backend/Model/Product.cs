@@ -117,6 +117,9 @@ public class Product : IValidateDataObject, IDataController<ProductDTO, Product>
 
     public ProductDTO findById(int id)
     {
+        using(var context = new DAOContext()){
+            var response = context.products.FirstOrDefault(x=> x.id == id);
+        }
         return new ProductDTO();
     }
 
@@ -134,22 +137,23 @@ public class Product : IValidateDataObject, IDataController<ProductDTO, Product>
         }
     }
 
-    public static List<ProductDTO> getAllStatic()
+    public static List<ProductResponseDTO> getAllStatic()
     {
         using (var context = new DAOContext())
         {
             var productsDAO = context.products;
 
 
-            var productsDTO = new List<ProductDTO>();
+            var productsDTO = new List<ProductResponseDTO>();
 
             foreach (var item in productsDAO)
             {
-                var TransitionDAO = new DTO.ProductDTO();
+                var TransitionDAO = new DTO.ProductResponseDTO();
                 TransitionDAO.bar_code = item.bar_code;
                 TransitionDAO.name = item.name;
                 TransitionDAO.image = item.image;
                 TransitionDAO.description = item.description;
+                TransitionDAO.Id = item.id;
                 productsDTO.Add(TransitionDAO);
             }
             return productsDTO;

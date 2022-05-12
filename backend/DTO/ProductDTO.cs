@@ -6,4 +6,5 @@ public class ProductDTO
 
     public String image;
     public String description;
+
 }

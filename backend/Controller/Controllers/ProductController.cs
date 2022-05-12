@@ -56,6 +56,12 @@ public class ProductController : ControllerBase
         return retorno;
     }
 
+    [HttpGet]
+    [Route("getproduct/{id}")]
+    public object getProduct(int id){
+    return
+    }
+
 
 
 

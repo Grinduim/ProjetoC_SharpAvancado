@@ -1,4 +1,4 @@
-
+// import { products, Product } from './../products';
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../products';
 //const axios = require('axios');
@@ -10,13 +10,14 @@ import axios from 'axios';
   styleUrls: ['./products-list.component.css']
 })
 export class ProductsListComponent implements OnInit {
+
   products: [Product] | undefined;
+
   constructor() {
-     this.getAllProdutcs();
+    this.getAllProdutcs();
    }
 
   ngOnInit(): void {
-
   }
 
   getAllProdutcs(){
@@ -26,20 +27,17 @@ export class ProductsListComponent implements OnInit {
       url: 'http://localhost:5236/product/getall',
       headers: { }
     };
+    var instance = this;
 
     axios(config)
     .then(function (response : any) {
-      console.log(JSON.stringify(response.data));
+      console.log("Aqui passou");
+      instance.products = response.data;
+      console.table(JSON.stringify(response.data));
     })
     .catch(function (error: any) {
       console.log(error);
     });
 
   }
-
-
-  // itens = document.querySelectorAll(".productComponent");
-  // itens.forEach(elemen(item) {
-  //   item.
-  // });
 }

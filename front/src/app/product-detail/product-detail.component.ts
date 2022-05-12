@@ -27,4 +27,9 @@ export class ProductDetailComponent implements OnInit {
     this.product = products.find(product=> product.id == productIdFromRoute);
   }
 
+
+  getProduct(){
+
+  }
+
 }
