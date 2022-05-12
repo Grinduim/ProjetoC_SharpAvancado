@@ -12,7 +12,6 @@ import axios from 'axios';
 export class ProductsListComponent implements OnInit {
 
   products: [Product] | undefined;
-
   constructor() {
     this.getAllProdutcs();
    }

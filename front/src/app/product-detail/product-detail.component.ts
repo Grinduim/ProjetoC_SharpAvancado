@@ -35,10 +35,12 @@ export class ProductDetailComponent implements OnInit {
     axios(config)
     .then(function (response:any) {
       instance.product = response.data;
+      console.table(response.data)
     })
     .catch(function (error:any) {
+      console.log(error);
     });
-
   }
+
 
 }

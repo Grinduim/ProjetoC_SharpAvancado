@@ -138,19 +138,27 @@ public class Product : IValidateDataObject, IDataController<ProductDTO, Product>
     {
         using (var context = new DAOContext())
         {
-            var productsDAO = context.products;
-
-
+            var TodosOsProdutos = context.products.Join(context.stocks,
+            produto => produto.id,
+            estoque => estoque.id,
+            (p,e) => new {
+                produto = p,
+                stock = e
+            }
+            );
             var productsDTO = new List<ProductResponseDTO>();
 
-            foreach (var item in productsDAO)
+            foreach (var item in TodosOsProdutos)
             {
                 var TransitionDAO = new DTO.ProductResponseDTO();
-                TransitionDAO.bar_code = item.bar_code;
-                TransitionDAO.name = item.name;
-                TransitionDAO.image = item.image;
-                TransitionDAO.description = item.description;
-                TransitionDAO.Id = item.id;
+                TransitionDAO.bar_code = item.produto.bar_code;
+                TransitionDAO.name = item.produto.name;
+                TransitionDAO.image = item.produto.image;
+                TransitionDAO.description = item.produto.description;
+                TransitionDAO.Id = item.produto.id;
+                TransitionDAO.Quantity = item.stock.id;
+                TransitionDAO.Unit_price = item.stock.unit_price;
+                TransitionDAO.CNPJString = item.stock.store.CNPJ;
                 productsDTO.Add(TransitionDAO);
             }
             return productsDTO;

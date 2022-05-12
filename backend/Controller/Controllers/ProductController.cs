@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Model;
 using DTO;
 using Microsoft.AspNetCore.Cors;
-
+using System.Linq;
 namespace Controller.Controllers;
 
 [ApiController]
@@ -60,12 +60,9 @@ public class ProductController : ControllerBase
     [Route("getproduct/{id}")]
     public IActionResult getProduct(int id){
         var response = Model.Product.getProductById(id);
+        
         var  retorno = new ObjectResult(response);
          Response.Headers.Add("Access-Control-Allow-Origin", "*");
         return retorno;
     }
-
-
-
-
 }
