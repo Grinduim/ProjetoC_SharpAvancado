@@ -2,7 +2,7 @@
     <div class="productComponent" *ngFor="let product of products" >
 
       <div class="productComponent-imgtitle" >
-        <img src='https://c3a4x5w6.rocketcdn.me/blog/app/uploads/2020/06/marketing-digital-produtos-fisicos-768x768.jpg'>
+        <img src={{product.image}}>
         <h3>
             <a [title]="product.name + 'details'"
             [routerLink]="['/product',product.id]">

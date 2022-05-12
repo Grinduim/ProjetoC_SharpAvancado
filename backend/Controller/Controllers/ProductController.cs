@@ -58,8 +58,11 @@ public class ProductController : ControllerBase
 
     [HttpGet]
     [Route("getproduct/{id}")]
-    public object getProduct(int id){
-    return
+    public IActionResult getProduct(int id){
+        var response = Model.Product.getProductById(id);
+        var  retorno = new ObjectResult(response);
+         Response.Headers.Add("Access-Control-Allow-Origin", "*");
+        return retorno;
     }
 
 

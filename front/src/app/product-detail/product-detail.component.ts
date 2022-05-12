@@ -1,8 +1,8 @@
 
 import { Component, OnInit } from '@angular/core';
-import { products, Product } from '../products';
+import { Product } from '../products';
 import { ActivatedRoute } from '@angular/router'
-
+import axios from 'axios';
 
 @Component({
   selector: 'app-product-detail',
@@ -18,17 +18,26 @@ export class ProductDetailComponent implements OnInit {
 
   ngOnInit(): void {
     const routeParams = this.route.snapshot.paramMap;
-
     const productIdFromRoute = Number(routeParams.get('productID'));
+    this.getProduct(productIdFromRoute);
 
-    console.table(products);
-    console.log(productIdFromRoute)
-
-    this.product = products.find(product=> product.id == productIdFromRoute);
   }
 
 
-  getProduct(){
+  getProduct(id:number){
+    var instance = this;
+    var config = {
+      method: 'get',
+      url: 'http://localhost:5236/product/getproduct/' + id,
+      headers: { }
+    };
+    var instance = this;
+    axios(config)
+    .then(function (response:any) {
+      instance.product = response.data;
+    })
+    .catch(function (error:any) {
+    });
 
   }
 

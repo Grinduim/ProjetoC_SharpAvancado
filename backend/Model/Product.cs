@@ -117,9 +117,6 @@ public class Product : IValidateDataObject, IDataController<ProductDTO, Product>
 
     public ProductDTO findById(int id)
     {
-        using(var context = new DAOContext()){
-            var response = context.products.FirstOrDefault(x=> x.id == id);
-        }
         return new ProductDTO();
     }
 
@@ -174,6 +171,13 @@ public class Product : IValidateDataObject, IDataController<ProductDTO, Product>
     }
 
 
+    public static object getProductById(int id){
+          using(var context = new DAOContext()){
+            var response = context.products.FirstOrDefault(x=> x.id == id);
+            return response;
+        }
+
+    }
 
 
     public void setName(String name) { this.name = name; }
