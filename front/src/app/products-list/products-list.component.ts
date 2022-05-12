@@ -1,4 +1,4 @@
-import { products } from './../products';
+
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../products';
 //const axios = require('axios');
@@ -10,12 +10,9 @@ import axios from 'axios';
   styleUrls: ['./products-list.component.css']
 })
 export class ProductsListComponent implements OnInit {
-
-  // products: [Product] | undefined;
-  products = products;
-
+  products: [Product] | undefined;
   constructor() {
-      this.getAllProdutcs();
+     this.getAllProdutcs();
    }
 
   ngOnInit(): void {
@@ -27,9 +24,7 @@ export class ProductsListComponent implements OnInit {
     var config = {
       method: 'get',
       url: 'http://localhost:5236/product/getall',
-      headers: {
-        'Access-Control-Allow-Origin': '*'
-      }
+      headers: { }
     };
 
     axios(config)

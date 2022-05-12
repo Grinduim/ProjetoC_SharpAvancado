@@ -48,10 +48,12 @@ public class ProductController : ControllerBase
 
     [HttpGet]
     [Route("getall")]
-    public object allProducts(){
+    public IActionResult  allProducts(){
         var response = Model.Product.getAllStatic();
+       var  retorno = new ObjectResult(response);
+
         Response.Headers.Add("Access-Control-Allow-Origin", "*");
-        return response;
+        return retorno;
     }
 
 
