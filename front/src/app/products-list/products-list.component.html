@@ -1,22 +1,27 @@
 <div class="productsList" *ngIf="products">
-    <div class="productComponent" *ngFor="let product of products" >
+  <div class="productComponent" *ngFor="let product of products" >
 
-      <div class="productComponent-imgtitle" >
-        <img src={{product.image}}>
-        <h3>
-            <a [title]="product.name + 'details'"
-            [routerLink]="['/product',product.id]">
-                {{product.name}}
-            </a>
-        </h3>
-      </div>
-        <h2>
-            <p class="productComponent-price">${{product.unit_price}}</p>
-        </h2>
-          <div class="productComponent-description-container ">
-            {{product.description}}
-          </div>
+    <div class="item-d" >
+      <img src={{product.image}}>
     </div>
+
+    <div class="item-a">
+          <a [title]="product.name"
+          [routerLink]="['/product',product.id]">
+              {{product.name}}
+          </a>
+    </div>
+
+    <div class = "item-c">
+      <p class="productComponent-price">${{product.unit_price}}</p>
+    </div>
+
+    <div class = "item-b">
+      {{product.description}}
+    </div>
+
+
+  </div>
 </div>
 
 

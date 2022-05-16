@@ -1,3 +1,10 @@
+:root{
+  --Cor1: #EFF1FA;
+  --Cor2: #373F47;
+  --Cor3: #F39237;
+}
+
+
 /* You can add global styles to this file, and also import other style files */
 * {
   font-family: 'Roboto', Arial, sans-serif;
@@ -133,7 +140,35 @@ label {
   align-items: center;
 }
 
+.item-a {
+  grid-area: ProductName;
+  font-size: .5em;
+  align-self: center;
+}
+
+.item-b {
+  grid-area: ProductDescription;
+  font-size: .5em;
+}
+.item-c {
+  grid-area: ProductPrice;
+  font-size: .5em;
+  align-self: center;
+  justify-self: center;
+}
+.item-d {
+  margin: auto auto;
+  grid-area: ProductPicture;
+}
+
+.item-d img{
+  max-width: 100%;
+  max-height: 100%;
+  display: block; /* remove extra space below image */
+}
+
 .productComponent{
+  display: grid;
   width: 18.3em;
   height: 28em;
   background-color: white;
@@ -143,6 +178,14 @@ label {
   align-items: center;
   overflow: hidden;
   text-overflow: ellipsis;
+
+  grid-template-columns: auto;
+    grid-template-rows: 60% 10% 20%;
+    grid-template-areas: 
+        "ProductPicture"
+        "ProductName"
+        "ProductDescription"
+        "ProductPrice";
 }
 
 
@@ -186,16 +229,19 @@ label {
 }
 
 div.productComponent-description-container{
+  
   /* word-break: keep-all; */
-  white-space: nowrap;
+  white-space: wrap;
   width: 18em;
-
+  display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
   color: black;
   /* display: flex; */
   font-size: 14px;
-  text-align: center;
+  text-align: left;
   margin-top: 0.7em;
   margin-right: auto;
   margin-left: auto;
