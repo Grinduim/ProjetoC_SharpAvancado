@@ -146,12 +146,16 @@ public class Product : IValidateDataObject, IDataController<ProductDTO, Product>
                 stock = e
             }
             );
+            if(TodosOsProdutos == null){
+                Console.WriteLine("aaaaa");
+            }
             var productsDTO = new List<ProductResponseDTO>();
 
             foreach (var item in TodosOsProdutos)
             {
                 var TransitionDAO = new DTO.ProductResponseDTO();
                 TransitionDAO.bar_code = item.produto.bar_code;
+                Console.WriteLine(item.produto.bar_code);
                 TransitionDAO.name = item.produto.name;
                 TransitionDAO.image = item.produto.image;
                 TransitionDAO.description = item.produto.description;
