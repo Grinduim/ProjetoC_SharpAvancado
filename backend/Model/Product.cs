@@ -163,23 +163,18 @@ public class Product : IValidateDataObject, IDataController<ProductDTO, Product>
                 Stock = e
             }
             );
-            if(TodosOsProdutos == null){
-                Console.WriteLine("A lista ta vazia");
-            }
             var productsDTO = new List<ProductResponseDTO>();
 
             foreach (var item in TodosOsProdutos)
             {
                 var TransitionDAO = new DTO.ProductResponseDTO();
                 TransitionDAO.bar_code = item.Product.bar_code;
-                Console.WriteLine($"Bar code : {item.Product.bar_code}");
                 TransitionDAO.name = item.Product.name;
                 TransitionDAO.image = item.Product.image;
                 TransitionDAO.description = item.Product.description;
                 TransitionDAO.Id = item.Product.id;
                 TransitionDAO.Quantity = item.Stock.id;
                 TransitionDAO.Unit_price = item.Stock.unit_price;
-                Console.WriteLine($"Preço : {item.Stock.unit_price}");
                 // TransitionDAO.CNPJString = item.Stock.store.CNPJ;
                 // Console.WriteLine($"Cnpj loja : {item.Stock.store.CNPJ}");
                 productsDTO.Add(TransitionDAO);
@@ -204,7 +199,7 @@ public class Product : IValidateDataObject, IDataController<ProductDTO, Product>
 
     public static object getProductById(int id){
           using(var context = new DAOContext()){
-            var response = context.products.FirstOrDefault(x=> x.id == id);
+            var response = context.stocks.Include(i=> i.store).Include(i=>i.product).FirstOrDefault(x=> x.product.id == id);
             return response;
         }
 
