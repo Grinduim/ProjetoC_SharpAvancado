@@ -57,6 +57,16 @@ public class ProductController : ControllerBase
     }
 
     [HttpGet]
+    [Route("getTeste")]
+    public IActionResult  allProductsTeste(){
+        var response = Model.Product.getAllStaticTeste();
+        var  retorno = new ObjectResult(response);
+
+        Response.Headers.Add("Access-Control-Allow-Origin", "*");
+        return retorno;
+    }
+
+    [HttpGet]
     [Route("getproduct/{id}")]
     public IActionResult getProduct(int id){
         var response = Model.Product.getProductById(id);

@@ -1,0 +1,92 @@
+.item-a {
+    grid-area: ProductName;
+    font-size: large;
+    font-size: 2.5em;
+    align-self: center;
+}
+
+.item-b {
+    grid-area: ProductDecription;
+    
+    font-size: 1.5em;
+}
+.item-c {
+    grid-area: ProductPrice;
+    background-color: green;
+}
+.item-d {
+    grid-area: PurchaseButton;
+    justify-self: center;
+    align-self: center;
+}
+.item-e {
+    margin: auto auto;
+    grid-area: ProductPicture;
+}
+
+.item-e img{
+    max-width: 100%;
+        max-height: 100%;
+        display: block; /* remove extra space below image */
+}
+
+.container {
+    
+    grid-gap: 2em;
+    margin: auto auto;
+    margin-top: 3em;
+    max-width: 70%;
+    height: 45em;
+    display: grid;
+    grid-template-columns: 30%;
+    grid-template-rows: 15% 60%;
+    grid-template-areas: 
+        "ProductPicture ProductName "
+        "ProductPicture ProductDecription"
+        "PurchaseButton ProductPrice";
+}
+
+.button-5 {
+  align-items: center;
+  background-clip: padding-box;
+  background-color: #fa6400;
+  border: 1px solid transparent;
+  border-radius: .25rem;
+  box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+
+  font-size: 1em;
+
+  justify-content: center;
+  line-height: 1.25;
+  margin: 0;
+  min-height: 3rem;
+  padding: calc(.875rem - 1px) calc(1.5rem - 1px);
+  position: relative;
+  text-decoration: none;
+  transition: all 250ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  width: auto;
+}
+
+.button-5:hover,
+.button-5:focus {
+  background-color: #fb8332;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+}
+
+.button-5:hover {
+  transform: translateY(-1px);
+}
+
+.button-5:active {
+  background-color: #c85000;
+  box-shadow: rgba(0, 0, 0, .06) 0 2px 4px;
+  transform: translateY(0);
+}

@@ -1,6 +1,10 @@
 
 <div *ngIf="product">
-    <h3>{{product.name}}</h3>
-    <h4>{{product.price | currency}}</h4>
-    <p>{{ product.description}}</p>
+    <div class = "container">
+        <div class="item-a">{{product.name}}</div>
+        <div class="item-b">{{ product.description}}</div>
+        <div class="item-c"><h4>{{product.unit_price | currency}}</h4></div>
+        <div class="item-d"><button class="button-5" role="button">Button 5</button></div>
+        <div class="item-e"><img src={{product.image}} alt=""></div>
+    </div>
 </div>

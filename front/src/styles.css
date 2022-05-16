@@ -14,13 +14,14 @@ body{
 .container {
   display: flex;
   flex-direction:column;
-
-
 }
 
 router-outlet + *  {
   padding: 0 16px;
 }
+
+
+
 
 /* Text */
 
@@ -39,6 +40,9 @@ h1, h2 {
 p {
   font-size: 14px;
 }
+
+
+
 
 /* Hyperlink */
 
@@ -105,23 +109,6 @@ label {
   padding-right: 4px;
 }
 
-/* Top Bar */
-
-app-top-bar {
-  width: 100%;
-  height: 68px;
-  background-color: #1976d2;
-  padding: 16px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-}
-
-app-top-bar h1 {
-  color: white;
-  margin: 0;
-}
 
 /* Checkout Cart, Shipping Prices */
 
