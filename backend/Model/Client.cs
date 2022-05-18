@@ -59,7 +59,11 @@ public class Client : Person, IValidateDataObject, IDataController<ClientDTO, Cl
 
         using (var context = new DAOContext())
         {
-
+            var ExistClient = context.Client.FirstOrDefault(c => c.document == this.document);
+            if(ExistClient != null){
+                throw new Exception("Exist same client in DB");
+            }
+            else{
             var address = new DAO.Address
             {
                 street = this.address.getStreet(),
@@ -89,7 +93,7 @@ public class Client : Person, IValidateDataObject, IDataController<ClientDTO, Cl
 
 
             id = client.id;
-
+            }
         }
         return id;
     }
