@@ -1,0 +1,61 @@
+.productsList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.2em;
+    justify-content: center;
+    align-items: center;
+}
+
+.item-a {
+    grid-area: ProductName;
+    font-size: 1.5em;
+    align-self: center;
+    
+}
+
+.item-b {
+    grid-area: ProductDescription;
+    font-size: .8em;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.item-c {
+    grid-area: ProductPrice;
+    font-size: 1.4em;
+    align-self: center;
+    justify-self: center;
+}
+
+.item-d {
+    margin: auto auto;
+    grid-area: ProductPicture;
+}
+
+.item-d img {
+    object-fit:scale-down;
+}
+
+.productComponent {
+    grid-gap: 1em;
+    padding: 0em 1em;
+    display: grid;
+    width: 18.3em;
+    height: 28em;
+    background-color: white;
+    border: 1px solid gray;
+    border-radius: 15px;
+    box-shadow: 0.5px 0.5px 5px black;
+    align-items: center;
+
+
+    grid-template-columns: auto;
+    grid-template-rows: 55% 10% 15%;
+    grid-template-areas:
+        "ProductPicture"
+        "ProductName"
+        "ProductDescription"
+        "ProductPrice";
+}
