@@ -141,6 +141,21 @@ public class Client : Person, IValidateDataObject, IDataController<ClientDTO, Cl
             };
         }
     }
+
+    public static DAO.Client findByUser(String login, string password)
+    {
+        using (var context = new DAOContext())
+        {
+            var clientDAO = context.Client.FirstOrDefault(o => o.login == login && o.passwd==password);
+
+            if(clientDAO != null){
+
+                return clientDAO;
+            }
+
+            return null;
+        }
+    }
     public List<ClientDTO> getAll()
     {
         return this.clientDTO;
