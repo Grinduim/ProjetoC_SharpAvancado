@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-
+import { empty } from 'rxjs';
+//import { Client } from '../client';
+import { Client } from "../client";
 @Component({
   selector: 'app-client-register',
   templateUrl: './client-register.component.html',
@@ -7,9 +9,55 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClientRegisterComponent implements OnInit {
 
-  constructor() { }
 
   ngOnInit(): void {
+    this.AddFuncitions();
   }
 
+  AddFuncitions() {
+    let button = document.getElementById('save');
+    button?.addEventListener('click', this.VerifyForm)
+    // let cancel = document.getElementById('reset');
+    // cancel?.addEventListener('click',this.VerifyForm);
+
+  }
+
+
+  VerifyForm() {
+    let allInputs: Array<any> = [];
+    let name = document.getElementById('name') as HTMLInputElement;
+    allInputs.push(name);
+    let phone = document.getElementById("phone") as HTMLInputElement;
+    allInputs.push(phone);
+    let email = document.getElementById('email') as HTMLInputElement;
+    allInputs.push(email)
+    let  login = document.getElementById('login') as HTMLInputElement;
+    allInputs.push(login);
+    let birth = document.getElementById('birth') as HTMLInputElement;
+    allInputs.push(birth);
+    let pass = document.getElementById('password') as HTMLInputElement;
+    allInputs.push(pass);
+    let doc= document.getElementById('document') as HTMLInputElement;
+    allInputs.push(doc);
+
+    allInputs.forEach(function(prop){
+      if(prop.value == ""){
+        console.log(prop);
+        console.log("aa")
+      }
+
+    });
+    // if(name !=null){
+    //   console.log(name)
+    // }
+    // var data = JSON.stringify({
+    //   "name" : name.value,
+    // }
+  }
 }
+
+
+
+
+
+
