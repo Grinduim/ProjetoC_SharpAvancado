@@ -60,39 +60,41 @@ public class Client : Person, IValidateDataObject, IDataController<ClientDTO, Cl
         using (var context = new DAOContext())
         {
             var ExistClient = context.Client.FirstOrDefault(c => c.document == this.document);
-            if(ExistClient != null){
+            if (ExistClient != null)
+            {
                 throw new Exception("Exist same client in DB");
             }
-            else{
-            var address = new DAO.Address
+            else
             {
-                street = this.address.getStreet(),
-                city = this.address.getCity(),
-                state = this.address.getState(),
-                country = this.address.getCountry(),
-                postal_code = this.address.getPostalCode()
-            };
+                var address = new DAO.Address
+                {
+                    street = this.address.getStreet(),
+                    city = this.address.getCity(),
+                    state = this.address.getState(),
+                    country = this.address.getCountry(),
+                    postal_code = this.address.getPostalCode()
+                };
 
-            context.addresses.Add(address);
+                context.addresses.Add(address);
 
-            var client = new DAO.Client
-            {
-                name = this.name,
-                date_of_birth = this.date_of_birth,
-                document = this.document,
-                email = this.email,
-                phone = this.phone,
-                passwd = this.passwd,
-                login = this.login,
-                address = address
-            };
+                var client = new DAO.Client
+                {
+                    name = this.name,
+                    date_of_birth = this.date_of_birth,
+                    document = this.document,
+                    email = this.email,
+                    phone = this.phone,
+                    passwd = this.passwd,
+                    login = this.login,
+                    address = address
+                };
 
-            context.Client.Add(client);
+                context.Client.Add(client);
 
-            context.SaveChanges();
+                context.SaveChanges();
 
 
-            id = client.id;
+                id = client.id;
             }
         }
         return id;
@@ -127,27 +129,27 @@ public class Client : Person, IValidateDataObject, IDataController<ClientDTO, Cl
                 login = clientDAO.login,
                 address = clientDAO.address,
                 passwd = clientDAO.passwd
-        };
+            };
+        }
     }
-}
-public List<ClientDTO> getAll()
-{
-    return this.clientDTO;
-}
-public ClientDTO convertModelToDTO()
-{
-    var clientDTO = new ClientDTO();
+    public List<ClientDTO> getAll()
+    {
+        return this.clientDTO;
+    }
+    public ClientDTO convertModelToDTO()
+    {
+        var clientDTO = new ClientDTO();
 
-    clientDTO.name = this.name;
-    clientDTO.name = this.name;
-    clientDTO.date_of_birth = this.date_of_birth;
-    clientDTO.document = this.document;
-    clientDTO.email = this.email;
-    clientDTO.phone = this.phone;
-    clientDTO.login = this.login;
-    clientDTO.passwd = this.passwd;
-    clientDTO.address = this.address.convertModelToDTO();
-    return clientDTO;
-}
+        clientDTO.name = this.name;
+        clientDTO.name = this.name;
+        clientDTO.date_of_birth = this.date_of_birth;
+        clientDTO.document = this.document;
+        clientDTO.email = this.email;
+        clientDTO.phone = this.phone;
+        clientDTO.login = this.login;
+        clientDTO.passwd = this.passwd;
+        clientDTO.address = this.address.convertModelToDTO();
+        return clientDTO;
+    }
 }
 

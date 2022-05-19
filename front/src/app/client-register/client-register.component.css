@@ -1,0 +1,38 @@
+.form{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.3em;
+}
+
+*{
+    margin: 0;
+}
+
+.form div{
+    display:  flex;
+    justify-content: space-between;
+    gap: 1em;
+    align-content: center;
+    width: 30%;
+}
+
+.form input{
+    display: flex;
+    justify-content: end;
+    width: 30em;
+}
+
+.form-label{
+    justify-content: start;
+    align-items: center;
+    display: flex;
+}
+
+.form-button{
+    width: 10em;
+    height: 2em;
+    background-color: var(--Cor3);
+    border-radius: 1em;
+}
