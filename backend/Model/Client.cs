@@ -62,7 +62,7 @@ public class Client : Person, IValidateDataObject, IDataController<ClientDTO, Cl
             var ExistClient = context.Client.FirstOrDefault(c => c.document == this.document);
             if (ExistClient != null)
             {
-                throw new Exception("Exist same client in DB");
+                throw new Exception("Exist same client in Data");
             }
             else
             {

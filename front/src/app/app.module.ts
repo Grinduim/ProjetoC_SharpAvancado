@@ -8,6 +8,7 @@ import { TopBarComponent } from './top-bar/top-bar.component';
 import { ProductsListComponent } from './products-list/products-list.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { ClientRegisterComponent } from './client-register/client-register.component';
+import { ButtonComponent } from './button/button.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { ClientRegisterComponent } from './client-register/client-register.compo
     TopBarComponent,
     ProductsListComponent,
     ProductDetailComponent,
-    ClientRegisterComponent
+    ClientRegisterComponent,
+    ButtonComponent
   ],
   imports: [
     BrowserModule,
