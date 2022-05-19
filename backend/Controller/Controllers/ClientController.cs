@@ -16,16 +16,19 @@ public class ClientController : ControllerBase
         {
             int id = clientModel.save();
         }
-        catch
+        catch (Exception e)
         {
             return new
             {
-                response = "erro"
+                response = new
+                {
+                    e.Message
+                }
             };
         }
         return new
         {
-            response = "salvou"
+            response = "Sucess"
         };
 
 
