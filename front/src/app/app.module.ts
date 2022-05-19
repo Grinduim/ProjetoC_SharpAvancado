@@ -8,7 +8,6 @@ import { TopBarComponent } from './top-bar/top-bar.component';
 import { ProductsListComponent } from './products-list/products-list.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { ClientRegisterComponent } from './client-register/client-register.component';
-
 import { LoginClientComponent } from './login-client/login-client.component';
 
 @NgModule({
