@@ -10,7 +10,7 @@
     margin: 0;
 }
 
-.form div{
+.form-div{
     display:  flex;
     justify-content: space-between;
     gap: 1em;
@@ -21,7 +21,8 @@
 .form input{
     display: flex;
     justify-content: end;
-    width: 30em;
+    width: 32em;
+    border-radius: 10px;
 }
 
 .form-label{
@@ -31,8 +32,16 @@
 }
 
 .form-button{
-    width: 10em;
-    height: 2em;
-    background-color: var(--Cor3);
-    border-radius: 1em;
+    width: 8em !important; 
+    height: 2.2em !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: medium;
+}
+
+.form-div-button{
+    display: flex;
+    width: 30%;
+    justify-content: space-around;
 }

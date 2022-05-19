@@ -44,6 +44,16 @@ public class ClientController : ControllerBase
 
         return client;
     }
+
+    [HttpGet]
+    [Route("login")]
+    public object checkLogin(String document)
+    {
+
+        var client = Model.Client.find(document);
+
+        return client;
+    }
 }
 
 
