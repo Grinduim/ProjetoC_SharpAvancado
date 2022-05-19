@@ -1,18 +1,5 @@
-.username {
-    grid-area: username;
-    font-size: .8em;
-    display: -webkit-box;
-    max-width: 100%;
-    -webkit-line-clamp: 4;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-}
-
-.password {
-    grid-area: password;
-    font-size: 1.4em;
-    align-self: center;
-    justify-self: center;
+.form {
+    grid-area: form;
 }
 
 .logo {  
@@ -22,17 +9,16 @@
 }
 
 .logo img {
+    padding: 1em;
     max-width: 100%;
     max-height: 100%;
     border-radius: 4em;
-    border: .4em solid var(--Cor1);
 }
 
 .login-button{
     grid-area: login;
     align-self: center;
     justify-self: center;
-
 }
 
 .card {
@@ -49,10 +35,37 @@
     box-shadow: 0.5px 0.5px 5px black;
    
     grid-template-columns: auto;
-    grid-template-rows: 55% 10% 15%;
+    grid-template-rows: 50% 25%;
     grid-template-areas:
         "logo"
-        "username"
-        "password"
+        "form"
         "login";
+}
+
+.form{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 2em;
+}
+
+.form div{
+    display:  flex;
+    justify-content: space-between;
+    gap: 1.5em;
+    align-content: center;
+    width: 90%;
+}
+
+.form input{
+    display: flex;
+    justify-content: end;
+    width: 30em;
+}
+
+.form-label{
+    justify-content: start;
+    align-items: center;
+    display: flex;
 }
