@@ -8,15 +8,19 @@
 
 .item-a {
     grid-area: ProductName;
-    font-size: 1.5em;
+    font-size: 1.4em;
     align-self: center;
-    
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .item-b {
     grid-area: ProductDescription;
     font-size: .8em;
     display: -webkit-box;
+    max-width: 100%;
     -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
     overflow: hidden;
@@ -29,13 +33,15 @@
     justify-self: center;
 }
 
-.item-d {
-    margin: auto auto;
+.item-d {  
+    justify-content: center;
     grid-area: ProductPicture;
+    display: flex;
 }
 
 .item-d img {
-    object-fit:scale-down;
+    max-width: 100%;
+    max-height: 100%;
 }
 
 .productComponent {
@@ -48,7 +54,7 @@
     border: 1px solid gray;
     border-radius: 15px;
     box-shadow: 0.5px 0.5px 5px black;
-    align-items: center;
+    
 
 
     grid-template-columns: auto;

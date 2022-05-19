@@ -8,6 +8,7 @@ import { TopBarComponent } from './top-bar/top-bar.component';
 import { ProductsListComponent } from './products-list/products-list.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { ClientRegisterComponent } from './client-register/client-register.component';
+import { LoginClientComponent } from './login-client/login-client.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { ClientRegisterComponent } from './client-register/client-register.compo
     TopBarComponent,
     ProductsListComponent,
     ProductDetailComponent,
-    ClientRegisterComponent
+    ClientRegisterComponent,
+    LoginClientComponent
   ],
   imports: [
     BrowserModule,
@@ -23,7 +25,8 @@ import { ClientRegisterComponent } from './client-register/client-register.compo
     RouterModule.forRoot([
       {path: '', component: ProductsListComponent},
       {path: 'product/:productID', component: ProductDetailComponent},
-      {path: 'client/register', component : ClientRegisterComponent}
+      {path: 'client/register', component : ClientRegisterComponent},
+      {path: 'client/login', component : LoginClientComponent}
     ])
   ],
   providers: [],
