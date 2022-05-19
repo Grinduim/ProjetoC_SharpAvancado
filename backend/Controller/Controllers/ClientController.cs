@@ -54,21 +54,39 @@ public class ClientController : ControllerBase
     [Route("login")]
     public IActionResult checkLogin([FromBody] ClientDTO client)
     {
-        Console.WriteLine("1");
         var clientDao =  Model.Client.findByUser(client.login, client.passwd);
+        
 
-        var response = new{
+        if(clientDao == null){
+           
+            var response = new{
+                result = "deu ruim"
+            };
+
+            var  retorno = new ObjectResult(response);
+
+            Response.Headers.Add("Access-Control-Allow-Origin", "*");
+            
+            return retorno;
+            
+        }else{
+            var response = new{
             name = clientDao.name,
             email = clientDao.email,
             birth = clientDao.date_of_birth,
             document = clientDao.document,
             phone = clientDao.phone
-        };
-        var  retorno = new ObjectResult(response);
+            };
 
-        Response.Headers.Add("Access-Control-Allow-Origin", "*");
-        Console.WriteLine("2");
-        return retorno;
+      
+            var  retorno = new ObjectResult(response);
+
+            Response.Headers.Add("Access-Control-Allow-Origin", "*");
+            
+            return retorno;
+        }
+
+        
     }
 }
 
