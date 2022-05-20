@@ -1,41 +1,95 @@
 <form action="" class="form">
-  <div class="form-div">
-    <label for="name" class="form-label">Name:</label>
-    <input type="text" placeholder="please insert your name" id ="name">
+  <div class="form-field-container">
+    <div class="form-field">
+      <label for="name" class="form-label">Name:</label>
+      <input type="text" id="name" name="name" required minlength="4" [(ngModel)]="client.name" #name="ngModel"
+        placeholder="Insert your name" class="form-input">
+    </div>
+    <div class="alert" *ngIf="name.invalid && ( name.dirty || name.touched)">
+      <span *ngIf="name.errors?.['required']">
+        Name is required
+      </span>
+      <span *ngIf="name.errors?.['minlength']">
+        Name must be al least 4 characters
+      </span>
+    </div>
+  </div>
+  <!-- <input type="text" id="name" name="name" class="form-control" required minlength="4" appForbiddenName="bob"
+    [(ngModel)]="client.name" #name="ngModel">
+
+  <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert">
+
+    <div *ngIf="name.errors?.['required']">
+      Name is required.
+    </div>
+    <div *ngIf="name.errors?.['minlength']">
+      Name must be at least 4 characters long.
+    </div>
+    <div *ngIf="name.errors?.['forbiddenName']">
+      Name cannot be Bob.
+    </div>
+
+  </div> -->
+ <!-- Falta fazer as devidas valições dos campos de entrada de dados -->
+  <div class="form-field-container">
+    <div class="form-field">
+      <label for="phone" class="form-label">Phone:</label>
+      <input type="text" placeholder="insert your phone" id='phone' name="phone" required minlength="12"
+        [(ngModel)]="client.phone" #name="ngModel" class="form-input">
+    </div>
+    <div class="alert">
+    </div>
   </div>
 
-  <div class="form-div">
-    <label for="phone" class="form-label">Phone:</label>
-    <input type="text" placeholder="insert your phone" id ='phone'>
+  <div class="form-field-container">
+    <div class="form-field">
+      <label for="email" class="form-label">E-mail:</label>
+      <input type="email" placeholder="insert your E-mail" id='email'>
+    </div>
+    <div class="alert">
+    </div>
   </div>
 
-  <div class="form-div">
-    <label for="email" class="form-label">E-mail:</label>
-    <input type="text" placeholder="insert your E-mail" id='email'>
+  <div class="form-field-container">
+    <div class="form-field">
+      <label for="document" class="form-label">Document:</label>
+      <input type="text" placeholder="Insira o seu Document" id="document">
+    </div>
+    <div class="alert">
+    </div>
   </div>
 
-  <div class="form-div">
-    <label for="login" class="form-label">Login:</label>
-    <input type="text" placeholder="insert your Login" id='login'>
+  <div class="form-field-container">
+    <div class="form-field">
+      <label for="birth" class="form-label">Date Of Birth:</label>
+      <input type="text" placeholder="insert your Date Of Birth" id="birth">
+    </div>
+    <div class="alert">
+    </div>
   </div>
 
-  <div class="form-div">
-    <label for="birth" class="form-label">Date Of Birth:</label>
-    <input type="text" placeholder="insert your Date Of Birth" id="birth">
+  <div class="form-field-container">
+    <div class="form-field">
+      <label for="login" class="form-label">Login:</label>
+      <input type="text" placeholder="insert your Login" id='login'>
+    </div>
+    <div class="alert">
+    </div>
   </div>
 
-  <div class="form-div">
-    <label for="password" class="form-label">Password:</label>
-    <input type="text" placeholder="Insira o seu Password" id="password">
+
+
+  <div class="form-field-container">
+    <div class="form-field">
+      <label for="password" class="form-label">Password:</label>
+      <input type="text" placeholder="Insira o seu Password" id="password">
+    </div>
+    <div class="alert">
+    </div>
   </div>
 
-  <div class="form-div">
-    <label for="document" class="form-label">Document:</label>
-    <input type="text" placeholder="Insira o seu Document" id="document">
-  </div>
-  
 </form>
-<div class="form-div-button">
-  <button  class="button-5 form-button" id="save" >Save changes</button>
-  <button class="button-5 form-button" id = "reset">Cancel</button>
+<div class="form-field-button">
+  <button class="button-5 form-button" id="save">Save changes</button>
+  <button class="button-5 form-button" id="reset">Cancel</button>
 </div>

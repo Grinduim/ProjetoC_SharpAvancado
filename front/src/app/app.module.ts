@@ -9,6 +9,7 @@ import { ProductsListComponent } from './products-list/products-list.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { ClientRegisterComponent } from './client-register/client-register.component';
 import { LoginClientComponent } from './login-client/login-client.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { LoginClientComponent } from './login-client/login-client.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     RouterModule.forRoot([
       {path: '', component: ProductsListComponent},
       {path: 'product/:productID', component: ProductDetailComponent},

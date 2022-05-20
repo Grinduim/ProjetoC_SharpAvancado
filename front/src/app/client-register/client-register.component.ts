@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { empty } from 'rxjs';
+import { FormBuilder, FormGroup, Validators,NgModel } from '@angular/forms';
 //import { Client } from '../client';
 import { Client } from "../client";
 @Component({
@@ -8,7 +8,17 @@ import { Client } from "../client";
   styleUrls: ['./client-register.component.css']
 })
 export class ClientRegisterComponent implements OnInit {
+  fomulario: FormGroup| undefined;
+  client = {
+    name: "",
+    phone :"",
+    email:"",
+    password:"",
+    login:"",
+    birth:"",
+    document:""
 
+  }
 
   ngOnInit(): void {
     this.AddFuncitions();
@@ -19,9 +29,7 @@ export class ClientRegisterComponent implements OnInit {
     button?.addEventListener('click', this.VerifyForm)
     // let cancel = document.getElementById('reset');
     // cancel?.addEventListener('click',this.VerifyForm);
-
   }
-
 
   VerifyForm() {
     let allInputs: Array<any> = [];
