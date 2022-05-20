@@ -9,7 +9,8 @@ import { ProductsListComponent } from './products-list/products-list.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { ClientRegisterComponent } from './client-register/client-register.component';
 import { LoginClientComponent } from './login-client/login-client.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,8 @@ import { FormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
+    CommonModule,
     RouterModule.forRoot([
       {path: '', component: ProductsListComponent},
       {path: 'product/:productID', component: ProductDetailComponent},

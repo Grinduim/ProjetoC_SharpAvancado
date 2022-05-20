@@ -1,95 +1,148 @@
-<form action="" class="form">
+<!-- <form [formGroup]="clientForms" class="form">
   <div class="form-field-container">
     <div class="form-field">
       <label for="name" class="form-label">Name:</label>
-      <input type="text" id="name" name="name" required minlength="4" [(ngModel)]="client.name" #name="ngModel"
-        placeholder="Insert your name" class="form-input">
+      <input type="text"
+         placeholder="Nome"
+         formControlName="name" />
     </div>
-    <div class="alert" *ngIf="name.invalid && ( name.dirty || name.touched)">
-      <span *ngIf="name.errors?.['required']">
-        Name is required
-      </span>
-      <span *ngIf="name.errors?.['minlength']">
-        Name must be al least 4 characters
-      </span>
+    <div class="alert" >
     </div>
   </div>
-  <!-- <input type="text" id="name" name="name" class="form-control" required minlength="4" appForbiddenName="bob"
-    [(ngModel)]="client.name" #name="ngModel">
 
-  <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert">
-
-    <div *ngIf="name.errors?.['required']">
-      Name is required.
-    </div>
-    <div *ngIf="name.errors?.['minlength']">
-      Name must be at least 4 characters long.
-    </div>
-    <div *ngIf="name.errors?.['forbiddenName']">
-      Name cannot be Bob.
-    </div>
-
-  </div> -->
- <!-- Falta fazer as devidas valições dos campos de entrada de dados -->
   <div class="form-field-container">
     <div class="form-field">
       <label for="phone" class="form-label">Phone:</label>
-      <input type="text" placeholder="insert your phone" id='phone' name="phone" required minlength="12"
-        [(ngModel)]="client.phone" #name="ngModel" class="form-input">
+      <input
+        type="text"
+        placeholder="insert your phone ex: (XX) XXXXX-XXXX"
+        id="phone"
+        name="phone"
+        required
+        minlength="15"
+        class="form-input"
+      />
     </div>
-    <div class="alert">
+    <div class="alert" >
     </div>
+  </div>
+
+
+
+  <div class="form-field-button">
+    <button class="button-5 form-button" id="save" (click)="VerifyForm()">Save changes</button>
+    <button class="button-5 form-button" id="reset">Cancel</button>
+  </div>
+</form> -->
+
+<form [formGroup]="clientForms" class="form">
+  <div class="form-field-container">
+    <div class="form-field">
+      <label for="name" class="form-label">Name:</label>
+      <input
+        formControlName="name"
+        type=" text"
+        class="form-input"
+        formControlName="name"
+        placeholder="Insert your name"
+        minlength="3"
+      />
+    </div>
+    <div class="alert" *ngIf="clientForms.controls.name?.errors">
+      <span *ngIf="clientForms.controls.name?.touched">Required Field</span>
+      <span *ngIf="clientForms.controls.name?.errors.minlength ">AAA</span>
+    </div>
+  </div>
+  <div class="form-field-container">
+    <div class="form-field">
+      <label for="phone" class="form-label">Phone:</label>
+      <input
+        formControlName="phone"
+        type="text"
+        placeholder="insert your phone ex: (XX) XXXXX-XXXX"
+        id="phone"
+        name="phone"
+        required
+        minlength="15"
+        class="form-input"
+      />
+    </div>
+    <div class="alert"></div>
   </div>
 
   <div class="form-field-container">
     <div class="form-field">
       <label for="email" class="form-label">E-mail:</label>
-      <input type="email" placeholder="insert your E-mail" id='email'>
+      <input
+        formControlName="email"
+        type="email"
+        placeholder="insert your E-mail"
+        id="email"
+        class="form-input"
+      />
     </div>
-    <div class="alert">
-    </div>
+    <div class="alert"></div>
   </div>
 
   <div class="form-field-container">
     <div class="form-field">
       <label for="document" class="form-label">Document:</label>
-      <input type="text" placeholder="Insira o seu Document" id="document">
+      <input
+        formControlName="document"
+        type="text"
+        placeholder="Insira o seu Document"
+        id="document"
+        class="form-input"
+      />
     </div>
-    <div class="alert">
-    </div>
+    <div class="alert"></div>
   </div>
 
   <div class="form-field-container">
     <div class="form-field">
       <label for="birth" class="form-label">Date Of Birth:</label>
-      <input type="text" placeholder="insert your Date Of Birth" id="birth">
+      <input
+        formControlName="birth"
+        type="text"
+        placeholder="insert your Date Of Birth"
+        id="birth"
+        class="form-input"
+      />
     </div>
-    <div class="alert">
-    </div>
+    <div class="alert" ></div>
   </div>
 
   <div class="form-field-container">
     <div class="form-field">
       <label for="login" class="form-label">Login:</label>
-      <input type="text" placeholder="insert your Login" id='login'>
+      <input
+        formControlName="login"
+        type="text"
+        placeholder="insert your Login"
+        id="login"
+        class="form-input"
+      />
     </div>
-    <div class="alert">
-    </div>
+    <div class="alert"></div>
   </div>
-
-
 
   <div class="form-field-container">
     <div class="form-field">
       <label for="password" class="form-label">Password:</label>
-      <input type="text" placeholder="Insira o seu Password" id="password">
+      <input
+        formControlName="password"
+        type="text"
+        placeholder="Insira o seu Password"
+        id="password"
+        class="form-input"
+      />
     </div>
-    <div class="alert">
-    </div>
+    <div class="alert"></div>
   </div>
-
+  <div class="form-field-button">
+    <button class="button-5 form-button" id="save" (click)="VerifyForm()">
+      Save changes
+    </button>
+    <button class="button-5 form-button" id="reset">Cancel</button>
+  </div>
 </form>
-<div class="form-field-button">
-  <button class="button-5 form-button" id="save">Save changes</button>
-  <button class="button-5 form-button" id="reset">Cancel</button>
-</div>
