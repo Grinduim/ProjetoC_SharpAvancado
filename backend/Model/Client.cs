@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Interfaces;
 using DAO;
 using DTO;
+using Utils;
 
 public class Client : Person, IValidateDataObject, IDataController<ClientDTO, Client>
 {
@@ -56,22 +57,17 @@ public class Client : Person, IValidateDataObject, IDataController<ClientDTO, Cl
     public int save()
     {
         var id = 0;
+        ValidationException ex = new ValidationException();
 
         using (var context = new DAOContext())
         {
             var ExistClient = context.Client.FirstOrDefault(c => c.document == this.document || c.email == this.email || c.login == this.login);
-            List<int> erros = new List<int>();
             if (ExistClient != null)
             {
-                string erro = "";
-                erro += this.document == ExistClient.document ? 1:0;
-                erro +=this.email == ExistClient.email ? 2:0 ;
-                erro += this.login ==  ExistClient.login ? 3:0;
-                // erros.Add(this.document == ExistClient.document ? 1:0 );
-                // erros.Add(this.email == ExistClient.email ? 2:0 );
-                // erros.Add(this.login ==  ExistClient.login ? 3:0 );
-                // string retorno = erros.ToString();
-                throw new Exception (erro);
+                if (this.email == ExistClient.email)
+                    ex.Add("email", Errors.EmailAlreadyExists);
+                if(this.document == ExistClient.document)
+                    ex.Add("document",Errors.DocumetnAlreadyExists);
             }
             else
             {
@@ -106,6 +102,8 @@ public class Client : Person, IValidateDataObject, IDataController<ClientDTO, Cl
                 id = client.id;
             }
         }
+        if (ex.Errors.Count > 0)
+            throw ex;
         return id;
     }
 
@@ -142,20 +140,38 @@ public class Client : Person, IValidateDataObject, IDataController<ClientDTO, Cl
         }
     }
 
-    public static DAO.Client findByUser(String login, string password)
+    public static ClientResponseDTO findByUser(String login, string password) // arrumar isso dps nao pode retornar da
     {
         using (var context = new DAOContext())
         {
-            var clientDAO = context.Client.FirstOrDefault(o => o.login == login && o.passwd==password);
+            var clientDAO = context.Client.Include(i=> i.address).FirstOrDefault(o => o.login == login && o.passwd == password);
 
-            if(clientDAO != null){
-
-                return clientDAO;
+            if (clientDAO != null)
+            {
+                var clientDTO = Client.ConvertDaoToDTO(clientDAO);
+                return clientDTO;
             }
 
             return null;
         }
     }
+
+    public static ClientResponseDTO ConvertDaoToDTO(DAO.Client clientDao)
+    {
+        var clientDTO = new ClientResponseDTO();
+        clientDTO.name = clientDao.name;
+        clientDTO.email = clientDao.email;
+        clientDTO.date_of_birth = clientDao.date_of_birth;
+        clientDTO.document = clientDao.document;
+        clientDTO.phone = clientDao.phone;
+        clientDTO.login = clientDao.login;
+        clientDTO.address = Address.ConvertDAOToDTO(clientDao.address);
+        clientDTO.phone = clientDao.phone;
+        clientDTO.Id = clientDao.id;
+        
+        return clientDTO;
+    }
+
     public List<ClientDTO> getAll()
     {
         return this.clientDTO;

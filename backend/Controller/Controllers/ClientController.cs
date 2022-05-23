@@ -1,12 +1,28 @@
 using DTO;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Cors;
+using Microsoft.IdentityModel.Tokens;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System.Text;
+using System.Linq;
+
+using Model.Utils;
+
 namespace Controller.Controllers;
+
 
 [ApiController]
 [Route("[controller]")]
 public class ClientController : ControllerBase
 {
+
+    public IConfiguration _configuration; //add
+
+    public ClientController(IConfiguration config){ //add
+        _configuration = config;
+    }
+
     [HttpPost]
     [Route("register")]
     public object registerClient([FromBody] ClientDTO client)
@@ -16,14 +32,12 @@ public class ClientController : ControllerBase
         {
             int id = clientModel.save();
         }
-        catch (Exception e)
-        {
+        catch (ValidationException ex)
+        {   
+            ex.Errors
             return new
             {
-                response = new
-                {
-                    e.Message
-                }
+                response = response
             };
         }
         return new
@@ -45,47 +59,40 @@ public class ClientController : ControllerBase
         return client;
     }
 
-
-
-
-   
-
     [HttpPost]
     [Route("login")]
     public IActionResult checkLogin([FromBody] ClientDTO client)
     {
-        var clientDao =  Model.Client.findByUser(client.login, client.passwd);
-        
-
-        if(clientDao == null){
-           
-            var response = new{
-                result = "deu ruim"
-            };
-
-            var  retorno = new ObjectResult(response);
-
-            Response.Headers.Add("Access-Control-Allow-Origin", "*");
-            
-            return retorno;
-            
-        }else{
-            var response = new{
-            name = clientDao.name,
-            email = clientDao.email,
-            birth = clientDao.date_of_birth,
-            document = clientDao.document,
-            phone = clientDao.phone
-            };
-
-      
-            var  retorno = new ObjectResult(response);
-
-            Response.Headers.Add("Access-Control-Allow-Origin", "*");
-            
-            return retorno;
+        if(client == null)
+        {
+            return BadRequest("Error 4584654");
         }
+        var clientDTO =  Model.Client.findByUser(client.login, client.passwd); // arrumar o metodo
+       
+        if(clientDTO != null){
+            var claims = new[]{
+                new Claim(JwtRegisteredClaimNames.Sub, _configuration["Jwt:Subject"]),
+                new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
+                new Claim(JwtRegisteredClaimNames.Iat,DateTime.UtcNow.ToString()),
+                new Claim("UserId", clientDTO.Id.ToString()),
+                new Claim("UserName", clientDTO.name.ToString()),
+                new Claim("Email", clientDTO.email.ToString())
 
+            };
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));
+            var singIn = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+            var token = new JwtSecurityToken(
+                _configuration["Jwt:Issuer"],
+                _configuration["Jwt:Audience"],
+                claims,
+                expires: DateTime.UtcNow.AddMinutes(10),
+                signingCredentials:singIn);
+            return Ok(new JwtSecurityTokenHandler().WriteToken(token));
+        }
+        else
+        {
+            return BadRequest("Error 4584654");
+        }
         
     }
 }
