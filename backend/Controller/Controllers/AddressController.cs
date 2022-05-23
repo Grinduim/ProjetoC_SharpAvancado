@@ -1,6 +1,6 @@
 using DTO;
 using Microsoft.AspNetCore.Mvc;
-
+using Microsoft.AspNetCore.Authorization;
 
 namespace Controller.Controllers;
 
@@ -8,7 +8,7 @@ namespace Controller.Controllers;
 [Route("[controller]")]
 public class AddressController: ControllerBase
 {
-
+   [Authorize]
     [HttpPost]
     [Route("register")]
     public object registerAddress([FromBody] AddressDTO address)
