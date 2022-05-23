@@ -3,7 +3,7 @@
   --Cor2: #373F47;
   --Cor3: #F39237;
   --Cor4: #89937C;
-  --Cor5: #79858f;
+  --Cor5: #f5f5f5;
 
 }
 
@@ -11,7 +11,7 @@
 /* You can add global styles to this file, and also import other style files */
 * {
   font-family: 'Roboto', Arial, sans-serif;
-  color: #616161;
+  color: var(--Cor2);
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -20,6 +20,7 @@
 
 body{
   margin: 0;
+  background-color: var(--Cor1);
 }
 .container {
   display: flex;
@@ -29,29 +30,6 @@ body{
 router-outlet + *  {
   padding: 0 16px;
 }
-
-
-
-
-/* Text */
-
-h1 {
-  font-size: 32px;
-}
-
-h2 {
-  font-size: 20px;
-}
-
-h1, h2 {
-  font-weight: lighter;
-}
-
-p {
-  font-size: 14px;
-}
-
-
 
 
 /* Hyperlink */
@@ -83,6 +61,9 @@ label {
   display: block;
   text-transform: uppercase;
 }
+
+
+
 
 
 .button-5 {

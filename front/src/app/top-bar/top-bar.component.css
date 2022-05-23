@@ -1,22 +1,24 @@
 /* Top Bar */
 
+
 .navbar {
-    margin: auto auto;
+    margin: 0 auto;
     width: 85%;
-    height: 68px;
+    height: 4.5em;
     background-color: var(--Cor2);
-    padding: 16px;
+    padding: 1em;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    border-radius: 5px 30px;
+    gap: 5em;
+    border-bottom-left-radius: 2em;
+    border-bottom-right-radius: 2em;
+
 }
 
 .navbar h1 {
-    color: white;
+    font-weight: lighter;
+    color: var(--Cor1);
     margin: 0;
 }
-
-
-

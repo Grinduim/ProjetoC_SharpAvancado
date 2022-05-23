@@ -7,36 +7,65 @@
 }
 
 .item-a {
-    grid-area: ProductName;
-    font-size: 1.4em;
-    align-self: center;
+    padding: 0em 1em;
 
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    border-top-left-radius:1em;
+    border-top-right-radius: 1em;
+
+    grid-area: ProductName;
+   
+    align-self: center;
 }
 
-.item-b {
-    grid-area: ProductDescription;
-    font-size: .8em;
+.item-a a{
+    font-size: 1.4em;
+    color: var(--Cor3);
+
     display: -webkit-box;
-    max-width: 100%;
-    -webkit-line-clamp: 4;
+    -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
 
+
+.item-b {
+    grid-area: ProductDescription;
+    padding: 0em 1.5em;
+    
+}
+.item-b p{
+    font-size: .8em;
+
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+
+    filter: brightness(135%);
+}
+
 .item-c {
-    grid-area: ProductPrice;
-    font-size: 1.4em;
-    align-self: center;
-    justify-self: center;
+    display: grid;
+    place-items: center;
+    /* grid-area: ProductPrice;
+    text-align: center; */
+    width: 100%;
+    border-radius: 40% 80% .7em .7em;
+    background-color: var(--Cor3);
+}
+
+.item-c p{
+
+    padding: .2em;
+    font-size: 2em;
+    color: var(--Cor1);
 }
 
 .item-d {  
     justify-content: center;
     grid-area: ProductPicture;
     display: flex;
+
 }
 
 .item-d img {
@@ -46,17 +75,19 @@
 
 .productComponent {
     grid-gap: 1em;
-    padding: 0em 1em;
+    
     display: grid;
     width: 18.3em;
-    height: 28em;
-    background-color: white;
-    border: 1px solid gray;
-    border-radius: 15px;
-    box-shadow: 0.5px 0.5px 5px black;
+    height: 34em;
+    background-color: var(--Cor1);
+
+    border-radius: .7em;
+  
+ 
+    box-shadow: 0rem 0rem 0.4rem 0rem var(--Cor2); 
 
     grid-template-columns: auto;
-    grid-template-rows: 55% 10% 15%;
+    grid-template-rows: 55% 10% 10%;
     grid-template-areas:
         "ProductPicture"
         "ProductName"
