@@ -59,10 +59,19 @@ public class Client : Person, IValidateDataObject, IDataController<ClientDTO, Cl
 
         using (var context = new DAOContext())
         {
-            var ExistClient = context.Client.FirstOrDefault(c => c.document == this.document);
+            var ExistClient = context.Client.FirstOrDefault(c => c.document == this.document || c.email == this.email || c.login == this.login);
+            List<int> erros = new List<int>();
             if (ExistClient != null)
             {
-                throw new Exception("Exist same client in Data");
+                string erro = "";
+                erro += this.document == ExistClient.document ? 1:0;
+                erro +=this.email == ExistClient.email ? 2:0 ;
+                erro += this.login ==  ExistClient.login ? 3:0;
+                // erros.Add(this.document == ExistClient.document ? 1:0 );
+                // erros.Add(this.email == ExistClient.email ? 2:0 );
+                // erros.Add(this.login ==  ExistClient.login ? 3:0 );
+                // string retorno = erros.ToString();
+                throw new Exception (erro);
             }
             else
             {

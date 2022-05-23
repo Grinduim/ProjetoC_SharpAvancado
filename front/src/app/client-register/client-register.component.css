@@ -1,38 +1,55 @@
-.form{
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    gap: 1.3em;
-}
-
 *{
     margin: 0;
 }
 
-.form-div{
-    display:  flex;
-    justify-content: space-between;
-    gap: 1em;
-    align-content: center;
+.form{
+    display: flex;
+    justify-items: center;
+    flex-direction: column;
+    gap: 0.5em;
     width: 30%;
+    margin: auto;
+}
+.form-field-container{
+    display: flex;
+    flex-direction: column;
+    width: auto;
 }
 
-.form input{
-    display: flex;
-    justify-content: end;
-    width: 32em;
-    border-radius: 10px;
+.form-field{
+    display: grid;
+    grid-template-columns: 18%;
+    grid-row: auto;
+    grid-template-areas: 'label input';
 }
 
 .form-label{
-    justify-content: start;
-    align-items: center;
     display: flex;
+    align-items: center;
+    justify-content: start;
+    grid-area: 'label';
+}
+
+.form-input{
+    display: flex;
+    justify-content: end;
+    width: 100%;
+    border-radius: 0.5em;
+    grid-area: 'input';
+}
+
+.alert > span{
+    color: lightcoral;
+    font-size: 12px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-top: 0.5em;
+    margin-left: 18%;
 }
 
 .form-button{
-    width: 8em !important; 
+    width: 8em !important;
     height: 2.2em !important;
     display: flex;
     justify-content: center;
@@ -40,8 +57,16 @@
     font-size: medium;
 }
 
-.form-div-button{
+.form-field-button{
     display: flex;
     width: 30%;
     justify-content: space-around;
+}
+
+.invisible{
+    visibility:hidden;
+}
+
+.red{
+  border-color: light;
 }

@@ -1,40 +1,148 @@
-<form action="" class="form">
-  <div class="form-div">
-    <label for="" class="form-label">Name:</label>
-    <input type="text" placeholder="please insert your name">
+<!-- <form [formGroup]="clientForms" class="form">
+  <div class="form-field-container">
+    <div class="form-field">
+      <label for="name" class="form-label">Name:</label>
+      <input type="text"
+         placeholder="Nome"
+         formControlName="name" />
+    </div>
+    <div class="alert" >
+    </div>
   </div>
 
-  <div class="form-div">
-    <label for="" class="form-label">Phone:</label>
-    <input type="text" placeholder="insert your phone">
+  <div class="form-field-container">
+    <div class="form-field">
+      <label for="phone" class="form-label">Phone:</label>
+      <input
+        type="text"
+        placeholder="insert your phone ex: (XX) XXXXX-XXXX"
+        id="phone"
+        name="phone"
+        required
+        minlength="15"
+        class="form-input"
+      />
+    </div>
+    <div class="alert" >
+    </div>
   </div>
 
-  <div class="form-div">
-    <label for="" class="form-label">E-mail:</label>
-    <input type="text" placeholder="insert your E-mail">
+
+
+  <div class="form-field-button">
+    <button class="button-5 form-button" id="save" (click)="VerifyForm()">Save changes</button>
+    <button class="button-5 form-button" id="reset">Cancel</button>
+  </div>
+</form> -->
+
+<form [formGroup]="clientForms" class="form">
+  <div class="form-field-container">
+    <div class="form-field">
+      <label for="name" class="form-label">Name:</label>
+      <input
+        formControlName="name"
+        type=" text"
+        class="form-input"
+        formControlName="name"
+        placeholder="Insert your name"
+        minlength="3"
+      />
+    </div>
+    <div class="alert" *ngIf="clientForms.controls.name?.errors">
+      <span *ngIf="clientForms.controls.name?.touched">Required Field</span>
+      <!-- <span *ngIf="clientForms.controls.name?.errors.minlength ">AAA</span> -->
+    </div>
+  </div>
+  <div class="form-field-container">
+    <div class="form-field">
+      <label for="phone" class="form-label">Phone:</label>
+      <input
+        formControlName="phone"
+        type="text"
+        placeholder="insert your phone ex: (XX) XXXXX-XXXX"
+        id="phone"
+        name="phone"
+        required
+        minlength="15"
+        class="form-input"
+      />
+    </div>
+    <div class="alert"></div>
   </div>
 
-  <div class="form-div">
-    <label for="" class="form-label">Login:</label>
-    <input type="text" placeholder="insert your Login">
+  <div class="form-field-container">
+    <div class="form-field">
+      <label for="email" class="form-label">E-mail:</label>
+      <input
+        formControlName="email"
+        type="email"
+        placeholder="insert your E-mail"
+        id="email"
+        class="form-input"
+      />
+    </div>
+    <div class="alert"></div>
   </div>
 
-  <div class="form-div">
-    <label for="" class="form-label">Date Of Birth:</label>
-    <input type="text" placeholder="insert your Date Of Birth">
+  <div class="form-field-container">
+    <div class="form-field">
+      <label for="document" class="form-label">Document:</label>
+      <input
+        formControlName="document"
+        type="text"
+        placeholder="Insira o seu Document"
+        id="document"
+        class="form-input"
+      />
+    </div>
+    <div class="alert"></div>
   </div>
 
-  <div class="form-div">
-    <label for="" class="form-label">Password:</label>
-    <input type="text" placeholder="Insira o seu Password">
+  <div class="form-field-container">
+    <div class="form-field">
+      <label for="birth" class="form-label">Date Of Birth:</label>
+      <input
+        formControlName="birth"
+        type="text"
+        placeholder="insert your Date Of Birth"
+        id="birth"
+        class="form-input"
+      />
+    </div>
+    <div class="alert" ></div>
   </div>
 
-  <div class="form-div">
-    <label for="" class="form-label">Document:</label>
-    <input type="text" placeholder="Insira o seu Document">
+  <div class="form-field-container">
+    <div class="form-field">
+      <label for="login" class="form-label">Login:</label>
+      <input
+        formControlName="login"
+        type="text"
+        placeholder="insert your Login"
+        id="login"
+        class="form-input"
+      />
+    </div>
+    <div class="alert"></div>
   </div>
-  <div class="form-div-button">
-    <button type="submit" class="button-5 form-button">Save changes</button>
-    <button type="submit" class="button-5 form-button">Cancel</button>
+
+  <div class="form-field-container">
+    <div class="form-field">
+      <label for="password" class="form-label">Password:</label>
+      <input
+        formControlName="password"
+        type="text"
+        placeholder="Insira o seu Password"
+        id="password"
+        class="form-input"
+      />
+    </div>
+    <div class="alert"></div>
+  </div>
+  <div class="form-field-button">
+    <button class="button-5 form-button" id="save" (click)="VerifyForm()">
+      Save changes
+    </button>
+    <button class="button-5 form-button" id="reset">Cancel</button>
   </div>
 </form>
