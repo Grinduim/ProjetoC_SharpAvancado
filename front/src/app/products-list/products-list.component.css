@@ -1,3 +1,11 @@
+
+
+
+/* VER ESSE SITE DEPOIS
+https://www.bypeople.com/css-jquery-product-card/ */
+
+
+
 .productsList {
     display: flex;
     flex-wrap: wrap;
@@ -31,7 +39,7 @@
 
 .item-b {
     grid-area: ProductDescription;
-    padding: 0em 1.5em;
+    padding: 0em 2em;
 }
 
 .item-b p{
@@ -42,7 +50,7 @@
     -webkit-box-orient: vertical;
     overflow: hidden;
 
-    filter: brightness(135%);
+    filter: brightness(160%);
 }
 
 
@@ -74,12 +82,19 @@
     justify-content: center;
     grid-area: ProductPicture;
     display: flex;
-
+    padding: 1em;
 }
 
 .item-d img {
     max-width: 100%;
     max-height: 100%;
+    
+}
+
+.item-d img:active{
+
+    -webkit-transform:scale(2); /* or some other value */
+    transform:scale(2);
 }
 
 .productComponent {
