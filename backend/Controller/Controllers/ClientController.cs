@@ -34,7 +34,7 @@ public class ClientController : ControllerBase
         }
         catch (ValidationException ex)
         {   
-            ex.Errors
+            var response = ex.Errors;
             return new
             {
                 response = response
