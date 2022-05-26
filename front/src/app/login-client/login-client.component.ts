@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import axios from "axios";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-client',
@@ -8,9 +9,10 @@ import axios from "axios";
 })
 export class LoginClientComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
+
   }
 
 
@@ -23,22 +25,40 @@ export class LoginClientComponent implements OnInit {
       "passwd": passwd.value
     });
 
-    console.log(user.value, passwd.value)
-
     var config = {
-
       method: 'post',
       url: 'http://localhost:5236/client/login',
       headers: {
         'Content-Type': 'application/json'
       },
       data: data
-     
     };
+
     
+    // METODO ENCAPSULADO
+    let instance = this;
+    localStorage.removeItem('authToken');
     axios(config)
       .then(function (response) {
-        console.log(JSON.stringify(response.data));
+        localStorage.setItem('authToken', response.data);
+        instance.router.navigate(['/']);
       })
+      .catch(function (error) {
+        let span = document.querySelector("#span");
+        span?.classList.remove("invisible");
+      })
+
+
+    // METODO DESENCAPSULADO
+    // let response = await axios(config); 
+
+    // localStorage.setItem('authToken', response.data);
+
+    // if(JSON.stringify(localStorage.getItem('authToken')) != '""'){
+    //   this.router.navigate(['/']);
+    // }
+
+
+
   }
 }

@@ -1,16 +1,15 @@
 .productsList {
     display: flex;
     flex-wrap: wrap;
-    gap: 1.2em;
+    gap: 8em;
     justify-content: center;
     align-items: center;
 }
 
 .item-a {
+    
     padding: 0em 1em;
 
-    border-top-left-radius:1em;
-    border-top-right-radius: 1em;
 
     grid-area: ProductName;
    
@@ -19,8 +18,10 @@
 
 .item-a a{
     font-size: 1.4em;
-    color: var(--Cor3);
+    color: var(--Cor5);
 
+    font-weight: bold;
+    
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
@@ -51,7 +52,7 @@
     text-align: center; */
     width: 100%;
     border-radius: 40% 80% .7em .7em;
-    background-color: var(--Cor3);
+    background-color: var(--Cor2);
 }
 
 .item-c p{
@@ -77,9 +78,9 @@
     grid-gap: 1em;
     
     display: grid;
-    width: 18.3em;
+    width: 22em;
     height: 34em;
-    background-color: var(--Cor1);
+    background-color: var(--Cor3);
 
     border-radius: .7em;
   

@@ -1,8 +1,8 @@
-:root{
+:root {
   --Cor1: #EFF1FA;
   --Cor2: #373F47;
   --Cor3: #F39237;
-  --Cor4: #89937C;
+  --Cor4: #957FEF;
   --Cor5: #f5f5f5;
 
 }
@@ -18,16 +18,17 @@
   margin: 0;
 }
 
-body{
+body {
   margin: 0;
   background-color: var(--Cor1);
 }
+
 .container {
   display: flex;
-  flex-direction:column;
+  flex-direction: column;
 }
 
-router-outlet + *  {
+router-outlet+* {
   padding: 0 16px;
 }
 
@@ -84,23 +85,33 @@ label {
   touch-action: manipulation;
   vertical-align: baseline;
   width: auto;
-  }
-  
-  .button-5:hover,
-  .button-5:focus {
+}
+
+.button-5:hover,
+.button-5:focus {
   background-color: #fb8332;
   box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
-  }
-  
-  .button-5:hover {
+}
+
+.button-5:hover {
   transform: translateY(-1px);
-  }
-  
-  .button-5:active {
+}
+
+.button-5:active {
   background-color: #c85000;
   box-shadow: rgba(0, 0, 0, .06) 0 2px 4px;
   transform: translateY(0);
-  }
+}
+
+
+.alert {
+  color: lightcoral;
+}
+.invisible {
+  display: none;
+}
+
+
 
 /* Button 
 .button, button {
