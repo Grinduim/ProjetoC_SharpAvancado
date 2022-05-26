@@ -32,31 +32,39 @@
 .item-b {
     grid-area: ProductDescription;
     padding: 0em 1.5em;
-    
 }
+
 .item-b p{
     font-size: .8em;
 
     display: -webkit-box;
-    -webkit-line-clamp: 4;
+    -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
 
     filter: brightness(135%);
 }
 
+
+
+
+
 .item-c {
     display: grid;
-    place-items: center;
-    /* grid-area: ProductPrice;
-    text-align: center; */
+    place-items: left;
+    
+
+    grid-area: ProductPrice;
+
+
     width: 100%;
     border-radius: 40% 80% .7em .7em;
     background-color: var(--Cor2);
 }
 
 .item-c p{
-
+    margin-left: 2.5em;
+    margin-top: .5em;
     padding: .2em;
     font-size: 2em;
     color: var(--Cor1);
