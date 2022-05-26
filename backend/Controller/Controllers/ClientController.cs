@@ -27,22 +27,22 @@ public class ClientController : ControllerBase
     [Route("register")]
     public object registerClient([FromBody] ClientDTO client)
     {
+        int id;
         var clientModel = Model.Client.convertDTOToModel(client);
         try
         {
-            int id = clientModel.save();
+            id  = clientModel.save();
         }
         catch (ValidationException ex)
         {   
-            var response = ex.Errors;
             return new
             {
-                response = response
+                response = ex.Errors
             };
         }
         return new
         {
-            response = "Sucess"
+            response = id
         };
 
 
