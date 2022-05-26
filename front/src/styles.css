@@ -99,6 +99,14 @@ label {
   transform: translateY(0);
   }
 
+  .alert{
+    color: lightcoral;
+  }
+
+  .invisible{
+    display: none;
+  }
+
 /* Button
 .button, button {
   display: inline-flex;
