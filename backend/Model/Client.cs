@@ -62,15 +62,19 @@ public class Client : Person, IValidateDataObject, IDataController<ClientDTO, Cl
         using (var context = new DAOContext())
         {
             var ExistClient = context.Client.FirstOrDefault(c => c.document == this.document || c.email == this.email || c.login == this.login);
-            if (ExistClient != null)
+            if (ExistClient != null )
             {
                 if (this.email == ExistClient.email)
-                    ex.Add("email", Errors.EmailAlreadyExists);
+                    ex.Add("email", Error.GetMessage(Errors.EmailAlreadyExists));
                 if(this.document == ExistClient.document)
-                    ex.Add("document",Errors.DocumetnAlreadyExists);
+                    ex.Add("document", Error.GetMessage(Errors.DocumetnAlreadyExists));
+                if(this.login == ExistClient.login)
+                    ex.Add("login", Error.GetMessage(Errors.LoginAlreadyExists));
+                throw ex;
             }
             else
             {
+                Console.WriteLine("Salvando");
                 var address = new DAO.Address
                 {
                     street = this.address.getStreet(),
@@ -100,11 +104,13 @@ public class Client : Person, IValidateDataObject, IDataController<ClientDTO, Cl
 
 
                 id = client.id;
+                Console.WriteLine($"ID : {id}");
+                return id;
             }
         }
-        if (ex.Errors.Count > 0)
-            throw ex;
-        return id;
+
+            
+        
     }
 
 
