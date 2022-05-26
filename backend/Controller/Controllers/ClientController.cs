@@ -63,10 +63,10 @@ public class ClientController : ControllerBase
     [Route("login")]
     public IActionResult checkLogin([FromBody] ClientDTO client)
     {
-        if(client == null)
-        {
-            return BadRequest("Error 4584654");
-        }
+        // if(client == null)
+        // {
+        //     return BadRequest("Error 4584654");
+        // }
         var clientDTO =  Model.Client.findByUser(client.login, client.passwd); // arrumar o metodo
        
         if(clientDTO != null){
@@ -91,7 +91,7 @@ public class ClientController : ControllerBase
         }
         else
         {
-            return BadRequest("Error 4584654");
+            return BadRequest();
         }
         
     }
