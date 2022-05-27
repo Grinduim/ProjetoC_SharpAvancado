@@ -25,17 +25,33 @@ export class ClientRegisterComponent implements OnInit {
   }
 
   VerifyForm() {
-    console.log("Loo")
-    var nameInput = document.querySelector("#name");
-    if(nameInput?.textContent == ""){
-      this.activeVisibleSpan("#name-none")
-    }
+    let nameInput = this.getInputField('#name')
+    this.VerifyInputFieldIsNull(nameInput)
   }
+
 
   activeVisibleSpan(id: string){
     var span = document.querySelector(id);
     span?.classList.remove('invisible');
-    console.log("aaa")
+  }
+  desactiveVisibleSpan(id: string){
+    var span = document.querySelector(id);
+    span?.classList.add('invisible');
+  }
+
+  getInputField(id: string){
+    let response =  document.querySelector(id) as HTMLInputElement;
+    return response
+  }
+
+  VerifyInputFieldIsNull(input : HTMLInputElement){
+    let prop = '#' + input.id + '-none';
+    if(input.value.length ==0){
+      this.activeVisibleSpan(prop);
+    }
+    else{
+      this.desactiveVisibleSpan(prop);
+    }
   }
 
 
